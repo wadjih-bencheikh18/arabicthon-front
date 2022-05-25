@@ -1,7 +1,7 @@
 const MobileMenu = ({ children, menuOpen }) => (
   <nav
-    className={`overflow-hidden text-[#000D3C] transition-all duration-1000 ease-in-out ${
-      menuOpen ? "h-72 transform pt-6" : " h-0"
+    className={`overflow-hidden transition-all duration-1000 ease-in-out ${
+      menuOpen ? "h-44 transform pt-3" : " h-0"
     } flex flex-col `}
   >
     <div

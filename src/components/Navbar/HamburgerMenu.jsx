@@ -1,7 +1,7 @@
 const HamburgerMenu = ({ menuOpen }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className={`ease h-6 w-6 fill-[#002147] transition duration-300 ${
+    className={`ease h-6 w-6 fill-[#A58453] transition duration-300 ${
       menuOpen ? "rotate-90 transform" : ""
     }`}
     viewBox="0 0 20 20"
