@@ -117,6 +117,7 @@ export default function Tachkil() {
           {stringCol()}
         </div>
         <input
+          spellCheck="false"
           style={{ direction: "rtl" }}
           className="border-black border-2 z-20 left-0 caret-black absolute top-0 bg-transparent text-[rgba(0,0,0,0)] text-right w-52 "
           ref={inputRef}
