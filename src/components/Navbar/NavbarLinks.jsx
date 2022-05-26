@@ -1,17 +1,13 @@
-import { ChevronDownIcon } from "@heroicons/react/solid";
-import Ta2lifLinks from "./Ta2lifLinks";
-import DropDown from "./DropDown";
+import Ta2lifDropDown from "./Ta2lifDropDown";
+import Ta7lilDropDown from "./Ta7lilDropDown";
 const sections = [
+  <a href="./" className="hover:text-[#A58453] lg:ml-12">
+    الصفحة الرئيسية
+  </a>,
+  <Ta2lifDropDown />,
+  <Ta7lilDropDown />,
   <a href="./" className="hover:text-[#A58453]">
     تواصل معنا
-  </a>,
-  <a href="./" className="flex items-center hover:text-[#A58453]">
-    <ChevronDownIcon className="mr-2 mt-1 w-5" /> تحليل شعر
-  </a>,
-
-  <DropDown />,
-  <a href="./" className="hover:text-[#A58453]">
-    الصفحة الرئيسية
   </a>,
 ];
 

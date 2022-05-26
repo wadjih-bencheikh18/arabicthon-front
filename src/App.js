@@ -5,7 +5,7 @@ import { Navbar } from "./sections/Navbar";
 
 function App() {
   return (
-    <div className="App bg-[#E4D3C1] h-screen">
+    <div className="App bg-[#E4D3C1] h-screen text-right">
       <div>
         <Navbar />
       </div>
