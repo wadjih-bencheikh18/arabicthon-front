@@ -6,7 +6,7 @@ import NavbarLinks from "../components/Navbar/NavbarLinks";
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <div className="fixed top-0 z-50 w-screen bg-[#FBFAF8] py-3">
+    <div className="fixed top-0 z-50 w-screen bg-[#FBFAF8] min-h-[40px]">
       <NavbarContent menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <MobileMenu menuOpen={menuOpen}>{NavbarLinks}</MobileMenu>
     </div>
