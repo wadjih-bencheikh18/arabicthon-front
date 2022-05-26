@@ -29,7 +29,6 @@ export default function Tachkil() {
   }
 
   function updateValue(letter) {
-    //alert(input.start);
     if (letter !== chada) {
       if (letters.includes(input.value[input.start - 1])) {
         setInput(({ value, start, ...others }) => ({
@@ -63,7 +62,6 @@ export default function Tachkil() {
         letters.includes(input.value[input.start - 1]) &&
         input.value[input.start - 2] !== chada
       ) {
-        alert("a");
         setInput(({ value, start, ...others }) => ({
           ...others,
           start: start,
@@ -76,7 +74,6 @@ export default function Tachkil() {
           value: value.slice(0, start) + letter + value.slice(start),
         }));
       } else {
-        alert("c");
         setInput(({ value, start, ...others }) => ({
           ...others,
           start: start,
@@ -87,7 +84,21 @@ export default function Tachkil() {
 
     // inputRef.current.focus();
   }
-
+  function stringCol() {
+    const str = [];
+    for (let i = 0; i < input.value.length; i++) {
+      if (
+        !cLetters.includes(input.value[i]) &&
+        ((i + 1 < input.value.length &&
+          !cLetters.includes(input.value[i + 1])) ||
+          input.value[i + 1] === undefined)
+      ) {
+        str.push(<span className=" text-red-600">{input.value[i]}</span>);
+      } else
+        str.push(<span className=" text-green-500">{input.value[i]}</span>);
+    }
+    return str;
+  }
   const createButtons = cLetters.map((letter, i) => (
     <button
       key={i}
@@ -101,29 +112,34 @@ export default function Tachkil() {
 
   return (
     <div className="mt-32">
-      <input
-        style={{ direction: "rtl" }}
-        className="border-black border-2 text-right "
-        ref={inputRef}
-        onClick={({ target }) => {
-          setStart(target.selectionStart);
-        }}
-        value={input.value}
-        onChange={({ target }) => {
-          if (
-            (target.value.length > input.value.length &&
-              cLetters.includes(target.value[input.start])) ||
-            (target.value.length < input.value.length &&
-              cLetters.includes(input.value[input.start - 1]))
-          ) {
-            setInput((input) => ({
-              ...input,
-              start: target.selectionStart,
-              value: target.value,
-            }));
-          }
-        }}
-      />
+      <div className="relative w-52 mx-auto">
+        <div className="border-black -z-0 bg-white left-0 absolute top-0 border-2 text-right w-52 mx-auto">
+          {stringCol()}
+        </div>
+        <input
+          style={{ direction: "rtl" }}
+          className="border-black border-2 z-20 left-0 caret-black absolute top-0 bg-transparent text-[rgba(0,0,0,0)] text-right w-52 "
+          ref={inputRef}
+          onClick={({ target }) => {
+            setStart(target.selectionStart);
+          }}
+          value={input.value}
+          onChange={({ target }) => {
+            if (
+              (target.value.length > input.value.length &&
+                cLetters.includes(target.value[input.start])) ||
+              (target.value.length < input.value.length &&
+                cLetters.includes(input.value[input.start - 1]))
+            ) {
+              setInput((input) => ({
+                ...input,
+                start: target.selectionStart,
+                value: target.value,
+              }));
+            }
+          }}
+        />
+      </div>
 
       <div>{createButtons}</div>
     </div>
