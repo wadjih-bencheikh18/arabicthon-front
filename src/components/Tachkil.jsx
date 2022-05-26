@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-
+import { useState, useRef, useMemo, useCallback } from "react";
+import { BackspaceIcon } from "@heroicons/react/solid";
 const letters = [
   "\u064E",
   "\u064F",
@@ -13,81 +13,84 @@ const cLetters = [...letters, "\u0651"];
 const chada = "\u0651";
 export default function Tachkil() {
   const [input, setInput] = useState({
-    value: "م\u0652ساء الخي\u0652ر",
-    start: 0,
+    value: "م\u0652ساء ال\u0651خ\u0652ير",
+    start: 1,
   });
+  const getLetterPos = useCallback(
+    // get letter position (not tachkil pos)
+    (select) => {
+      let j = select;
+      for (; j > 1 && cLetters.includes(input.value[j - 1]); j--);
+      return j;
+    },
+    [input.value]
+  );
   const inputRef = useRef(null);
   function setStart(select) {
     if (select) {
       let start = 0;
-      if (select === 0 || input.value[select - 1] === " ") start = select + 1;
+      if (select <= 0 || input.value[select - 1] === " ") start = select + 1;
       else if (select > input.value.length) {
-        start = input.value.length;
-      } else start = select;
+        start = getLetterPos(input.value.length);
+      } else {
+        start = getLetterPos(select);
+      }
       setInput((input) => ({ ...input, start }));
     }
   }
 
   function updateValue(letter) {
     if (letter !== chada) {
-      if (letters.includes(input.value[input.start - 1])) {
+      if (!cLetters.includes(input.value[input.start])) {
+        //there is no tachkil
         setInput(({ value, start, ...others }) => ({
           ...others,
           start: start,
-          value: value.slice(0, start - 1) + letter + value.slice(start),
+          value: value.slice(0, start) + letter + value.slice(start),
         }));
       } else if (letters.includes(input.value[input.start])) {
+        //there is only tachkil
         setInput(({ value, start, ...others }) => ({
           ...others,
           start: start,
           value: value.slice(0, start) + letter + value.slice(start + 1),
         }));
-      } else if (input.value[input.start] === chada) {
+      } else if (
+        input.value[input.start] === chada &&
+        !letters.includes(input.value[input.start + 1])
+      ) {
+        //there is only chada
         setInput(({ value, start, ...others }) => ({
           ...others,
-          start: start + 1,
+          start: start,
+          value: value.slice(0, start + 1) + letter + value.slice(start + 1),
+        }));
+      } else if (
+        input.value[input.start] === chada &&
+        letters.includes(input.value[input.start + 1])
+      ) {
+        // there is tachkil and chada
+        setInput(({ value, start, ...others }) => ({
+          ...others,
+          start: start,
           value: value.slice(0, start + 1) + letter + value.slice(start + 2),
         }));
-      } else
-        setInput(({ value, start, ...others }) => ({
-          ...others,
-          start: start,
-          value: value.slice(0, start) + letter + value.slice(start),
-        }));
-    } else if (
-      input.value[input.start - 1] !== chada &&
-      input.value[input.start] !== chada
-    ) {
-      if (
-        letters.includes(input.value[input.start - 1]) &&
-        input.value[input.start - 2] !== chada
-      ) {
-        setInput(({ value, start, ...others }) => ({
-          ...others,
-          start: start,
-          value: value.slice(0, start - 1) + letter + value.slice(start - 1),
-        }));
-      } else if (letters.includes(input.value[input.start])) {
-        setInput(({ value, start, ...others }) => ({
-          ...others,
-          start: start,
-          value: value.slice(0, start) + letter + value.slice(start),
-        }));
-      } else {
-        setInput(({ value, start, ...others }) => ({
-          ...others,
-          start: start,
-          value: value.slice(0, start) + letter + value.slice(start),
-        }));
-      }
+      } else throw Error("invalid tachkil");
+    } //insert chada
+    else if (input.value[input.start] !== chada) {
+      //there is no chada
+      setInput(({ value, start, ...others }) => ({
+        ...others,
+        start: start,
+        value: value.slice(0, start) + letter + value.slice(start),
+      }));
     }
-
-    // inputRef.current.focus();
   }
-  function stringCol() {
+  const stringCol = useMemo(() => {
+    // get colored string
     const str = [];
     for (let i = 0; i < input.value.length; i++) {
-      if (i === input.start - 1) {
+      if (i === getLetterPos(input.start) - 1) {
         str.push(
           <span key={i} className=" text-green-600">
             {input.value[i]}
@@ -107,12 +110,11 @@ export default function Tachkil() {
       } else str.push(<span key={i}>{input.value[i]}</span>);
     }
     return str;
-  }
+  }, [getLetterPos, input.start, input.value]);
   const createButtons = cLetters.map((letter, i) => (
     <button
       key={i}
-      className="border-black relative border-2 mt-10 mx-2"
-      style={{ fontSize: "30px", width: "50px" }}
+      className="border-black relative border-2 mt-10 mx-2 w-[50px] h-[50px] text-[30px]"
       onClick={() => updateValue(letter)}
     >
       <div>{letter}</div>
@@ -121,7 +123,31 @@ export default function Tachkil() {
       </div>
     </button>
   ));
-
+  function getDirection(key) {
+    //change char that you want to chekel with keyboard
+    if (key === "ArrowRight") {
+      if (input.value[input.start - 2] !== " ") setStart(input.start - 1);
+      else setStart(input.start - 2);
+    }
+    if (key === "ArrowLeft") {
+      let i = input.start;
+      for (; i < input.value.length && cLetters.includes(input.value[i]); i++);
+      setStart(i + 1);
+    }
+  }
+  function deleteChar(key) {
+    //delete tachkil
+    if (
+      (key === "Backspace" || key === "9") &&
+      cLetters.includes(input.value[input.start])
+    ) {
+      setInput(({ value, start, ...others }) => ({
+        ...others,
+        start: start,
+        value: value.slice(0, start) + value.slice(start + 1),
+      }));
+    }
+  }
   return (
     <div
       className="mt-32 outline-none"
@@ -129,35 +155,13 @@ export default function Tachkil() {
       onKeyDown={({ key }) => {
         if (key && ["1", "2", "3", "4", "5", "6", "7", "8"].includes(key))
           updateValue(cLetters[Number(key) - 1]);
-
-        if (key === "ArrowRight") {
-          let i = input.start + (input.start > 1 ? -1 : 0);
-          for (
-            ;
-            i > 1 &&
-            (cLetters.includes(input.value[i - 1]) ||
-              input.value[i - 1] === " ");
-            i--
-          );
-          setStart(i);
-        }
-        if (key === "ArrowLeft") {
-          let i =
-            input.start <= input.value.length ? input.start + 1 : input.start;
-          for (
-            ;
-            i < input.value.length &&
-            (cLetters.includes(input.value[i - 1]) ||
-              input.value[i - 1] === " ");
-            i++
-          );
-          setStart(i);
-        }
+        getDirection(key);
+        deleteChar(key);
       }}
     >
       <div className="relative w-52 mx-auto">
         <div className="border-black -z-0  bg-white left-0 absolute top-0 border-2 text-right w-52 mx-auto">
-          {stringCol()}
+          {stringCol}
         </div>
         <input
           spellCheck="false"
@@ -168,26 +172,21 @@ export default function Tachkil() {
             setStart(target.selectionStart);
           }}
           value={input.value}
-          onChange={({ target }) => {
-            if (
-              !["1", "2", "3", "4", "5", "6", "7", "8"].includes(
-                target.value[input.value.length]
-              ) &&
-              ((target.value.length > input.value.length &&
-                cLetters.includes(target.value[input.start])) ||
-                (target.value.length < input.value.length &&
-                  cLetters.includes(input.value[input.start - 1])))
-            ) {
-              setInput((input) => ({
-                ...input,
-                value: target.value,
-              }));
-            }
-          }}
         />
       </div>
 
-      <div>{createButtons}</div>
+      <div>
+        {createButtons}
+        <button
+          className="border-black relative border-2  mx-2 w-[50px] h-[50px]"
+          onClick={() => deleteChar("9")}
+        >
+          <BackspaceIcon className="absolute top-[1%] w-15 " />
+          <div className="bg-black px-1 absolute text-white -bottom-2 -left-1 text-sm">
+            {9}
+          </div>
+        </button>
+      </div>
     </div>
   );
 }
