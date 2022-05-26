@@ -1,7 +1,7 @@
 export function Main() {
   return (
     <div className="flex h-screen items-center justify-center overflow-hidden">
-      {/* <img src="./whiterectangle.png" alt="" className="" /> */}
+      <img src="./bg.png" alt="" className="" />
     </div>
   );
 }
