@@ -1,5 +1,6 @@
 import "./App.css";
 import Tachkil from "./components/Tachkil";
+import { Main } from "./sections/Main";
 import { Navbar } from "./sections/Navbar";
 
 function App() {
@@ -8,7 +9,10 @@ function App() {
       <div>
         <Navbar />
       </div>
-      <div className="pt-56">
+      <div className="">
+        <Main />
+      </div>
+      <div className="h-screen">
         <Tachkil />
       </div>
     </div>

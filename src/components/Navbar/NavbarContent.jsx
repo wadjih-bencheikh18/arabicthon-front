@@ -10,7 +10,7 @@ const NavbarContent = ({ menuOpen, setMenuOpen }) => (
       </a>
     </div>
     {/* Navbar links */}
-    <nav className="hidden space-x-8 lg:block lg:space-x-12">{NavbarLinks}</nav>
+    <nav className="hidden space-x-8 lg:flex lg:space-x-12">{NavbarLinks}</nav>
     {/* Hamburger menu for mobile version */}
     <button
       type="button"
