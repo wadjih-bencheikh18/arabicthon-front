@@ -1,7 +1,7 @@
 const sections = ["تواصل معنا", "تحليل شعر", "تأليف شعر", "الصفحة الرئيسية"];
 
-const Ta2lifLinks = sections.map((section) => (
-  <a href={section} className="hover:text-[#A58453]">
+const Ta2lifLinks = sections.map((section, i) => (
+  <a href={section} key={i} className="hover:text-[#A58453]">
     {section}
   </a>
 ));

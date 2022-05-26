@@ -88,15 +88,23 @@ export default function Tachkil() {
     const str = [];
     for (let i = 0; i < input.value.length; i++) {
       if (i === input.start - 1) {
-        str.push(<span className=" text-green-600">{input.value[i]}</span>);
+        str.push(
+          <span key={i} className=" text-green-600">
+            {input.value[i]}
+          </span>
+        );
       } else if (
         !cLetters.includes(input.value[i]) &&
         ((i + 1 < input.value.length &&
           !cLetters.includes(input.value[i + 1])) ||
           input.value[i + 1] === undefined)
       ) {
-        str.push(<span className=" text-red-600">{input.value[i]}</span>);
-      } else str.push(<span>{input.value[i]}</span>);
+        str.push(
+          <span key={i} className=" text-red-600">
+            {input.value[i]}
+          </span>
+        );
+      } else str.push(<span key={i}>{input.value[i]}</span>);
     }
     return str;
   }
@@ -117,7 +125,7 @@ export default function Tachkil() {
   return (
     <div
       className="mt-32 outline-none"
-      tabindex="0"
+      tabIndex="0"
       onKeyDown={({ key }) => {
         if (key && ["1", "2", "3", "4", "5", "6", "7", "8"].includes(key))
           updateValue(cLetters[Number(key) - 1]);
