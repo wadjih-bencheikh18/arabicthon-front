@@ -9,11 +9,35 @@ const letters = [
   "\u064D",
   "\u0652",
 ];
+function setCharAt(str, index, chr) {
+  if (index > str.length - 1) return str;
+  return str.slice(0, index) + chr + str.slice(index + 1);
+}
+function fixInit(init) {
+  init = init
+    .trim()
+    .split(/ +/)
+    .join(" ")
+    .split(/\n | \n/)
+    .join("\n");
+  for (let i = 0; i < init.length - 1; i++) {
+    if (letters.includes(init[i]) && init[i + 1] === chada) {
+      init = setCharAt(init, i + 1, init[i]);
+      init = setCharAt(init, i, chada);
+    }
+  }
+  return init;
+}
 const cLetters = [...letters, "\u0651"];
 const chada = "\u0651";
-export default function Tachkil() {
+export default function Tachkil({
+  init = `     أتيتك يا إمام إليك أشكو*أناسا قد بغوا ظلما وجاروا
+ومالى غير جاهك من سبيل*عسانى من تعنتهم أجار
+رجوتك نظرة من فيض فضل*فمالى عن بعادكم اصطبار
+فخلّصني من الأهوال إنى*نزيل والنزيل بكم يجار`,
+}) {
   const [input, setInput] = useState({
-    value: "م\u0652ساء ال\u0651خ\u0652ير",
+    value: fixInit(init),
     start: 1,
   });
   const getLetterPos = useCallback(
@@ -29,7 +53,13 @@ export default function Tachkil() {
   function setStart(select) {
     if (select) {
       let start = 0;
-      if (select <= 0 || input.value[select - 1] === " ") start = select + 1;
+      if (
+        select <= 0 ||
+        input.value[select - 1] === " " ||
+        input.value[select - 1] === "\n" ||
+        input.value[select - 1] === "*"
+      )
+        start = select + 1;
       else if (select > input.value.length) {
         start = getLetterPos(input.value.length);
       } else {
@@ -90,9 +120,10 @@ export default function Tachkil() {
     // get colored string
     const str = [];
     for (let i = 0; i < input.value.length; i++) {
-      if (i === getLetterPos(input.start) - 1) {
+      if (input.value[i] === "\n") str.push(<br key={i} />);
+      else if (i === getLetterPos(input.start) - 1) {
         str.push(
-          <span key={i} className=" text-green-600">
+          <span key={i} className="bg-green-100 text-green-600">
             {input.value[i]}
           </span>
         );
@@ -114,7 +145,7 @@ export default function Tachkil() {
   const createButtons = cLetters.map((letter, i) => (
     <button
       key={i}
-      className="border-black relative border-2 mt-10 mx-2 w-[50px] h-[50px] text-[30px]"
+      className="border-black relative border-2  mx-2 w-[50px] h-[50px] text-[30px]"
       onClick={() => updateValue(letter)}
     >
       <div>{letter}</div>
@@ -126,8 +157,13 @@ export default function Tachkil() {
   function getDirection(key) {
     //change char that you want to chekel with keyboard
     if (key === "ArrowRight") {
-      if (input.value[input.start - 2] !== " ") setStart(input.start - 1);
-      else setStart(input.start - 2);
+      if (
+        input.value[input.start - 2] === " " ||
+        input.value[input.start - 2] === "\n" ||
+        input.value[input.start - 2] === "*"
+      ) {
+        setStart(input.start - 2);
+      } else setStart(input.start - 1);
     }
     if (key === "ArrowLeft") {
       let i = input.start;
@@ -159,29 +195,30 @@ export default function Tachkil() {
         deleteChar(key);
       }}
     >
-      <div className="relative w-52 mx-auto">
-        <div className="border-black -z-0  bg-white left-0 absolute top-0 border-2 text-right w-52 mx-auto">
+      <div className="relative h-52  w-[400px] mx-auto">
+        <div className=" z-10 border-black text-center  bg-white right-0 absolute top-0 border-2   w-[400px] ">
           {stringCol}
         </div>
-        <input
+        <textarea
+          rows={input.value.split("\n").length}
           spellCheck="false"
           style={{ direction: "rtl" }}
-          className="border-black border-2 z-20 left-0  absolute top-0 caret-transparent bg-transparent text-[rgba(0,0,0,0)] text-right w-52 "
+          className="border-black text-center cursor-pointer resize-none border-2 z-20 right-0  absolute top-0 caret-transparent bg-transparent text-[rgba(0,0,0,0.2)]  w-[400px] "
           ref={inputRef}
           onClick={({ target }) => {
             setStart(target.selectionStart);
           }}
           value={input.value}
+          onChange={() => {}}
         />
       </div>
-
-      <div>
+      <div className="flex items-center justify-center mx-auto mt-10">
         {createButtons}
         <button
           className="border-black relative border-2  mx-2 w-[50px] h-[50px]"
           onClick={() => deleteChar("9")}
         >
-          <BackspaceIcon className="absolute top-[1%] w-15 " />
+          <BackspaceIcon className=" absolute  top-[1%] w-15 " />
           <div className="bg-black px-1 absolute text-white -bottom-2 -left-1 text-sm">
             {9}
           </div>
