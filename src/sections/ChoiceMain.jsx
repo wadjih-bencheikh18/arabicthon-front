@@ -9,7 +9,7 @@ export function ChoiceMain() {
       >
         تحليل شعر
         <div className="relative mr-3">
-          <SearchIcon className="absolute  right-1 group-hover:right-1 -bottom-4 text-[#A58453] w-10 group-hover:w-12 group-hover:-translate-x-3 group-hover:-translate-y-3 transition-all duration-500 ease-in-out" />
+          <SearchIcon className="absolute right-1 group-hover:right-1 -bottom-4 text-[#A58453] w-10 group-hover:w-12 group-hover:-translate-x-3 group-hover:-translate-y-3 transition-all duration-500 ease-in-out" />
           <img
             className="w-20 group-hover:w-24 transition-all duration-500 ease-in-out"
             alt="feather"
