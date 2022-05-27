@@ -1,5 +1,4 @@
 import feather from "./feather.svg";
-import paper from "./paper.svg";
 import { CogIcon, SearchIcon } from "@heroicons/react/outline";
 export function ChoiceMain() {
   return (
