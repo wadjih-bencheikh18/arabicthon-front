@@ -7,7 +7,7 @@ export default function Ta2lifDropDown() {
     { name: "وزن و قافية", link: "/create/wazn9afya" },
     { name: "موضوع", link: "/create/mawdo3" },
     { name: "صورة", link: "/create/soura" },
-    { name: "إكمال كلمة", link: "/create/ikmalkalima" },
+    { name: "إكمال كلمة", link: "/create/ikmalKalima" },
   ];
 
   const Ta2lifLinks = sections.map((section, key) => (

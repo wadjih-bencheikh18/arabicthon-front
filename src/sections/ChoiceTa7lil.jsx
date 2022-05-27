@@ -1,33 +1,44 @@
 import { useState } from "react";
 import { ChevronDoubleLeftIcon } from "@heroicons/react/solid";
 
-export function ChoiceTa2lif() {
+export function ChoiceTa7lil() {
   const [index, setIndex] = useState(0);
   const functionalities = [
     {
-      short: "وزن و قافية",
-      long: "تأليف الشعر بناء على وزن و قافية",
-      link: "/create/wazn9afya",
+      short: "البحر بالتشكيل",
+      long: "التعرف على بحر شعر بتشكيل",
+      link: "/analyse/ba7rTachkil",
     },
     {
-      short: "موضوع",
-      long: "تأليف الشعر بناء على موضوع",
-      link: "/create/mawdo3",
+      short: "البحر دون تشكيل",
+      long: "التعرف على بحر شعر دون تشكيل",
+      link: "/analyse/ba7rDounTachkil",
     },
     {
-      short: "صورة",
-      long: "تأليف الشعر بناء على صورة",
-      link: "/create/soura",
+      short: "التشكيل",
+      long: "تشكيل الشعر",
+      link: "/analyse/tachkil",
     },
     {
-      short: "إكمال كلمة",
-      long: "إكمال آخر كلمة بيت بناء على وزن وقافية",
-      link: "/create/ikmalKalima",
+      short: "الكتابة العروضية",
+      long: "الكتابة العروضية للشعر",
+      link: "/analyse/kitaba3arodya",
+    },
+    {
+      short: "التقطيع",
+      long: "تقطيع الشعر",
+      link: "/analyse/ta9ti3",
+    },
+
+    {
+      short: "التفعيلات",
+      long: "التعرف على وزن و تفعيلات شعر",
+      link: "/analyse/taf3ilat",
     },
   ];
   return (
     <div className="h-screen flex flex-col justify-end items-end p-16">
-      <div className="mr-40 text-3xl text-[#A58453] mb-10">تأليف شعر</div>
+      <div className="mr-40 text-3xl text-[#A58453] mb-10">تحليل شعر</div>
       <div className="flex justify-end items-center">
         {/* text */}
         <div className="text-right flex flex-col items-end">

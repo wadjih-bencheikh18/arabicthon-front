@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ChoiceMain } from "./sections/ChoiceMain";
 import { ChoiceTa2lif } from "./sections/ChoiceTa2lif";
 import AnalysePoemFull from "./components/Functional/AnalysePoemFull";
+import { ChoiceTa7lil } from "./sections/ChoiceTa7lil";
 function App() {
   return (
     <Router>
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route exact path="/create">
             <ChoiceTa2lif />
+          </Route>
+          <Route exact path="/analyse">
+            <ChoiceTa7lil />
           </Route>
           <Route path="/create/soura">
             <div className="h-screen">
