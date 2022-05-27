@@ -27,8 +27,8 @@ export default function GenImage() {
           <OutputResult
             value={"test"}
             rows="15"
-            cols="90"
-            className="text-right"
+            cols="75"
+            className="text-right rounded-3xl"
           />
         </div>
         <div className="col-start-2 flex flex-col items-center justify-end justify-self-center space-y-10">

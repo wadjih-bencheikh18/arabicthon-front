@@ -18,10 +18,10 @@ function App() {
           <Route path="/create-analyse">
             <ChoiceMain />
           </Route>
-          <Route path="/create">
+          <Route exact path="/create">
             <ChoiceTa2lif />
           </Route>
-          <Route path="/analyse">
+          <Route path="/create/soura">
             <div className="h-screen">
               <AnalysePoem />
             </div>
