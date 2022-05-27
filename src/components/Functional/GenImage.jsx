@@ -25,11 +25,11 @@ export default function GenImage() {
         <section className="container">
           <div {...getRootProps()}>
             <input {...getInputProps()} />
-            <div className="relative min-w-64">
+            <div className="relative">
               {image ? (
                 <img className="rounded-lg max-h-96" alt="input" src={image} />
               ) : (
-                <div className="p-10 h-64 w-76 border-2 text-black rounded-lg bg-white border-black flex flex-col justify-center">
+                <div className="p-10 h-64 w-72 border-2 text-black rounded-lg bg-white border-black flex flex-col justify-center">
                   {!isDragActive && (
                     <p>
                       Drag and drop the files here <br />
@@ -39,12 +39,10 @@ export default function GenImage() {
                 </div>
               )}
               {isDragActive && (
-                <>
-                  <div className="absolute top-0 bottom-0 left-0 right-0 p-10  border-2 text-white rounded-lg bg-[rgba(0,0,0,0.3)]  flex flex-col justify-center">
-                    <CloudUploadIcon className="w-20 m-auto " />
-                    <p>Drop the files here</p>
-                  </div>
-                </>
+                <div className="absolute top-0 bottom-0 left-0 right-0 p-10  border-2 text-white rounded-lg bg-[rgba(0,0,0,0.3)]  flex flex-col justify-center">
+                  <CloudUploadIcon className="w-20 m-auto " />
+                  <p>Drop the files here</p>
+                </div>
               )}
             </div>
           </div>
