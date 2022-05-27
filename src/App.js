@@ -2,19 +2,24 @@ import "./App.css";
 import { Main } from "./sections/Main";
 import { Navbar } from "./sections/Navbar";
 import AnalysePoem from "./components/AnalysePoem";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
   return (
-    <div className="App bg-[#E4D3C1] h-screen text-right">
-      <div>
+    <Router>
+      <div className="App bg-[#E4D3C1] h-screen text-right">
         <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <Main />
+          </Route>
+          <Route path="/analysis">
+            <div className="h-screen pt-20">
+              <AnalysePoem />
+            </div>
+          </Route>
+        </Switch>
       </div>
-      <div className="">
-        <Main />
-      </div>
-      <div className="h-screen">
-        <AnalysePoem />
-      </div>
-    </div>
+    </Router>
   );
 }
 
