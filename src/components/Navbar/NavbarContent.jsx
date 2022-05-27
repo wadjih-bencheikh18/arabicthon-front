@@ -1,12 +1,13 @@
 import HamburgerMenu from "./HamburgerMenu";
 import NavbarLinks from "./NavbarLinks";
+import logo from "../../pics/logo.png";
 
 const NavbarContent = ({ menuOpen, setMenuOpen }) => (
   <div className="ml-10 mr-16 flex items-center justify-between font-medium lg:mr-24">
     {/* logo */}
     <div className="w-[40px] m-2">
       <a href="./">
-        <img src="./logo.png" alt="logo" />
+        <img src={logo} alt="logo" />
       </a>
     </div>
     {/* Navbar links */}
