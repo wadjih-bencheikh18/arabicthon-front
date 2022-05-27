@@ -187,7 +187,7 @@ export default function Tachkil({ init = "", setValue }) {
   }
   return (
     <div
-      className="mt-32 outline-none"
+      className="mt-10 outline-none"
       tabIndex="0"
       onKeyDown={({ key }) => {
         if (key && ["1", "2", "3", "4", "5", "6", "7", "8"].includes(key))
@@ -197,7 +197,7 @@ export default function Tachkil({ init = "", setValue }) {
       }}
     >
       <div className="relative  w-[400px] mx-auto">
-        <div className=" z-10 border-red-600 text-center  bg-white right-0 absolute bottom-0 left-0 top-0 border-2 ">
+        <div className=" z-10 border-red-600 text-center text-2xl bg-white right-0 absolute bottom-0 left-0 top-0 border-2 ">
           {stringCol}
         </div>
         <textarea
@@ -205,7 +205,7 @@ export default function Tachkil({ init = "", setValue }) {
           rows={input.value.split("\n").length}
           spellCheck="false"
           style={{ direction: "rtl" }}
-          className=" border-transparent outline-none  text-center cursor-pointer resize-none border-2 z-20 relative caret-transparent bg-transparent text-[rgba(0,0,0,0.2)]  w-[400px] "
+          className=" overflow-hidden  border-transparent outline-none text-2xl text-center cursor-pointer resize-none border-2 z-20 relative caret-transparent bg-transparent text-[rgba(0,0,0,0.2)]  w-[400px] "
           ref={inputRef}
           onClick={({ target }) => {
             setStart(target.selectionStart);
@@ -215,6 +215,9 @@ export default function Tachkil({ init = "", setValue }) {
             alert(init);
           }}
         />
+        <h3 className=" absolute text-xl -top-2 -right-24 pt-2 font-bold">
+          التشكيل
+        </h3>
       </div>
       <div className="flex items-center justify-center mx-auto mt-10">
         {createButtons}

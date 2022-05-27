@@ -52,7 +52,7 @@ export default function AnalysePoemFull() {
             }}
           />
         )}
-        {data.tachkil && <OutputResult value={data.tachkil} />}
+        {data.tachkil && <OutputResult value={data.tachkil} title="التشكيل" />}
       </div>
     </div>
   );
