@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { useState } from "react";
 import InputResult from "./InputResult";
 import OutputResult from "./OutputResult";
 import Tachkil from "./Tachkil";
@@ -10,10 +10,6 @@ const choices = [
   "taf3ilat",
   "bahr",
 ];
-const dataContext = createContext({});
-export function useDataContext() {
-  return useContext(dataContext);
-}
 export default function AnalysePoemFull() {
   const [data, setData] = useState({});
   const [activate, setActivate] = useState([
