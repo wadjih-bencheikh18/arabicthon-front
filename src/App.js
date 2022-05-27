@@ -21,7 +21,7 @@ function App() {
             <ChoiceTa2lif />
           </Route>
           <Route path="/analyse">
-            <div className="h-screen pt-20">
+            <div className="h-screen">
               <AnalysePoem />
             </div>
           </Route>
