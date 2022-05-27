@@ -3,6 +3,7 @@ import { CloudUploadIcon } from "@heroicons/react/outline";
 import { useState, useCallback } from "react";
 import OutputResult from "./OutputResult";
 import { useDropzone } from "react-dropzone";
+import InputResult from "./InputResult";
 export default function GenImage() {
   const [image, setImage] = useState(undefined);
   const onDrop = useCallback((files) => {
@@ -17,10 +18,12 @@ export default function GenImage() {
   });
 
   return (
-    <div className="w-full m-64">
-      <div className="text-right mb-14 mr-32 text-xl text-[#A58453]">TITLE</div>
-      <div className="grid grid-cols-2 grid-rows-1 items-center mx-auto">
-        <div className="w-96 col-start-1 justify-self-center">
+    <div className="w-full">
+      <div className="text-right mb-8 mt-10 mr-72 text-xl text-[#A58453]">
+        TITLE
+      </div>
+      <div className="grid w-screen grid-cols-2 grid-rows-1 items-center mx-auto">
+        <div className="col-start-1 justify-self-end">
           <OutputResult
             value={"test"}
             rows="15"
@@ -28,7 +31,7 @@ export default function GenImage() {
             className="text-right"
           />
         </div>
-        <div className="col-start-2 flex flex-col items-center justify-self-center space-y-10">
+        <div className="col-start-2 flex flex-col items-center justify-end justify-self-center space-y-10">
           <div className="">
             <section className="container">
               <div {...getRootProps()}>
@@ -36,7 +39,7 @@ export default function GenImage() {
                 <div className="relative">
                   {image ? (
                     <img
-                      className="rounded-lg max-h-96"
+                      className="rounded-lg max-h-80"
                       alt="input"
                       src={image}
                     />
@@ -60,9 +63,7 @@ export default function GenImage() {
               </div>
             </section>
           </div>
-          <div className="p-3 w-72 text-black rounded-3xl bg-[#FBFAF8] text-right">
-            number of abyat
-          </div>
+          <InputResult cols={12} rows={1} />
         </div>
       </div>
     </div>

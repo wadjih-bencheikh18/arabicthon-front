@@ -12,7 +12,7 @@ export default function InputResult({
   return (
     <div className="flex flex-row-reverse items-end mt-5">
       <textarea
-        className={`${className} resize-none border-black py-3 px-3 border-2 text-center rounded-md input`}
+        className={`${className} resize-none outline-none py-3 px-3 border-0 text-center rounded-md input`}
         cols={Math.min(
           Math.max(...input.split("\n").map((s) => s.length), cols),
           100
