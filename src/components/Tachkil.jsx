@@ -17,7 +17,12 @@ function setCharAt(str, index, chr) {
   return str.slice(0, index) + chr + str.slice(index + 1);
 }
 function preFix(init) {
-  init = init.trim().split(/ +/).join(" ").split(/\n|\n/).join("\n");
+  init = init
+    .trim()
+    .split(/ +/)
+    .join(" ")
+    .split(/\n | \n/)
+    .join("\n");
   for (let i = 0; i < init.length - 1; i++) {
     if (letters.includes(init[i]) && init[i + 1] === chada) {
       init = setCharAt(init, i + 1, init[i]);
@@ -28,12 +33,7 @@ function preFix(init) {
 }
 const cLetters = [...letters, "\u0651"];
 const chada = "\u0651";
-export default function Tachkil({
-  init = `     أتيتك يا إمام إليك أشكو*أناسا قد بغوا ظلما وجاروا
-ومالى غير جاهك من سبيل*عسانى من تعنتهم أجار
-رجوتك نظرة من فيض فضل*فمالى عن بعادكم اصطبار
-فخلّصني من الأهوال إنى*نزيل والنزيل بكم يجار`,
-}) {
+export default function Tachkil({ init = "", setValue }) {
   const [input, setInput] = useState({
     value: preFix(init),
     start: 1,
@@ -193,11 +193,12 @@ export default function Tachkil({
         deleteChar(key);
       }}
     >
-      <div className="relative h-52  w-[400px] mx-auto">
+      <div className="relative h-48  w-[400px] mx-auto">
         <div className=" z-10 border-black text-center  bg-white right-0 absolute top-0 border-2   w-[400px] ">
           {stringCol}
         </div>
         <textarea
+          cols={Math.max(...input.value.split("\n").map((s) => s.length))}
           rows={input.value.split("\n").length}
           spellCheck="false"
           style={{ direction: "rtl" }}
@@ -220,6 +221,14 @@ export default function Tachkil({
           <div className="bg-black px-1 absolute text-white -bottom-2 -left-1 text-sm">
             {9}
           </div>
+        </button>
+        <button
+          className="border-black relative border-2  mx-2 w-[50px] h-[50px]"
+          onClick={() => {
+            setValue(input.value);
+          }}
+        >
+          OK
         </button>
       </div>
     </div>
