@@ -26,7 +26,9 @@ export default function InputResult({
         onChange={({ target }) => setInput(target.value)}
         style={{ direction: "rtl" }}
       ></textarea>
-      <h3 className=" absolute text-xl top-0 -right-20 pt-2 font-bold">{title}</h3>
+      <h3 className="absolute text-xl top-0 -right-28 pt-2 text-[#A58453]">
+        {title}
+      </h3>
       {button && (
         <button
           onClick={() => {

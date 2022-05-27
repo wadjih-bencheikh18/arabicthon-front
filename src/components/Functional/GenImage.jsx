@@ -29,6 +29,7 @@ export default function GenImage() {
             rows="15"
             cols="75"
             className="text-right rounded-3xl"
+            title="الشعر"
           />
         </div>
         <div className="col-start-2 flex flex-col items-center justify-end justify-self-center space-y-10">
@@ -63,7 +64,7 @@ export default function GenImage() {
               </div>
             </section>
           </div>
-          <InputResult cols={12} rows={1} init="5" button />
+          <InputResult cols={12} rows={1} init="5" button title="عدد الأبيات" />
         </div>
       </div>
     </div>
