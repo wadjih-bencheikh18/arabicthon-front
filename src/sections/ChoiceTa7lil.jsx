@@ -5,11 +5,6 @@ export function ChoiceTa7lil() {
   const [index, setIndex] = useState(0);
   const functionalities = [
     {
-      short: "البحر بالتشكيل",
-      long: "التعرف على بحر شعر بتشكيل",
-      link: "/analyse/ba7rTachkil",
-    },
-    {
       short: "البحر دون تشكيل",
       long: "التعرف على بحر شعر دون تشكيل",
       link: "/analyse/ba7rDounTachkil",
@@ -34,6 +29,11 @@ export function ChoiceTa7lil() {
       short: "التفعيلات",
       long: "التعرف على وزن و تفعيلات شعر",
       link: "/analyse/taf3ilat",
+    },
+    {
+      short: "البحر بالتشكيل",
+      long: "التعرف على بحر شعر بتشكيل",
+      link: "/analyse/ba7rTachkil",
     },
   ];
   return (

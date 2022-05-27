@@ -6,7 +6,7 @@ const sections = [
   </a>,
   <Ta2lifDropDown />,
   <Ta7lilDropDown />,
-  <a href="/analyse" className="hover:text-[#A58453]">
+  <a href="/contact" className="hover:text-[#A58453]">
     تواصل معنا
   </a>,
 ];

@@ -19,8 +19,8 @@ export default function GenImage() {
 
   return (
     <div className="w-screen">
-      <div className="text-right mb-8 mt-10 mr-72 text-xl text-[#A58453]">
-        TITLE
+      <div className="text-right mb-8 mr-64 text-3xl text-[#A58453]">
+        تأليف الشعر بناء على صورة
       </div>
       <div className="grid w-screen grid-cols-2 grid-rows-1 items-center mx-auto">
         <div className="col-start-1 justify-self-end">
