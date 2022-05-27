@@ -5,10 +5,12 @@ export default function InputResult({
   setValue,
   className,
   placeHolder = "شعر",
+  init = "",
   cols = "40",
   rows = "3",
+  button = false,
 }) {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(init);
   return (
     <div className="flex flex-row-reverse items-end mt-5">
       <textarea
@@ -23,14 +25,16 @@ export default function InputResult({
         onChange={({ target }) => setInput(target.value)}
         style={{ direction: "rtl" }}
       ></textarea>
-      <button
-        onClick={() => {
-          setValue(input);
-        }}
-        className="btn flex rounded-md items-center justify-center w-12 h-6 text-white text-lg bg-[#A58453] -mb-3 -mr-9"
-      >
-        <ChevronDoubleLeftIcon className="w-5 h-5" />
-      </button>
+      {button && (
+        <button
+          onClick={() => {
+            setValue(input);
+          }}
+          className="btn flex rounded-md items-center justify-center w-12 h-6 text-white text-lg bg-[#A58453] -mb-3 -mr-9"
+        >
+          <ChevronDoubleLeftIcon className="w-5 h-5" />
+        </button>
+      )}
     </div>
   );
 }

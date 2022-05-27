@@ -63,7 +63,7 @@ export default function GenImage() {
               </div>
             </section>
           </div>
-          <InputResult cols={12} rows={1} />
+          <InputResult cols={12} rows={1} init="5" button />
         </div>
       </div>
     </div>

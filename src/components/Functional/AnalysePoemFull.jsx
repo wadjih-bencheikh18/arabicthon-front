@@ -42,6 +42,7 @@ export default function AnalysePoemFull() {
       <div className="h-screen flex flex-col items-center">
         <InputResult
           setValue={(input) => setData((data) => ({ ...data, input }))}
+          button
         />
         {data.input && (
           <Tachkil
