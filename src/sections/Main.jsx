@@ -1,9 +1,8 @@
 export function Main() {
   return (
     <div className="relative h-screen">
-      {/* todo: fix postion and dimensions */}
-      <div className="absolute w-full -bottom-[200px] -right-[200px]">
-        <img src="./whiterectangle.png" alt="" className="relative" />
+      <div className="hidden lg:block absolute -bottom-[400px] -right-[600px] ">
+        <img src="./whiterectangle.png" alt="" className="relative scale-125" />
       </div>
       <div className="relative z-20">
         <div className="flex z-10 h-screen items-center justify-center overflow-hidden">
