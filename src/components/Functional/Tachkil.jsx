@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo, useCallback } from "react";
+import { useState, useRef, useMemo, useCallback, useEffect } from "react";
 import { BackspaceIcon } from "@heroicons/react/solid";
 const letters = [
   "\u064E",
@@ -47,6 +47,9 @@ export default function Tachkil({ init = "", setValue }) {
     },
     [input.value]
   );
+  useEffect(() => {
+    setInput(({ start }) => ({ start, value: init }));
+  }, [init]);
   const inputRef = useRef(null);
   function setStart(select) {
     if (select) {
@@ -208,7 +211,9 @@ export default function Tachkil({ init = "", setValue }) {
             setStart(target.selectionStart);
           }}
           value={input.value}
-          onChange={() => {}}
+          onChange={() => {
+            alert(init);
+          }}
         />
       </div>
       <div className="flex items-center justify-center mx-auto mt-10">

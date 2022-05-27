@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { createContext, useContext, useState } from "react";
 import InputResult from "./InputResult";
 import OutputResult from "./OutputResult";
 import Tachkil from "./Tachkil";
@@ -10,6 +10,10 @@ const choices = [
   "taf3ilat",
   "bahr",
 ];
+const dataContext = createContext({});
+export function useDataContext() {
+  return useContext(dataContext);
+}
 export default function AnalysePoemFull() {
   const [data, setData] = useState({});
   const [activate, setActivate] = useState([
@@ -32,21 +36,25 @@ export default function AnalysePoemFull() {
             }`}
             key={i}
             onClick={() => {
-              setActivate((activate) => {
-                activate[i] = !activate[i];
-                return activate;
-              });
+              setActivate((activate) => ({ ...activate, [i]: !activate[i] }));
             }}
           >
             {c}
           </div>
         ))}
       </div>
-      <div className="h-screen flex items-center">
+      <div className="h-screen flex flex-col items-center">
         <InputResult
-          setValue={(input) => {
-            setData((data) => ({ ...data, input }));
-          }}
+          setValue={(input) => setData((data) => ({ ...data, input }))}
+        />
+        <OutputResult
+          value={`قِف بِالمَنازِلِ إِن شَجَتكَ رُبوعُها
+قِف بِالمَنازِلِ إِن شَجَتكَ رُبوعُها
+قِف بِالمَنازِلِ إِن شَجَتكَ رُبوعُها
+قِف بِالمَنازِلِ إِن شَجَتكَ رُبوعُها
+قِف بِالمَنازِلِ إِن شَجَتكَ رُبوعُها
+قِف بِالمَنازِلِ إِن شَجَتكَ رُبوعُها
+قِف بِالمَنازِلِ إِن شَجَتكَ رُبوعُها`}
         />
         {data.input && (
           <Tachkil
