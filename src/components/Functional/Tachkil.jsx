@@ -48,7 +48,7 @@ export default function Tachkil({ init = "", setValue }) {
     [input.value]
   );
   useEffect(() => {
-    setInput(({ start }) => ({ start, value: init }));
+    setInput(({ start }) => ({ start, value: preFix(init) }));
   }, [init]);
   const inputRef = useRef(null);
   function setStart(select) {
