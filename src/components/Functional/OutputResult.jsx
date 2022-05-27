@@ -6,6 +6,7 @@ export default function OutputResult({
 }) {
   return (
     <textarea
+      style={{ direction: "rtl" }}
       className={`${className} resize-none bg-[#FBFAF8] rounded-3xl p-4 mt-5`}
       cols={Math.max(...value.split("\n").map((s) => s.length), cols)}
       rows={Math.max(value.split("\n").length, rows)}

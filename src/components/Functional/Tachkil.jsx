@@ -193,8 +193,8 @@ export default function Tachkil({ init = "", setValue }) {
         deleteChar(key);
       }}
     >
-      <div className="relative h-48  w-[400px] mx-auto">
-        <div className=" z-10 border-black text-center  bg-white right-0 absolute top-0 border-2   w-[400px] ">
+      <div className="relative  w-[400px] mx-auto">
+        <div className=" z-10 border-red-600 text-center  bg-white right-0 absolute bottom-0 left-0 top-0 border-2 ">
           {stringCol}
         </div>
         <textarea
@@ -202,7 +202,7 @@ export default function Tachkil({ init = "", setValue }) {
           rows={input.value.split("\n").length}
           spellCheck="false"
           style={{ direction: "rtl" }}
-          className="border-black text-center cursor-pointer resize-none border-2 z-20 right-0  absolute top-0 caret-transparent bg-transparent text-[rgba(0,0,0,0.2)]  w-[400px] "
+          className=" border-transparent outline-none  text-center cursor-pointer resize-none border-2 z-20 relative caret-transparent bg-transparent text-[rgba(0,0,0,0.2)]  w-[400px] "
           ref={inputRef}
           onClick={({ target }) => {
             setStart(target.selectionStart);
