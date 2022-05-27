@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChevronDoubleLeftIcon } from "@heroicons/react/solid";
 
 export function ChoiceTa7lil() {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(undefined);
   const functionalities = [
     {
       short: "البحر بالتشكيل",
@@ -41,19 +41,21 @@ export function ChoiceTa7lil() {
       <div className="mr-40 text-3xl text-[#A58453] mb-10">تحليل شعر</div>
       <div className="flex justify-end items-center">
         {/* text */}
-        <div className="text-right flex flex-col items-end">
-          <div className="text-3xl text-[#A58453] mb-10 pr-8">
-            {functionalities[index].short}
+        {index !== undefined && (
+          <div className="text-right flex flex-col items-end">
+            <div className="text-3xl text-[#A58453] mb-10 pr-8">
+              {functionalities[index].short}
+            </div>
+            <div className="text-lg border-r-4 rounded-sm border-[#A58453] pr-8">
+              {functionalities[index].long}
+            </div>
+            <a href={functionalities[index].link} className="mt-16">
+              <button className="btn flex rounded-md py-2 px-3 text-white text-lg bg-[#A58453]">
+                <ChevronDoubleLeftIcon className="w-5" />
+              </button>
+            </a>
           </div>
-          <div className="text-lg border-r-4 rounded-sm border-[#A58453] pr-8">
-            {functionalities[index].long}
-          </div>
-          <a href={functionalities[index].link} className="mt-16">
-            <button className="btn flex rounded-md py-2 px-3 text-white text-lg bg-[#A58453]">
-              <ChevronDoubleLeftIcon className="w-5" />
-            </button>
-          </a>
-        </div>
+        )}
 
         {/* cards container */}
         <div className="flex flex-wrap flex-row-reverse h-[31.5rem] w-[54rem] mx-20 overflow-y-scroll items-center px-5 pt-4">
