@@ -20,8 +20,13 @@ export default function GenImage() {
     <div className="w-full m-64">
       <div className="text-right mb-14 mr-32 text-xl text-[#A58453]">TITLE</div>
       <div className="grid grid-cols-2 grid-rows-1 items-center mx-auto">
-        <div className="w-96 col-start-1 m-4 justify-self-center">
-          <OutputResult value={"test"} className="text-right" />
+        <div className="w-96 col-start-1 justify-self-center">
+          <OutputResult
+            value={"test"}
+            rows="15"
+            cols="90"
+            className="text-right"
+          />
         </div>
         <div className="col-start-2 flex flex-col items-center justify-self-center space-y-10">
           <div className="">
