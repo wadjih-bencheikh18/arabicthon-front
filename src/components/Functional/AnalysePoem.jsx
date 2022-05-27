@@ -7,7 +7,7 @@ import Tachkil from "./Tachkil";
 export default function AnalysePoem() {
   const [data, setData] = useState({});
   return (
-    <div>
+    <div className="h-screen flex items-center bg-red-500">
       <GenImage />
       {/* 
       <InputResult
