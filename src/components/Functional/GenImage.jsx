@@ -18,7 +18,7 @@ export default function GenImage() {
   });
 
   return (
-    <div className="w-full">
+    <div className="w-screen">
       <div className="text-right mb-8 mt-10 mr-72 text-xl text-[#A58453]">
         TITLE
       </div>
