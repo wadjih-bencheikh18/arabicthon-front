@@ -5,6 +5,7 @@ import AnalysePoem from "./components/Functional/AnalysePoem";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ChoiceMain } from "./sections/ChoiceMain";
 import { ChoiceTa2lif } from "./sections/ChoiceTa2lif";
+import AnalysePoemFull from "./components/Functional/AnalysePoemFull";
 function App() {
   return (
     <Router>
@@ -23,6 +24,11 @@ function App() {
           <Route path="/analyse">
             <div className="h-screen pt-20">
               <AnalysePoem />
+            </div>
+          </Route>
+          <Route path="/analyseFull">
+            <div className="h-screen pt-20">
+              <AnalysePoemFull />
             </div>
           </Route>
         </Switch>
