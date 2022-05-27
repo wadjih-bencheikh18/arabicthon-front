@@ -7,6 +7,7 @@ import { ChoiceMain } from "./sections/ChoiceMain";
 import { ChoiceTa2lif } from "./sections/ChoiceTa2lif";
 import AnalysePoemFull from "./components/Functional/AnalysePoemFull";
 import { ChoiceTa7lil } from "./sections/ChoiceTa7lil";
+import LastWord from "./components/Functional/LastWord";
 function App() {
   return (
     <Router>
@@ -33,6 +34,11 @@ function App() {
           <Route path="/analyseFull">
             <div className="h-screen pt-20">
               <AnalysePoemFull />
+            </div>
+          </Route>
+          <Route path="/create/ikmalKalima">
+            <div className="h-screen">
+              <LastWord />
             </div>
           </Route>
         </Switch>

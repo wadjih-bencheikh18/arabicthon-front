@@ -21,7 +21,7 @@ export function ChoiceTa2lif() {
     },
     {
       short: "إكمال كلمة",
-      long: "إكمال آخر كلمة بيت بناء على وزن وقافية",
+      long: "إكمال آخر كلمة بيت بناء على وزن و حرف الروي",
       link: "/create/ikmalKalima",
     },
   ];

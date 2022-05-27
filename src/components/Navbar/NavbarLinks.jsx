@@ -1,7 +1,7 @@
 import Ta2lifDropDown from "./Ta2lifDropDown";
 import Ta7lilDropDown from "./Ta7lilDropDown";
 const sections = [
-  <a href="/" className="hover:text-[#A58453] lg:ml-12">
+  <a href="/" className="hover:text-[#A58453] lg:ml-16">
     الصفحة الرئيسية
   </a>,
   <Ta2lifDropDown />,
