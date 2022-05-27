@@ -5,6 +5,7 @@ export default function InputResult({
   setValue,
   className,
   placeHolder = "شعر",
+  title = "شعر",
   init = "",
   cols = "40",
   rows = "3",
@@ -12,7 +13,7 @@ export default function InputResult({
 }) {
   const [input, setInput] = useState(init);
   return (
-    <div className="flex flex-row-reverse items-end mt-5">
+    <div className="flex relative flex-row-reverse items-end mt-5">
       <textarea
         className={`${className} overflow-hidden resize-none outline-none py-3 px-3 text-center rounded-md`}
         cols={Math.min(
@@ -25,6 +26,7 @@ export default function InputResult({
         onChange={({ target }) => setInput(target.value)}
         style={{ direction: "rtl" }}
       ></textarea>
+      <h3 className=" absolute text-xl top-0 -right-20 pt-2 font-bold">{title}</h3>
       {button && (
         <button
           onClick={() => {
