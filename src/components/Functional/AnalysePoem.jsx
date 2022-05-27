@@ -1,5 +1,4 @@
 import GenImage from "./GenImage";
-import OutputResult from "./OutputResult";
 
 export default function AnalysePoem() {
   return (
