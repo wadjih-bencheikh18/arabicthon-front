@@ -9,9 +9,9 @@ const letters = [
   "\u064D",
   "\u0652",
 ];
-function postFix(result) {
-  return result.split(/\n|[*]/);
-}
+// function postFix(result) {
+//   return result.split(/\n|[*]/);
+// }
 function setCharAt(str, index, chr) {
   if (index > str.length - 1) return str;
   return str.slice(0, index) + chr + str.slice(index + 1);
