@@ -1,7 +1,7 @@
 import "./App.css";
 import { Main } from "./sections/Main";
 import { Navbar } from "./sections/Navbar";
-import AnalysePoem from "./components/AnalysePoem";
+import AnalysePoem from "./components/Functional/AnalysePoem";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ChoiceMain } from "./sections/ChoiceMain";
 import { ChoiceTa2lif } from "./sections/ChoiceTa2lif";
