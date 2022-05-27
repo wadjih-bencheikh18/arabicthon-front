@@ -3,11 +3,20 @@ import { useState } from "react";
 
 export default function Ta2lifDropDown() {
   const [open, setOpen] = useState(false);
-  const sections = ["توعنا", "تحعر", " شعر", "افحة سية"];
+  const sections = [
+    { name: "وزن و قافية", link: "/create/wazn9afya" },
+    { name: "موضوع", link: "/create/mawdo3" },
+    { name: "صورة", link: "/create/soura" },
+    { name: "إكمال كلمة", link: "/create/ikmalkalima" },
+  ];
 
-  const Ta2lifLinks = sections.map((section, i) => (
-    <a href={section} key={i} className="hidden lg:block hover:text-[#A58453]">
-      {section}
+  const Ta2lifLinks = sections.map((section, key) => (
+    <a
+      href={section.link}
+      key={key}
+      className="hidden lg:block hover:text-[#A58453]"
+    >
+      {section.name}
     </a>
   ));
   return (
