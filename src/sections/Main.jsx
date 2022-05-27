@@ -1,7 +1,7 @@
 export function Main() {
   return (
-    <div className="relative h-screen">
-      <div className="hidden lg:block absolute -bottom-[400px] -right-[600px] ">
+    <div className="relative h-screen overflow-hidden">
+      <div className="hidden lg:block absolute -bottom-[400px] -right-[600px]">
         <img src="./whiterectangle.png" alt="" className="relative scale-125" />
       </div>
       <div className="relative z-20">
