@@ -1,31 +1,29 @@
 export function ChoiceTa2lif() {
   const functionalities = [
-    "text1",
-    "text2",
-    "jlk",
-    "iukhj",
-    "iuhk",
-    "text2",
-    "jlk",
-    "iukhj",
-    "iuhk",
-    "text2",
-    "jlk",
-    "iukhj",
-    "iuhk",
+    { link: "k", text: "text1" },
+    { link: "k", text: "text1" },
+    { link: "k", text: "text1" },
+    { link: "k", text: "text1" },
+    { link: "k", text: "text1" },
+    { link: "k", text: "text1" },
+    { link: "k", text: "text1" },
+    { link: "k", text: "text1" },
+    { link: "k", text: "text1" },
+    { link: "k", text: "text1" },
   ];
   return (
-    <div className="flex h-screen mx-5 pt-10 justify-center items-center">
-      <div className="w-full">text</div>
+    <div className="flex h-screen pt-10 justify-end items-center">
+      <div className="text-3xl">تأليف شعر</div>
       {/* container */}
-      <div className="flex flex-wrap h-[75%] mx-36 overflow-y-scroll items-center px-5 border-black border-2 pt-4">
+      <div className="flex flex-wrap flex-row-reverse h-[31.5rem] w-[54rem] mx-20 overflow-y-scroll items-center px-5 pt-4">
         {functionalities.map((functionality, key) => (
-          <div
+          <a
+            href={functionality.link}
             key={key}
             className="bg-[#FBFAF8] rounded-[40px] w-60 h-56 flex justify-center items-center mr-6 mb-6"
           >
-            {functionality}
-          </div>
+            {functionality.text}
+          </a>
         ))}
       </div>
     </div>
