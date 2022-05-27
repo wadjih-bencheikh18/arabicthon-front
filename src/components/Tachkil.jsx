@@ -9,17 +9,15 @@ const letters = [
   "\u064D",
   "\u0652",
 ];
+function postFix(result) {
+  return result.split(/\n|[*]/);
+}
 function setCharAt(str, index, chr) {
   if (index > str.length - 1) return str;
   return str.slice(0, index) + chr + str.slice(index + 1);
 }
-function fixInit(init) {
-  init = init
-    .trim()
-    .split(/ +/)
-    .join(" ")
-    .split(/\n | \n/)
-    .join("\n");
+function preFix(init) {
+  init = init.trim().split(/ +/).join(" ").split(/\n|\n/).join("\n");
   for (let i = 0; i < init.length - 1; i++) {
     if (letters.includes(init[i]) && init[i + 1] === chada) {
       init = setCharAt(init, i + 1, init[i]);
@@ -37,7 +35,7 @@ export default function Tachkil({
 فخلّصني من الأهوال إنى*نزيل والنزيل بكم يجار`,
 }) {
   const [input, setInput] = useState({
-    value: fixInit(init),
+    value: preFix(init),
     start: 1,
   });
   const getLetterPos = useCallback(
