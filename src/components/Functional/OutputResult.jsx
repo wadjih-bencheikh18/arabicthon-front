@@ -7,7 +7,7 @@ export default function OutputResult({
   return (
     <textarea
       style={{ direction: "rtl" }}
-      className={`${className} resize-none  py-3 px-3  bg-[#FBFAF8] text-center rounded-md p-4 mt-5`}
+      className={`${className} resize-none py-3 px-3 bg-[#FBFAF8] text-center rounded-md p-4 mt-5`}
       cols={Math.min(
         Math.max(...value.split("\n").map((s) => s.length), cols),
         100
