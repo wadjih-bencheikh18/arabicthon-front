@@ -3,6 +3,7 @@ import { Main } from "./sections/Main";
 import { Navbar } from "./sections/Navbar";
 import AnalysePoem from "./components/AnalysePoem";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { ChoiceMain } from "./sections/ChoiceMain";
 function App() {
   return (
     <Router>
@@ -12,7 +13,10 @@ function App() {
           <Route exact path="/">
             <Main />
           </Route>
-          <Route path="/analysis">
+          <Route path="/create-analyse">
+            <ChoiceMain />
+          </Route>
+          <Route path="/analyse">
             <div className="h-screen pt-20">
               <AnalysePoem />
             </div>

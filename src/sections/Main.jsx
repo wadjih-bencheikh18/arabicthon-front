@@ -26,6 +26,11 @@ export function Main() {
               تأليف شعر تأليف شعر تأليف شعر تأليف شعر تأليف شعر تأليف شعر تأليف
               شعر تأليف شعر تأليف شعر تأليف شعر
             </div>
+            <a href="/create-analyse">
+              <button className="btn rounded-md mt-16 py-3 px-6 text-white text-lg bg-[#A58453]">
+                شعر
+              </button>
+            </a>
           </div>
         </div>
       </div>
