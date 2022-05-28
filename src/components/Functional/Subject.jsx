@@ -47,11 +47,11 @@ export default function Subject() {
                 .then((response) => {
                   let result = response.data;
                   setData((data) => ({ ...data, result }));
-
                   setLoad(false);
                 })
                 .catch((error) => {
                   alert(error);
+                  setLoad(false);
                 });
             }}
           />

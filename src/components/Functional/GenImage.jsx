@@ -1,5 +1,6 @@
 import { CloudUploadIcon } from "@heroicons/react/outline";
 
+import Load from "../../pics/load.svg";
 import { useState, useCallback } from "react";
 import OutputResult from "./OutputResult";
 import { useDropzone } from "react-dropzone";
@@ -8,6 +9,7 @@ import axios from "axios";
 export default function GenImage() {
   const [data, setData] = useState({undefined});
   
+  const [load, setLoad] = useState(false);
   const onDrop = useCallback((files) => {
     files.forEach((file) => {
       if (file.type.startsWith("image")) {
@@ -25,7 +27,14 @@ export default function GenImage() {
         تأليف الشعر بناء على صورة
       </div>
       <div className="grid w-screen grid-cols-2 grid-rows-1 items-center mx-auto">
-        <div className="col-start-1 justify-self-center ml-44">
+        <div className="col-start-1 relative justify-self-center ml-44">
+          {load && (
+            <img
+              className="absolute z-10 bg-transparent top-30 left-16"
+              alt="load"
+              src={Load}
+            ></img>
+          )}
           <OutputResult
             value={data.result}
             minHeight={15}
@@ -77,8 +86,10 @@ export default function GenImage() {
               setData((data) => ({ ...data, lines: Number(lines) }))
             }
             setValue={(lines) => {
+              
+              setLoad(true);
               axios
-                .post("https://c866-105-235-129-52.eu.ngrok.io//caption", {
+                .post("https://c866-105-235-129-52.eu.ngrok.io/caption", {
                   params: {
                     lines,
                     image: data.image,
@@ -86,10 +97,13 @@ export default function GenImage() {
                 })
                 .then((response) => {
                   let result = response.data;
+                  console.log(result)
                   setData((data) => ({ ...data, result }));
+              setLoad(false);
                 })
                 .catch((error) => {
                   alert(error);
+              setLoad(false);
                 });
             }}
           />

@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import Load from "../../pics/load.svg";
 export default function WaznAndRawi() {
-  const [data, setData] = useState({ sujet: "" });
+  const [data, setData] = useState({ meter:"الطويل",sujet:"" });
   const [load, setLoad] = useState(false);
   return (
     <div className="h-screen flex flex-col justify-center">
@@ -17,21 +17,24 @@ export default function WaznAndRawi() {
             <div className="text-xl -mr-28 ml-20 pt-2 text-[#A58453]">
               البحر
             </div>
-            <select className="rounded-lg text-right bg-[#FBFAF8] w-32 p-4">
-              <option value="tawiil">الطويل</option>
-              <option value="madiid">المديد</option>
-              <option value="basiit">البسيط</option>
-              <option value="wafir">الوافر</option>
-              <option value="kaamil">الكامل</option>
-              <option value="hazj">الهزج</option>
-              <option value="rajz">الرجز</option>
-              <option value="raml">الرمل</option>
-              <option value="sariie">السريع</option>
-              <option value="munsarih">المنسرح</option>
-              <option value="khafiif">الخفيف</option>
-              <option value="mujdath">المجتث</option>
-              <option value="mutaqaarib">المتقارب</option>
-              <option value="mutadaarik">المتدارك</option>
+            <select
+              onChange={({target})=>{setData((data) => ({ ...data, meter:target.value }))  }}
+              className="rounded-lg text-right bg-[#FBFAF8] w-32 p-4"
+            >
+              <option value="الطويل">الطويل</option>
+              <option value="المديد">المديد</option>
+              <option value="البسيط">البسيط</option>
+              <option value="الوافر">الوافر</option>
+              <option value="الكامل">الكامل</option>
+              <option value="الهزج">الهزج</option>
+              <option value="الرجز">الرجز</option>
+              <option value="الرمل">الرمل</option>
+              <option value="السريع">السريع</option>
+              <option value="المنسرح">المنسرح</option>
+              <option value="الخفيف">الخفيف</option>
+              <option value="المجتث">المجتث</option>
+              <option value="المتقارب">المتقارب</option>
+              <option value="المتدارك">المتدارك</option>
             </select>
           </div>
           <InputResult
@@ -68,10 +71,11 @@ export default function WaznAndRawi() {
                 .then((response) => {
                   let result = response.data;
                   setData((data) => ({ ...data, result }));
-                  setLoad(false);
+              setLoad(false);
                 })
                 .catch((error) => {
                   alert(error);
+              setLoad(false);
                 });
             }}
           />
@@ -89,7 +93,7 @@ export default function WaznAndRawi() {
             maxWidth={75}
             className="text-right"
             title="الشعر"
-            value={load? "":data.result}
+            value={load ? "" : data.result}
           />
         </div>
       </div>
