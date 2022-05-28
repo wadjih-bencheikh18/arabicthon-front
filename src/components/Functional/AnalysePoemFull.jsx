@@ -14,7 +14,7 @@ const choices = [
 export default function AnalysePoemFull() {
   const [activate, setActivate] = useState([0]);
   return (
-    <div className="h-screen w-screen flex flex-col items-center">
+    <div className="flex flex-col items-center">
       <div className="flex gap-5">
         {choices.map((c, i) => (
           <div

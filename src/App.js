@@ -21,7 +21,7 @@ import Taf3ilat from "./components/Functional/Taf3ilat";
 function App() {
   return (
     <Router>
-      <div className="App bg-[#E4D3C1] h-screen text-right">
+      <div className="App bg-[#E4D3C1] text-right">
         <Navbar />
         <Switch>
           <Route exact path="/">
@@ -36,15 +36,14 @@ function App() {
           <Route exact path="/analyse">
             <ChoiceTa7lil />
           </Route>
-
           <Route path="/analyseFull">
-            <div className="h-screen pt-20">
+            <div className="min-h-screen pt-20">
               <AnalysePoemFull />
             </div>
           </Route>
 
           <Route path="/create/soura">
-            <div className="h-screen">
+            <div className="min-h-screen">
               <AnalysePoem />
             </div>
           </Route>
