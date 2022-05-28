@@ -13,6 +13,11 @@ import Subject from "./components/Functional/Subject";
 import WaznAndRawi from "./components/Functional/WaznAndRawi";
 import Ba7rDounTachkil from "./components/Functional/Ba7rDounTachkil";
 import AddTachkil from "./components/Functional/AddTachkil";
+import Aroud from "./components/Functional/Aroud";
+import Ta9ti3 from "./components/Functional/Ta9ti3";
+import Ba7r from "./components/Functional/Ba7r";
+import Taf3ilat from "./components/Functional/Taf3ilat";
+
 function App() {
   return (
     <Router>
@@ -31,14 +36,16 @@ function App() {
           <Route exact path="/analyse">
             <ChoiceTa7lil />
           </Route>
-          <Route path="/create/soura">
-            <div className="h-screen">
-              <AnalysePoem />
-            </div>
-          </Route>
+
           <Route path="/analyseFull">
             <div className="h-screen pt-20">
               <AnalysePoemFull />
+            </div>
+          </Route>
+
+          <Route path="/create/soura">
+            <div className="h-screen">
+              <AnalysePoem />
             </div>
           </Route>
           <Route path="/create/ikmalKalima">
@@ -50,12 +57,27 @@ function App() {
           <Route path="/create/waznRawi">
             <WaznAndRawi />
           </Route>
-          <Route path="/analyse/ba7rDounTachkil">
-            <Ba7rDounTachkil />
-          </Route>
+
           <Route path="/analyse/tachkil">
             <AddTachkil />
           </Route>
+          <Route path="/analyse/kitaba3arodya">
+            <Aroud />
+          </Route>
+          <Route path="/analyse/ta9ti3">
+            <Ta9ti3 />
+          </Route>
+          <Route path="/analyse/taf3ilat">
+            <Taf3ilat />
+          </Route>
+          <Route path="/analyse/ba7rDounTachkil">
+            <Ba7r />
+          </Route>
+
+          <Route path="/analyse/bahrsans">
+            <Ba7rDounTachkil />
+          </Route>
+
           <Route path="/test">
             <Analyse />
           </Route>
