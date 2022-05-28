@@ -4,14 +4,8 @@ import InputResult from "./InputResult";
 import OutputResult from "./OutputResult";
 import TableArray from "./Table";
 import Tachkil, { postFix, preFix } from "./Tachkil";
-const choices = [
-  "bahrDL",
-  "tachkil",
-  "kitaba 3arodiya",
-  "ta9ti3",
-  "taf3ilat",
-  "bahr",
-];
+
+
 export default function Analyse({ activate }) {
   const [data, setData] = useState({});
   const [index,setIndex]=useState(0)

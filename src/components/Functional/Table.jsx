@@ -1,4 +1,24 @@
+
+
+const awzan = {
+  الطويل: "tawiil",
+  المديد: "madiid",
+  البسيط: "basiit",
+  الوافر: "wafir",
+  الكامل: "kaamil",
+  الهزج: "hazj",
+  الرجز: "rajz",
+  الرمل: "raml",
+  السريع: "sariie",
+  المنسرح: "munsarih",
+  الخفيف: "khafiif",
+  المجتث: "mujdath",
+  المتقارب: "mutaqaarib",
+  المتدارك: "mutadaarik",
+};
 export default function TableArray({ aroud, harakat, tafil, meter, ratio }) {
+
+
   const className = "border border-black p-2";
   const Aroud = aroud.map((a) => <td className={className}>{a}</td>);
   const Harakat = harakat.map((a) => <td className={className} >{a}</td>);
@@ -20,7 +40,7 @@ export default function TableArray({ aroud, harakat, tafil, meter, ratio }) {
       <tr>
         <th className={className}>meter</th>
         <td className={className} colSpan={aroud.length}>
-          {meter}
+          {Object.keys(awzan).find((key) => awzan[key] === meter)}
         </td>
       </tr>
       <tr>
