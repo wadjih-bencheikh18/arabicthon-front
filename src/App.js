@@ -36,16 +36,16 @@ function App() {
           <Route exact path="/analyse">
             <ChoiceTa7lil />
           </Route>
+
           <Route path="/analyseFull">
             <div className="min-h-screen pt-20">
               <AnalysePoemFull />
             </div>
           </Route>
 
+          {/* ta2lif */}
           <Route path="/create/soura">
-            <div className="min-h-screen">
-              <AnalysePoem />
-            </div>
+            <AnalysePoem />
           </Route>
           <Route path="/create/ikmalKalima">
             <LastWord />
@@ -57,6 +57,7 @@ function App() {
             <WaznAndRawi />
           </Route>
 
+          {/* ta7lil */}
           <Route path="/analyse/tachkil">
             <AddTachkil />
           </Route>
