@@ -65,7 +65,7 @@ export default function GenImage() {
             </section>
           </div>
           <InputResult
-            maxWeight={12}
+            maxWidth={12}
             minHeight={1}
             init="5"
             button

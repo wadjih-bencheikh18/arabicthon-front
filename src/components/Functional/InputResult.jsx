@@ -4,11 +4,11 @@ import { useState } from "react";
 export default function InputResult({
   setValue,
   className,
-  placeHolder = "شعر",
+  placeHolder,
   title = "شعر",
   init = "",
-  minWeight = "40",
-  maxWeight = "100",
+  maxWidth = "40",
+  minWidth = "100",
   minHeight = "3",
   maxHeight = "50",
   button = false,
@@ -19,8 +19,8 @@ export default function InputResult({
       <textarea
         className={`${className} resize-none outline-none py-3 px-3 text-center rounded-md`}
         cols={Math.min(
-          Math.max(...input.split("\n").map((s) => s.length), minWeight),
-          maxWeight
+          Math.max(...input.split("\n").map((s) => s.length), minWidth),
+          maxWidth
         )}
         rows={Math.min(
           Math.max(input.split("\n").length, minHeight),
