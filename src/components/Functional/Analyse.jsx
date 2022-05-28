@@ -11,6 +11,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import BahrDl from "./BahrDL";
 
 export default function Analyse({ activate = [1, 2, 3, 4] }) {
   const [data, setData] = useState({});
@@ -34,6 +35,11 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
         });
     }
   }, [activate, data.tachkil]);
+  const swiper =
+    activate.includes(1) ||
+    activate.includes(2) ||
+    activate.includes(4) ||
+    activate.includes(3);
   return (
     <div className="bg-[#E4D3C1] pt-16 flex flex-col items-center">
       <InputResult
@@ -58,9 +64,10 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
         title="الشعر"
         button
       />
-      {activate.length === 1 && activate.includes(0) && data.tachkil && (
+      {!swiper && activate.includes(0) && data.tachkil && (
         <OutputResult value={data.tachkil} title="التشكيل" />
       )}
+      {data.input && activate.includes(5) && <BahrDl input={data.input} />}
       {data.tachkil && activate.includes(0) && activate.length !== 1 && (
         <Tachkil
           init={data.tachkil}
@@ -85,7 +92,7 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
           }}
         />
       )}
-      {data.result && (
+      {data.result && swiper && (
         <div className="relative w-[500px]">
           <Swiper
             pagination={{
