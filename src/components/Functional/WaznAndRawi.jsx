@@ -39,9 +39,9 @@ export default function WaznAndRawi() {
             setValue={(lines) => {
               axios
                 .post(
-                  "https://c866-105-235-129-52.eu.ngrok.io/poemGeneration",
+                  "https://c866-105-235-129-52.eu.ngrok.io/poemGenerationWazn",
                   {
-                    params: {lines,rhyme:data.rhyme,meter:data.meter},
+                    params: { lines, rhyme: data.rhyme, meter: data.meter },
                   }
                 )
                 .then((response) => {
