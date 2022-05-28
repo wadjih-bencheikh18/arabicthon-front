@@ -1,16 +1,21 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import InputResult from "./InputResult";
-import OutputResult from "./OutputResult";
 import TableArray from "./Table";
 import Tachkil, { postFix, preFix } from "./Tachkil";
 
+import { Pagination, Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 export default function Analyse({ activate }) {
   const [data, setData] = useState({});
-  const [index, setIndex] = useState(0);
 
   return (
-    <div className="bg-[#E4D3C1] py-20 flex flex-col items-center">
+    <div className="h-screen bg-[#E4D3C1] pt-16 flex flex-col items-center">
       <InputResult
         setValue={(input) => {
           if (input) {
@@ -60,14 +65,23 @@ export default function Analyse({ activate }) {
           }}
         />
       )}
-      {data.tachkil && <OutputResult value={data.tachkil} title="" />}
-      {/*  meter (str): kaamil
-        aroud: ['كَمْلَيْلَتِنْ', 'عَانَقْتُفِي', 'هَاغَادَتَنْ']
-        tafil: ['مُتْفَاعِلُنْ', 'مُتْفَاعِلُنْ', 'مُتْفَاعِلُنْ']
-        tachkil: كَمْ لَيْلَةٍ عَانَقْتُ فِيهَا غَادَةً
-        harakat: ['|O|O||O', '|O|O||O', '|O|O||O']
-        ratio: 0.6767676767 */}
-      {data.result && data.result.map((r) => <TableArray {...r} />)}
+      <div className="relative w-3/5">
+        <Swiper
+          pagination={{
+            type: "fraction",
+          }}
+          navigation={true}
+          modules={[Pagination, Navigation]}
+          className="mySwiper"
+        >
+          {data.result &&
+            data.result.map((r) => (
+              <SwiperSlide className="flex justify-center mb-10 text-black">
+                <TableArray {...r} />
+              </SwiperSlide>
+            ))}
+        </Swiper>
+      </div>
     </div>
   );
 }

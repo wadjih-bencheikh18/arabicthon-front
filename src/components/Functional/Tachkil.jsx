@@ -226,7 +226,10 @@ export default function Tachkil({ init = "", setValue }) {
         الذي تريد تغيير تشكيله
       </div>
       <div className="relative mx-auto">
-        <div className="border-[#A58453] rounded-md py-3 text-center text-2xl bg-[#FBFAF8] border-2 ">
+        <div
+          style={{ direction: "rtl" }}
+          className="  border-[#A58453] py-3 rounded-md text-center text-2xl bg-[#FBFAF8] border-2 "
+        >
           {stringCol}
         </div>
         <h3 className="absolute text-xl -top-2 -right-24 pt-6 text-[#A58453]">
