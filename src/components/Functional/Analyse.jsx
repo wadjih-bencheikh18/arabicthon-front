@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InputResult from "./InputResult";
 import TableArray from "./Table";
 import Tachkil, { postFix, preFix } from "./Tachkil";
@@ -12,15 +12,35 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-export default function Analyse({ activate=5 }) {
+export default function Analyse({ activate=[1,2,3,4] }) {
   const [data, setData] = useState({});
-
+  useEffect(() => {if(data.tachkil&&
+        !activate.includes(0) &&
+        activate.length >0 ){
+            axios
+              .post("https://c866-105-235-129-52.eu.ngrok.io/ultimateAroud", {
+                params: {
+                  text: postFix(data.tachkil),
+                },
+              })
+              .then((response) => {
+                let result = response.data;
+                result = Object.keys(result).map(function (key) {
+                  return result[key];
+                });
+                setData((data) => ({ ...data, result }));
+              })
+              .catch((error) => {
+                alert(error);
+              });
+          }
+        }, [activate, data.tachkil]);
   return (
-    <div className="h-screen bg-[#E4D3C1] pt-16 flex flex-col items-center">
+    <div className="bg-[#E4D3C1] pt-16 flex flex-col items-center">
       <InputResult
         setValue={(input) => {
+          setData((data) => ({ ...data, input }));
           if (input) {
-            alert("test");
             axios
               .post("https://c866-105-235-129-52.eu.ngrok.io/tachkil", {
                 params: {
@@ -28,9 +48,8 @@ export default function Analyse({ activate=5 }) {
                 },
               })
               .then((response) => {
-                const input = response.data;
-                alert(input);
-                setData((data) => ({ ...data, input }));
+                const tachkil = response.data.trim();
+                setData((data) => ({ ...data, tachkil }));
               })
               .catch((error) => {
                 alert(error);
@@ -40,19 +59,18 @@ export default function Analyse({ activate=5 }) {
         title="الشعر"
         button
       />
-      {activate === 1 && data.input && (
-        <OutputResult value={data.input} title="التشكيل" />
+      {activate.length === 1 && activate.includes(0) && data.tachkil && (
+        <OutputResult value={data.tachkil} title="التشكيل" />
       )}
-      {data.input && activate > 1 && (
+      {data.tachkil && activate.includes(0) && activate.length !== 1 && (
         <Tachkil
-          init={data.input}
-          setValue={(tachkil) => {
-            alert(tachkil);
-            setData((data) => ({ ...data, tachkil }));
+          init={data.tachkil}
+          setValue={(tachkilFixed) => {
+            setData((data) => ({ ...data, tachkilFixed }));
             axios
               .post("https://c866-105-235-129-52.eu.ngrok.io/ultimateAroud", {
                 params: {
-                  text: postFix(tachkil),
+                  text: postFix(tachkilFixed),
                 },
               })
               .then((response) => {
@@ -60,7 +78,6 @@ export default function Analyse({ activate=5 }) {
                 result = Object.keys(result).map(function (key) {
                   return result[key];
                 });
-                console.log(result);
                 setData((data) => ({ ...data, result }));
               })
               .catch((error) => {
@@ -69,23 +86,24 @@ export default function Analyse({ activate=5 }) {
           }}
         />
       )}
-      <div className="relative w-3/5">
-        <Swiper
-          pagination={{
-            type: "fraction",
-          }}
-          navigation={true}
-          modules={[Pagination, Navigation]}
-          className="mySwiper"
-        >
-          {data.result &&
-            data.result.map((r) => (
+      {data.result && (
+        <div className="relative ">
+          <Swiper
+            pagination={{
+              type: "fraction",
+            }}
+            navigation={true}
+            modules={[Pagination, Navigation]}
+            className="mySwiper"
+          >
+            {data.result.map((r) => (
               <SwiperSlide className="flex justify-center mb-10 text-black">
                 <TableArray {...r} activate={activate} />
               </SwiperSlide>
             ))}
-        </Swiper>
-      </div>
+          </Swiper>
+        </div>
+      )}
     </div>
   );
 }

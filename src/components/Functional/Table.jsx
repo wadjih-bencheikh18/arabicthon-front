@@ -21,25 +21,25 @@ export default function TableArray({ aroud, harakat, tafil, meter, ratio ,activa
   const Tafil = tafil.map((a) => <td className={className}>{a}</td>);
   return (
     <table className="mt-6" style={{ direction: "rtl" }}>
-      {activate > 2 && (
+      {activate.includes(1) && (
         <tr>
           <th className={`text-[#A58453] ${className}`}>عروض</th>
           {Aroud}
         </tr>
       )}
-      {activate > 3&& (
+      {activate.includes(2) && (
         <tr>
           <th className={`text-[#A58453] ${className}`}>حركات</th>
           {Harakat}
         </tr>
       )}
-      {activate > 4 && (
+      {activate.includes(3) && (
         <tr>
           <th className={`text-[#A58453] ${className}`}>تفعيل</th>
           {Tafil}
         </tr>
       )}
-      {activate > 2 && (
+      {activate.includes(4) && (
         <tr>
           <th className={`text-[#A58453] ${className}`}>بحر</th>
           <td className={className} colSpan={aroud.length}>
@@ -47,7 +47,7 @@ export default function TableArray({ aroud, harakat, tafil, meter, ratio ,activa
           </td>
         </tr>
       )}
-      {activate > 4 && (
+      {activate.includes(4) && (
         <tr>
           <th className={`text-[#A58453] ${className}`}>دقّة</th>
           <td className={className} colSpan={aroud.length}>
