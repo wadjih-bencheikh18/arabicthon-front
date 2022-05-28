@@ -17,7 +17,7 @@ export default function InputResult({
   return (
     <div className="flex relative flex-row-reverse items-end mt-5">
       <textarea
-        className={`${className} resize-none outline-none py-3 px-3 text-center rounded-md`}
+        className={`resize-none outline-none py-3 px-3 text-right rounded-md ${className}`}
         cols={Math.min(
           Math.max(...input.split("\n").map((s) => s.length), minWidth),
           maxWidth
