@@ -11,6 +11,7 @@ import LastWord from "./components/Functional/LastWord";
 import Analyse from "./components/Functional/Analyse";
 import Subject from "./components/Functional/Subject";
 import WaznAndRawi from "./components/Functional/WaznAndRawi";
+import Ba7rDounTachkil from "./components/Functional/Ba7rDounTachkil";
 function App() {
   return (
     <Router>
@@ -47,6 +48,9 @@ function App() {
           </Route>
           <Route path="/create/waznRawi">
             <WaznAndRawi />
+          </Route>
+          <Route path="/analyse/ba7rDounTachkil">
+            <Ba7rDounTachkil />
           </Route>
           <Route path="/test">
             <div className="h-screen">
