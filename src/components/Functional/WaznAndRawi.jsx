@@ -1,7 +1,10 @@
 import OutputResult from "./OutputResult";
 import InputResult from "./InputResult";
+import { useState } from "react";
+import axios from "axios";
 
 export default function WaznAndRawi() {
+  const [data,setData]=useState({})
   return (
     <div className="h-screen flex flex-col justify-center">
       <div className="text-right mb-0 mr-64 text-3xl pb-6 text-[#A58453]">
@@ -14,12 +17,14 @@ export default function WaznAndRawi() {
             maxHeight={1}
             title="الوزن"
             className="overflow-hidden"
+            setUpdate={(meter) => setData((data) => ({ ...data, meter }))}
           />
           <InputResult
             minWidth={12}
             maxHeight={1}
             title="حرف الروي"
             className="overflow-hidden"
+            setUpdate={(rhyme) => setData((data) => ({ ...data, rhyme }))}
           />
           <InputResult
             maxWidth={12}
@@ -28,14 +33,33 @@ export default function WaznAndRawi() {
             button
             title="عدد الأبيات"
             className="overflow-hidden"
+            setUpdate={(lines) =>
+              setData((data) => ({ ...data, lines: Number(lines) }))
+            }
+            setValue={(lines) => {
+              axios
+                .post(
+                  "https://c866-105-235-129-52.eu.ngrok.io/poemGeneration",
+                  {
+                    params: {lines,rhyme:data.rhyme,meter:data.meter},
+                  }
+                )
+                .then((response) => {
+                  let result = response.data;
+                  setData((data) => ({ ...data, result }));
+                })
+                .catch((error) => {
+                  alert(error);
+                });
+            }}
           />
         </div>
         <OutputResult
-          value=""
           minHeight={15}
           maxWidth={75}
           className="text-right"
           title="الشعر"
+          value={data.result}
         />
       </div>
     </div>
