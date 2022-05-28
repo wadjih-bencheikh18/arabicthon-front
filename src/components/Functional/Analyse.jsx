@@ -5,13 +5,12 @@ import OutputResult from "./OutputResult";
 import TableArray from "./Table";
 import Tachkil, { postFix, preFix } from "./Tachkil";
 
-
 export default function Analyse({ activate }) {
   const [data, setData] = useState({});
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="h-screen mt-10  flex flex-col items-center">
+    <div className="bg-[#E4D3C1] my-10 flex flex-col items-center">
       <InputResult
         setValue={(input) => {
           if (input) {
@@ -32,6 +31,7 @@ export default function Analyse({ activate }) {
               });
           }
         }}
+        title="الشعر"
         button
       />
       {data.input && (
@@ -60,7 +60,7 @@ export default function Analyse({ activate }) {
           }}
         />
       )}
-      {data.tachkil && <OutputResult value={data.tachkil} />}
+      {data.tachkil && <OutputResult value={data.tachkil} title="التشكيل" />}
       {/*  meter (str): kaamil
         aroud: ['كَمْلَيْلَتِنْ', 'عَانَقْتُفِي', 'هَاغَادَتَنْ']
         tafil: ['مُتْفَاعِلُنْ', 'مُتْفَاعِلُنْ', 'مُتْفَاعِلُنْ']
