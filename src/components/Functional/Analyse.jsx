@@ -2,7 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import InputResult from "./InputResult";
 import OutputResult from "./OutputResult";
-import Tachkil from "./Tachkil";
+import TableArray from "./Table";
+import Tachkil, { postFix, preFix } from "./Tachkil";
 const choices = [
   "bahrDL",
   "tachkil",
@@ -24,11 +25,12 @@ export default function Analyse({ activate }) {
             axios
               .post("http://127.0.0.1:5000/tachkil", {
                 params: {
-                  text: input,
+                  text: postFix(preFix(input)),
                 },
               })
               .then((response) => {
-                const input = response.data.predicted;
+                const input = response.data;
+                alert(input);
                 setData((data) => ({ ...data, input }));
               })
               .catch((error) => {
@@ -42,17 +44,21 @@ export default function Analyse({ activate }) {
         <Tachkil
           init={data.input}
           setValue={(tachkil) => {
+              alert(tachkil);
             setData((data) => ({ ...data, tachkil }));
             axios
               .post("http://127.0.0.1:5000/ultimateAroud", {
                 params: {
-                  text: tachkil,
+                  text: postFix(tachkil),
                 },
               })
               .then((response) => {
-                const output = response.data;
-                console.log(output);
-                setData((data) => ({ ...data, ...output }));
+                let result = response.data;
+                result = Object.keys(result).map(function (key) {
+                  return result[key];
+                });
+                console.log(result);
+                setData((data) => ({ ...data, result }));
               })
               .catch((error) => {
                 alert(error);
@@ -67,14 +73,7 @@ export default function Analyse({ activate }) {
         tachkil: كَمْ لَيْلَةٍ عَانَقْتُ فِيهَا غَادَةً
         harakat: ['|O|O||O', '|O|O||O', '|O|O||O']
         ratio: 0.6767676767 */}
-
-      {data.aroud && <OutputResult value={data.aroud.join("-")} />}
-
-      {data.harakat && <OutputResult value={data.harakat.join("-")} />}
-
-      {data.tafil && <OutputResult value={data.tafil.join("-")} />}
-
-      {data.meter && <OutputResult value={data.meter} />}
+      {data.result && data.result.map(r=><TableArray {...r} />)}
     </div>
   );
 }

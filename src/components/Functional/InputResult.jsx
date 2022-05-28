@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function InputResult({
   setValue,
   className,
-  placeHolder,
+  placeholder,
   title = "شعر",
   init = "",
   minWidth = "40",
@@ -27,7 +27,7 @@ export default function InputResult({
           maxHeight
         )}
         value={input}
-        placeHolder={placeHolder}
+        placeholder={placeholder}
         onChange={({ target }) => setInput(target.value)}
         style={{ direction: "rtl" }}
       ></textarea>

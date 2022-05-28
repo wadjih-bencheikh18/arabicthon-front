@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo, useCallback, useEffect } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import { BackspaceIcon } from "@heroicons/react/solid";
 const letters = [
   "\u064E",
@@ -9,14 +9,14 @@ const letters = [
   "\u064D",
   "\u0652",
 ];
-// function postFix(result) {
-//   return result.split(/\n|[*]/);
-// }
+export function postFix(result) {
+  return result.split(/\n|[*]/);
+}
 function setCharAt(str, index, chr) {
   if (index > str.length - 1) return str;
   return str.slice(0, index) + chr + str.slice(index + 1);
 }
-function preFix(init) {
+export function preFix(init) {
   init = init
     .trim()
     .split(/ +/)
@@ -50,8 +50,7 @@ export default function Tachkil({ init = "", setValue }) {
   useEffect(() => {
     setInput(({ start }) => ({ start, value: preFix(init) }));
   }, [init]);
-  const inputRef = useRef(null);
-  function setStart(select) {
+  const setStart=useCallback((select) =>{
     if (select) {
       let start = 0;
       if (
@@ -68,7 +67,7 @@ export default function Tachkil({ init = "", setValue }) {
       }
       setInput((input) => ({ ...input, start }));
     }
-  }
+  },[getLetterPos, input.value])
 
   function updateValue(letter) {
     if (letter !== chada) {
@@ -124,7 +123,13 @@ export default function Tachkil({ init = "", setValue }) {
       if (input.value[i] === "\n") str.push(<br key={i} />);
       else if (i === getLetterPos(input.start) - 1) {
         str.push(
-          <span key={i} className="bg-green-100 text-green-600">
+          <span
+            onClick={() => {
+              setStart(i+1);
+            }}
+            key={i}
+            className="bg-green-100 text-green-600 cursor-pointer"
+          >
             {input.value[i]}
           </span>
         );
@@ -135,14 +140,30 @@ export default function Tachkil({ init = "", setValue }) {
           input.value[i + 1] === undefined)
       ) {
         str.push(
-          <span key={i} className=" text-red-600">
+          <span
+            onClick={() => {
+              setStart(i + 1);
+            }}
+            key={i}
+            className=" text-red-600 cursor-pointer"
+          >
             {input.value[i]}
           </span>
         );
-      } else str.push(<span key={i}>{input.value[i]}</span>);
+      } else str.push(
+        <span
+          onClick={() => {
+            setStart(i + 1);
+          }}
+          key={i}
+          className="cursor-pointer"
+        >
+          {input.value[i]}
+        </span>
+      );
     }
     return str;
-  }, [getLetterPos, input.start, input.value]);
+  }, [getLetterPos, input.start, input.value, setStart]);
   const createButtons = cLetters.map((letter, i) => (
     <button
       key={i}
@@ -196,25 +217,10 @@ export default function Tachkil({ init = "", setValue }) {
         deleteChar(key);
       }}
     >
-      <div className="relative  w-[400px] mx-auto">
-        <div className=" z-10 border-red-600 text-center text-2xl bg-white right-0 absolute bottom-0 left-0 top-0 border-2 ">
+      <div className="relative mx-auto">
+        <div className="  border-red-600 text-center text-2xl bg-white border-2 ">
           {stringCol}
         </div>
-        <textarea
-          cols={Math.max(...input.value.split("\n").map((s) => s.length))}
-          rows={input.value.split("\n").length}
-          spellCheck="false"
-          style={{ direction: "rtl" }}
-          className=" overflow-hidden  border-transparent outline-none text-2xl text-center cursor-pointer resize-none border-2 z-20 relative caret-transparent bg-transparent text-[rgba(0,0,0,0.2)]  w-[400px] "
-          ref={inputRef}
-          onClick={({ target }) => {
-            setStart(target.selectionStart);
-          }}
-          value={input.value}
-          onChange={() => {
-            alert(init);
-          }}
-        />
         <h3 className=" absolute text-xl -top-2 -right-24 pt-2 font-bold">
           التشكيل
         </h3>
