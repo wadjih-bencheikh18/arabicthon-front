@@ -1,5 +1,5 @@
 import { ChevronDoubleLeftIcon } from "@heroicons/react/solid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function InputResult({
   setValue,
@@ -15,6 +15,9 @@ export default function InputResult({
   setUpdate,
 }) {
   const [input, setInput] = useState(init);
+  useEffect(()=>{
+    setUpdate && setUpdate(init);
+  },[])
   return (
     <div className="flex relative flex-row-reverse items-end mt-5">
       <textarea
@@ -31,7 +34,7 @@ export default function InputResult({
         placeholder={placeholder}
         onChange={({ target }) => {
           setInput(target.value);
-          setUpdate(target.value);
+          setUpdate && setUpdate(target.value);
         }}
         style={{ direction: "rtl" }}
       ></textarea>

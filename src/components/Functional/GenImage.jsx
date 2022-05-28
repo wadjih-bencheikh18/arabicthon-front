@@ -4,12 +4,14 @@ import { useState, useCallback } from "react";
 import OutputResult from "./OutputResult";
 import { useDropzone } from "react-dropzone";
 import InputResult from "./InputResult";
+import axios from "axios";
 export default function GenImage() {
-  const [image, setImage] = useState(undefined);
+  const [data, setData] = useState({undefined});
+  
   const onDrop = useCallback((files) => {
     files.forEach((file) => {
       if (file.type.startsWith("image")) {
-        setImage(URL.createObjectURL(file));
+        setData((data)=>({...data,image:URL.createObjectURL(file)}));
       }
     });
   }, []);
@@ -25,7 +27,7 @@ export default function GenImage() {
       <div className="grid w-screen grid-cols-2 grid-rows-1 items-center mx-auto">
         <div className="col-start-1 justify-self-center ml-44">
           <OutputResult
-            value=""
+            value={data.result}
             minHeight={15}
             maxWidth={75}
             className="text-right"
@@ -38,11 +40,11 @@ export default function GenImage() {
               <div {...getRootProps()}>
                 <input {...getInputProps()} />
                 <div className="relative">
-                  {image ? (
+                  {data.image ? (
                     <img
                       className="rounded-lg max-h-80"
                       alt="input"
-                      src={image}
+                      src={data.image}
                     />
                   ) : (
                     <div className="p-10 h-64 w-72 text-[#A58453] font-light rounded-3xl border-2 border-[#A58453] flex flex-col justify-center">
@@ -71,6 +73,25 @@ export default function GenImage() {
             button
             title="عدد الأبيات"
             className="overflow-hidden"
+            setUpdate={(lines) =>
+              setData((data) => ({ ...data, lines: Number(lines) }))
+            }
+            setValue={(lines) => {
+              axios
+                .post("https://c866-105-235-129-52.eu.ngrok.io//caption", {
+                  params: {
+                    lines,
+                    image: data.image,
+                  },
+                })
+                .then((response) => {
+                  let result = response.data;
+                  setData((data) => ({ ...data, result }));
+                })
+                .catch((error) => {
+                  alert(error);
+                });
+            }}
           />
         </div>
       </div>
