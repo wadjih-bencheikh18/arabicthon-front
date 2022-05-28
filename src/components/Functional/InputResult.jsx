@@ -8,8 +8,9 @@ export default function InputResult({
   title = "شعر",
   init = "",
   minWeight = "40",
-  maxWeight="100",
+  maxWeight = "100",
   minHeight = "3",
+  maxHeight = "50",
   button = false,
 }) {
   const [input, setInput] = useState(init);
@@ -21,7 +22,7 @@ export default function InputResult({
           Math.max(...input.split("\n").map((s) => s.length), minWeight),
           maxWeight
         )}
-        rows={Math.max(input.split("\n").length, minHeight)}
+        rows={Math.min(Math.max(input.split("\n").length, minHeight), maxHeight)}
         value={input}
         placeHolder={placeHolder}
         onChange={({ target }) => setInput(target.value)}
