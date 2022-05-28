@@ -54,14 +54,14 @@ export default function TableArray({
           </td>
         </tr>
       )}
-      {activate.includes(4) && (
+      {/* {activate.includes(4) && (
         <tr>
           <th className={`text-[#A58453] ${className}`}>دقّة</th>
           <td className={className} colSpan={aroud.length}>
             {Math.round(ratio * 100)}%
           </td>
         </tr>
-      )}
+      )} */}
     </table>
   );
 }

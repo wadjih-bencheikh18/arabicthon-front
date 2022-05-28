@@ -16,7 +16,7 @@ import AddTachkil from "./components/Functional/AddTachkil";
 function App() {
   return (
     <Router>
-      <div className="App bg-[#E4D3C1] h-screen text-right">
+      <div className="App bg-[#E4D3C1] text-right">
         <Navbar />
         <Switch>
           <Route exact path="/">
@@ -32,12 +32,12 @@ function App() {
             <ChoiceTa7lil />
           </Route>
           <Route path="/create/soura">
-            <div className="h-screen">
+            <div className="min-h-screen">
               <AnalysePoem />
             </div>
           </Route>
           <Route path="/analyseFull">
-            <div className="h-screen pt-20">
+            <div className="min-h-screen pt-20">
               <AnalysePoemFull />
             </div>
           </Route>

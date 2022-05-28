@@ -75,7 +75,7 @@ export default function Analyse({ activate=[1,2,3,4] }) {
               })
               .then((response) => {
                 let result = response.data;
-                result = Object.keys(result).map(function (key) {
+                result = Object.keys(result).map( (key) =>{
                   return result[key];
                 });
                 setData((data) => ({ ...data, result }));
@@ -87,7 +87,7 @@ export default function Analyse({ activate=[1,2,3,4] }) {
         />
       )}
       {data.result && (
-        <div className="relative ">
+        <div className="relative w-[500px]">
           <Swiper
             pagination={{
               type: "fraction",
