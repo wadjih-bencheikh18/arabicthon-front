@@ -4,6 +4,7 @@ import InputResult from "./InputResult";
 import TableArray from "./Table";
 import Tachkil, { postFix, preFix } from "./Tachkil";
 
+import OutputResult from "./OutputResult";
 import { Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -11,7 +12,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-export default function Analyse({ activate }) {
+export default function Analyse({ activate=5 }) {
   const [data, setData] = useState({});
 
   return (
@@ -39,7 +40,10 @@ export default function Analyse({ activate }) {
         title="الشعر"
         button
       />
-      {data.input && (
+      {activate === 1 && data.input && (
+        <OutputResult value={data.input} title="التشكيل" />
+      )}
+      {data.input && activate > 1 && (
         <Tachkil
           init={data.input}
           setValue={(tachkil) => {
@@ -77,7 +81,7 @@ export default function Analyse({ activate }) {
           {data.result &&
             data.result.map((r) => (
               <SwiperSlide className="flex justify-center mb-10 text-black">
-                <TableArray {...r} />
+                <TableArray {...r} activate={activate} />
               </SwiperSlide>
             ))}
         </Swiper>

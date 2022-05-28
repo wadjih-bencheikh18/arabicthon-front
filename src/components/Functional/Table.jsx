@@ -14,37 +14,47 @@ const awzan = {
   المتقارب: "mutaqaarib",
   المتدارك: "mutadaarik",
 };
-export default function TableArray({ aroud, harakat, tafil, meter, ratio }) {
+export default function TableArray({ aroud, harakat, tafil, meter, ratio ,activate}) {
   const className = "border-2 border-[#A58453] bg-[#FBFAF8] p-2";
   const Aroud = aroud.map((a) => <td className={className}>{a}</td>);
   const Harakat = harakat.map((a) => <td className={className}>{a}</td>);
   const Tafil = tafil.map((a) => <td className={className}>{a}</td>);
   return (
     <table className="mt-6" style={{ direction: "rtl" }}>
-      <tr>
-        <th className={`text-[#A58453] ${className}`}>عروض</th>
-        {Aroud}
-      </tr>
-      <tr>
-        <th className={`text-[#A58453] ${className}`}>حركات</th>
-        {Harakat}
-      </tr>
-      <tr>
-        <th className={`text-[#A58453] ${className}`}>تفعيل</th>
-        {Tafil}
-      </tr>
-      <tr>
-        <th className={`text-[#A58453] ${className}`}>بحر</th>
-        <td className={className} colSpan={aroud.length}>
-          {Object.keys(awzan).find((key) => awzan[key] === meter)}
-        </td>
-      </tr>
-      <tr>
-        <th className={`text-[#A58453] ${className}`}>دقّة</th>
-        <td className={className} colSpan={aroud.length}>
-          {ratio}
-        </td>
-      </tr>
+      {activate > 2 && (
+        <tr>
+          <th className={`text-[#A58453] ${className}`}>عروض</th>
+          {Aroud}
+        </tr>
+      )}
+      {activate > 3&& (
+        <tr>
+          <th className={`text-[#A58453] ${className}`}>حركات</th>
+          {Harakat}
+        </tr>
+      )}
+      {activate > 4 && (
+        <tr>
+          <th className={`text-[#A58453] ${className}`}>تفعيل</th>
+          {Tafil}
+        </tr>
+      )}
+      {activate > 2 && (
+        <tr>
+          <th className={`text-[#A58453] ${className}`}>بحر</th>
+          <td className={className} colSpan={aroud.length}>
+            {Object.keys(awzan).find((key) => awzan[key] === meter)}
+          </td>
+        </tr>
+      )}
+      {activate > 4 && (
+        <tr>
+          <th className={`text-[#A58453] ${className}`}>دقّة</th>
+          <td className={className} colSpan={aroud.length}>
+            {Math.round(ratio * 100)}%
+          </td>
+        </tr>
+      )}
     </table>
   );
 }
