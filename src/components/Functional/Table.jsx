@@ -14,7 +14,14 @@ const awzan = {
   المتقارب: "mutaqaarib",
   المتدارك: "mutadaarik",
 };
-export default function TableArray({ aroud, harakat, tafil, meter, ratio ,activate}) {
+export default function TableArray({
+  aroud,
+  harakat,
+  tafil,
+  meter,
+  ratio,
+  activate,
+}) {
   const className = "border-2 border-[#A58453] bg-[#FBFAF8] p-2";
   const Aroud = aroud.map((a) => <td className={className}>{a}</td>);
   const Harakat = harakat.map((a) => <td className={className}>{a}</td>);
@@ -29,7 +36,7 @@ export default function TableArray({ aroud, harakat, tafil, meter, ratio ,activa
       )}
       {activate.includes(2) && (
         <tr>
-          <th className={`text-[#A58453] ${className}`}>حركات</th>
+          <th className={`text-[#A58453] ${className}`}>تقطيع</th>
           {Harakat}
         </tr>
       )}
