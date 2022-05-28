@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function Ta2lifDropDown() {
   const [open, setOpen] = useState(false);
   const sections = [
-    { name: "وزن و حرف الروي", link: "/create/waznRawi" },
+    { name: "بحر و حرف الروي", link: "/create/ba7rRawi" },
     { name: "موضوع", link: "/create/mawdo3" },
     { name: "صورة", link: "/create/soura" },
     { name: "إكمال كلمة", link: "/create/ikmalKalima" },

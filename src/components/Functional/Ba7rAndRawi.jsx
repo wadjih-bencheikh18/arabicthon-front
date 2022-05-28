@@ -4,18 +4,18 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function WaznAndRawi() {
-  const [data,setData]=useState({})
+  const [data, setData] = useState({});
   return (
     <div className="h-screen flex flex-col justify-center">
       <div className="text-right mb-0 mr-64 text-3xl pb-6 text-[#A58453]">
-        تأليف الشعر بناء على وزن و حرف الروي
+        تأليف الشعر بناء على بحر و حرف الروي
       </div>
       <div className="flex-row-reverse flex justify-center items-center gap-x-72">
         <div className="flex flex-col space-y-8">
           <InputResult
             minWidth={50}
             maxHeight={1}
-            title="الوزن"
+            title="البحر"
             className="overflow-hidden"
             setUpdate={(meter) => setData((data) => ({ ...data, meter }))}
           />
@@ -41,7 +41,7 @@ export default function WaznAndRawi() {
                 .post(
                   "https://c866-105-235-129-52.eu.ngrok.io/poemGeneration",
                   {
-                    params: {lines,rhyme:data.rhyme,meter:data.meter},
+                    params: { lines, rhyme: data.rhyme, meter: data.meter },
                   }
                 )
                 .then((response) => {

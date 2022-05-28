@@ -27,7 +27,7 @@ export function ChoiceTa7lil() {
 
     {
       short: "التفعيلات",
-      long: "التعرف على وزن و تفعيلات شعر",
+      long: "التعرف على تفعيلات شعر",
       link: "/analyse/taf3ilat",
     },
     {

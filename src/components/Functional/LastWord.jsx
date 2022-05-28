@@ -9,7 +9,7 @@ export default function LastWord() {
   return (
     <div className="h-screen flex flex-col justify-center pb-16">
       <div className="text-right mb-14 mr-64 text-3xl text-[#A58453]">
-        إكمال آخر كلمة بيت بناء على وزن و حرف الروي
+        إكمال آخر كلمة بيت بناء على بحر و حرف الروي
       </div>
       <div className="mx-96 grid grid-cols-4 grid-rows-4 gap-y-3">
         <div className="col-span-4">
@@ -27,7 +27,7 @@ export default function LastWord() {
           <InputResult
             minWidth={50}
             maxHeight={1}
-            title="الوزن"
+            title="البحر"
             className="overflow-hidden"
           />
         </div>

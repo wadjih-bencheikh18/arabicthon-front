@@ -10,7 +10,7 @@ import { ChoiceTa7lil } from "./sections/ChoiceTa7lil";
 import LastWord from "./components/Functional/LastWord";
 import Analyse from "./components/Functional/Analyse";
 import Subject from "./components/Functional/Subject";
-import WaznAndRawi from "./components/Functional/WaznAndRawi";
+import Ba7rAndRawi from "./components/Functional/Ba7rAndRawi";
 import AddTachkil from "./components/Functional/AddTachkil";
 import Aroud from "./components/Functional/Aroud";
 import Ta9ti3 from "./components/Functional/Ta9ti3";
@@ -53,8 +53,8 @@ function App() {
           <Route path="/create/mawdo3">
             <Subject />
           </Route>
-          <Route path="/create/waznRawi">
-            <WaznAndRawi />
+          <Route path="/create/ba7rRawi">
+            <Ba7rAndRawi />
           </Route>
 
           {/* ta7lil */}
