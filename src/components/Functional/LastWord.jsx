@@ -12,10 +12,20 @@ export default function LastWord() {
           <InputResult minWidth={200} maxHeight={1} title="البيت" />
         </div>
         <div className="justify-self-start">
-          <InputResult minWidth={20} maxHeight={1} title="حرف الروي" />
+          <InputResult
+            minWidth={20}
+            maxHeight={1}
+            title="حرف الروي"
+            className="overflow-hidden"
+          />
         </div>
         <div className="col-span-2 col-start-3">
-          <InputResult minWidth={50} maxHeight={1} title="الوزن" />
+          <InputResult
+            minWidth={50}
+            maxHeight={1}
+            title="الوزن"
+            className="overflow-hidden"
+          />
         </div>
         <div className="col-span-4 row-start-4">
           <OutputResult minWidth={200} maxHeight={1} title="البيت" />
