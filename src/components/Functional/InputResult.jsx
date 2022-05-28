@@ -7,8 +7,9 @@ export default function InputResult({
   placeHolder = "شعر",
   title = "شعر",
   init = "",
-  cols = "40",
-  rows = "3",
+  minWeight = "40",
+  maxWeight="100",
+  minHeight = "3",
   button = false,
 }) {
   const [input, setInput] = useState(init);
@@ -17,10 +18,10 @@ export default function InputResult({
       <textarea
         className={`${className} overflow-hidden resize-none outline-none py-3 px-3 text-center rounded-md`}
         cols={Math.min(
-          Math.max(...input.split("\n").map((s) => s.length), cols),
-          100
+          Math.max(...input.split("\n").map((s) => s.length), minWeight),
+          maxWeight
         )}
-        rows={Math.max(input.split("\n").length, rows)}
+        rows={Math.max(input.split("\n").length, minHeight)}
         value={input}
         placeHolder={placeHolder}
         onChange={({ target }) => setInput(target.value)}

@@ -1,8 +1,9 @@
 export default function OutputResult({
   value = "",
   className,
-  cols = "40",
-  rows = "3",
+  minWidth = "40",
+  maxWidth="100",
+  minHeight = "3",
   title = "الشعر",
 }) {
   return (
@@ -11,10 +12,10 @@ export default function OutputResult({
         style={{ direction: "rtl" }}
         className={`${className} text-gray-600 resize-none py-3 px-3 bg-[#FBFAF8] text-center rounded-md p-4 `}
         cols={Math.min(
-          Math.max(...value.split("\n").map((s) => s.length), cols),
-          100
+          Math.max(...value.split("\n").map((s) => s.length), minWidth),
+          maxWidth
         )}
-        rows={Math.max(value.split("\n").length, rows)}
+        rows={Math.max(value.split("\n").length, minHeight)}
         disabled
       >
         {value}
