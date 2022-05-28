@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
 import InputResult from "./InputResult";
-import OutputResult from "./OutputResult";
 import TableArray from "./Table";
 import Tachkil, { postFix, preFix } from "./Tachkil";
 
@@ -16,7 +15,7 @@ export default function Analyse({ activate }) {
   const [data, setData] = useState({});
 
   return (
-    <div className="h-screen pt-16 flex flex-col items-center">
+    <div className="h-screen bg-[#E4D3C1] pt-16 flex flex-col items-center">
       <InputResult
         setValue={(input) => {
           if (input) {
@@ -37,6 +36,7 @@ export default function Analyse({ activate }) {
               });
           }
         }}
+        title="الشعر"
         button
       />
       {data.input && (

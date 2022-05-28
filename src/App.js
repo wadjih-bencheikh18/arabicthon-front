@@ -53,9 +53,7 @@ function App() {
             <Ba7rDounTachkil />
           </Route>
           <Route path="/test">
-            <div className="h-screen">
-              <Analyse />
-            </div>
+            <Analyse />
           </Route>
         </Switch>
       </div>
