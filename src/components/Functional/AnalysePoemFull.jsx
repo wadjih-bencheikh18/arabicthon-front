@@ -14,7 +14,7 @@ const choices = [
 export default function AnalysePoemFull() {
   const [activate, setActivate] = useState([0]);
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center min-h-screen">
       <div className="flex gap-5">
         {choices.map((c, i) => (
           <div
@@ -26,13 +26,13 @@ export default function AnalysePoemFull() {
             key={i}
             onClick={() => {
               setActivate((activate) => {
-                  if(activate.includes(i)){
-                    const res=  activate.filter(a=>a!==i)
-                    return res
-                  }else {
-                    const res = [...activate,i];
-                    return res;
-                  }
+                if (activate.includes(i)) {
+                  const res = activate.filter((a) => a !== i);
+                  return res;
+                } else {
+                  const res = [...activate, i];
+                  return res;
+                }
               });
             }}
           >

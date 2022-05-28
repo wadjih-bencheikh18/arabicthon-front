@@ -13,34 +13,33 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import BahrDl from "./BahrDL";
 
-export default function Analyse({ activate=[1,2,3,4] }) {
+export default function Analyse({ activate = [1, 2, 3, 4] }) {
   const [data, setData] = useState({});
-  useEffect(() => {if(data.tachkil&&
-        !activate.includes(0) &&
-        activate.length >0 ){
-            axios
-              .post("https://c866-105-235-129-52.eu.ngrok.io/ultimateAroud", {
-                params: {
-                  text: postFix(data.tachkil),
-                },
-              })
-              .then((response) => {
-                let result = response.data;
-                result = Object.keys(result).map(function (key) {
-                  return result[key];
-                });
-                setData((data) => ({ ...data, result }));
-              })
-              .catch((error) => {
-                alert(error);
-              });
-          }
-        }, [activate, data.tachkil]);
-        const swiper =
-          activate.includes(1) ||
-          activate.includes(2) ||
-          activate.includes(4) ||
-          activate.includes(3);
+  useEffect(() => {
+    if (data.tachkil && !activate.includes(0) && activate.length > 0) {
+      axios
+        .post("https://c866-105-235-129-52.eu.ngrok.io/ultimateAroud", {
+          params: {
+            text: postFix(data.tachkil),
+          },
+        })
+        .then((response) => {
+          let result = response.data;
+          result = Object.keys(result).map(function (key) {
+            return result[key];
+          });
+          setData((data) => ({ ...data, result }));
+        })
+        .catch((error) => {
+          alert(error);
+        });
+    }
+  }, [activate, data.tachkil]);
+  const swiper =
+    activate.includes(1) ||
+    activate.includes(2) ||
+    activate.includes(4) ||
+    activate.includes(3);
   return (
     <div className="bg-[#E4D3C1] pt-16 flex flex-col items-center">
       <InputResult

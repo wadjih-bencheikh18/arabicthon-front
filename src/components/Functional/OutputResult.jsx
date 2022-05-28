@@ -11,7 +11,7 @@ export default function OutputResult({
     <div className="flex relative items-start mt-5 gap-3">
       <textarea
         style={{ direction: "rtl" }}
-        className={`${className} text-gray-600 resize-none bg-[#FBFAF8] text-center rounded-md p-3`}
+        className={`${className} text-gray-600 resize-none bg-[#FBFAF8] text-right rounded-md p-3`}
         cols={Math.min(
           Math.max(...value.split("\n").map((s) => s.length), minWidth),
           maxWidth
