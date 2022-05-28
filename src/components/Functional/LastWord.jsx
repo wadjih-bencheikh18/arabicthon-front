@@ -9,7 +9,7 @@ export default function LastWord() {
   return (
     <div className="h-screen flex flex-col justify-center pb-16">
       <div className="text-right mb-14 mr-64 text-3xl text-[#A58453]">
-        إكمال آخر كلمة بيت بناء على وزن و حرف الروي
+        إكمال آخر كلمة بيت بناء على بحر و حرف الروي
       </div>
       <div className="mx-96 grid grid-cols-4 grid-rows-4 gap-y-3">
         <div className="col-span-4">
@@ -23,13 +23,24 @@ export default function LastWord() {
             className="overflow-hidden"
           />
         </div>
-        <div className="col-span-2 col-start-3">
-          <InputResult
-            minWidth={50}
-            maxHeight={1}
-            title="الوزن"
-            className="overflow-hidden"
-          />
+        <div className="col-span-2 col-start-3 flex flex-row-reverse justify-self-end">
+          <div className="text-xl -mr-28 ml-20 pt-2 text-[#A58453]">البحر</div>
+          <select className="rounded-lg text-right bg-[#FBFAF8] w-80 p-4">
+            <option value="tawiil">الطويل</option>
+            <option value="madiid">المديد</option>
+            <option value="basiit">البسيط</option>
+            <option value="wafir">الوافر</option>
+            <option value="kaamil">الكامل</option>
+            <option value="hazj">الهزج</option>
+            <option value="rajz">الرجز</option>
+            <option value="raml">الرمل</option>
+            <option value="sariie">السريع</option>
+            <option value="munsarih">المنسرح</option>
+            <option value="khafiif">الخفيف</option>
+            <option value="mujdath">المجتث</option>
+            <option value="mutaqaarib">المتقارب</option>
+            <option value="mutadaarik">المتدارك</option>
+          </select>
         </div>
         <button
           onClick={() => {

@@ -7,11 +7,11 @@ import Tachkil, { postFix, preFix } from "./Tachkil";
 import OutputResult from "./OutputResult";
 import { Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import BahrDl from "./BahrDL";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import BahrDl from "./BahrDL";
 
 export default function Analyse({ activate = [1, 2, 3, 4] }) {
   const [data, setData] = useState({});
