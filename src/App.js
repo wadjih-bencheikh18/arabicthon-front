@@ -12,6 +12,7 @@ import Analyse from "./components/Functional/Analyse";
 import Subject from "./components/Functional/Subject";
 import WaznAndRawi from "./components/Functional/WaznAndRawi";
 import Ba7rDounTachkil from "./components/Functional/Ba7rDounTachkil";
+import AddTachkil from "./components/Functional/AddTachkil";
 function App() {
   return (
     <Router>
@@ -51,6 +52,9 @@ function App() {
           </Route>
           <Route path="/analyse/ba7rDounTachkil">
             <Ba7rDounTachkil />
+          </Route>
+          <Route path="/analyse/tachkil">
+            <AddTachkil />
           </Route>
           <Route path="/test">
             <Analyse />
