@@ -69,7 +69,7 @@ function App() {
           <Route path="/analyse/taf3ilat">
             <Taf3ilat />
           </Route>
-          <Route path="/analyse/ba7rDounTachkil">
+          <Route path="/analyse/ba7rTachkil">
             <Ba7r />
           </Route>
 
