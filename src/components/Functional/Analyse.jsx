@@ -10,7 +10,7 @@ export default function Analyse({ activate }) {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="bg-[#E4D3C1] my-10 flex flex-col items-center">
+    <div className="bg-[#E4D3C1] py-20 flex flex-col items-center">
       <InputResult
         setValue={(input) => {
           if (input) {
@@ -60,7 +60,7 @@ export default function Analyse({ activate }) {
           }}
         />
       )}
-      {data.tachkil && <OutputResult value={data.tachkil} title="التشكيل" />}
+      {data.tachkil && <OutputResult value={data.tachkil} title="" />}
       {/*  meter (str): kaamil
         aroud: ['كَمْلَيْلَتِنْ', 'عَانَقْتُفِي', 'هَاغَادَتَنْ']
         tafil: ['مُتْفَاعِلُنْ', 'مُتْفَاعِلُنْ', 'مُتْفَاعِلُنْ']

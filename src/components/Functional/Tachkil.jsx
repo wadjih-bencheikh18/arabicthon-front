@@ -50,24 +50,27 @@ export default function Tachkil({ init = "", setValue }) {
   useEffect(() => {
     setInput(({ start }) => ({ start, value: preFix(init) }));
   }, [init]);
-  const setStart=useCallback((select) =>{
-    if (select) {
-      let start = 0;
-      if (
-        select <= 0 ||
-        input.value[select - 1] === " " ||
-        input.value[select - 1] === "\n" ||
-        input.value[select - 1] === "*"
-      )
-        start = select + 1;
-      else if (select > input.value.length) {
-        start = getLetterPos(input.value.length);
-      } else {
-        start = getLetterPos(select);
+  const setStart = useCallback(
+    (select) => {
+      if (select) {
+        let start = 0;
+        if (
+          select <= 0 ||
+          input.value[select - 1] === " " ||
+          input.value[select - 1] === "\n" ||
+          input.value[select - 1] === "*"
+        )
+          start = select + 1;
+        else if (select > input.value.length) {
+          start = getLetterPos(input.value.length);
+        } else {
+          start = getLetterPos(select);
+        }
+        setInput((input) => ({ ...input, start }));
       }
-      setInput((input) => ({ ...input, start }));
-    }
-  },[getLetterPos, input.value])
+    },
+    [getLetterPos, input.value]
+  );
 
   function updateValue(letter) {
     if (letter !== chada) {
@@ -125,7 +128,7 @@ export default function Tachkil({ init = "", setValue }) {
         str.push(
           <span
             onClick={() => {
-              setStart(i+1);
+              setStart(i + 1);
             }}
             key={i}
             className="bg-green-100 text-green-600 cursor-pointer"
@@ -145,33 +148,34 @@ export default function Tachkil({ init = "", setValue }) {
               setStart(i + 1);
             }}
             key={i}
-            className=" text-red-600 cursor-pointer"
+            className="text-red-600 cursor-pointer"
           >
             {input.value[i]}
           </span>
         );
-      } else str.push(
-        <span
-          onClick={() => {
-            setStart(i + 1);
-          }}
-          key={i}
-          className="cursor-pointer"
-        >
-          {input.value[i]}
-        </span>
-      );
+      } else
+        str.push(
+          <span
+            onClick={() => {
+              setStart(i + 1);
+            }}
+            key={i}
+            className="cursor-pointer"
+          >
+            {input.value[i]}
+          </span>
+        );
     }
     return str;
   }, [getLetterPos, input.start, input.value, setStart]);
   const createButtons = cLetters.map((letter, i) => (
     <button
       key={i}
-      className="border-black relative border-2  mx-2 w-[50px] h-[50px] text-[30px]"
+      className="border-[#A58453] rounded-sm relative border-2 mx-2 w-[50px] h-[50px] text-[30px]"
       onClick={() => updateValue(letter)}
     >
       <div>{letter}</div>
-      <div className="bg-black px-1 absolute text-white -bottom-2 -left-1 text-sm">
+      <div className="bg-[#A58453] rounded-sm px-1 absolute text-white -bottom-2 -left-1 text-sm">
         {i + 1}
       </div>
     </button>
@@ -208,7 +212,7 @@ export default function Tachkil({ init = "", setValue }) {
   }
   return (
     <div
-      className="mt-10 outline-none"
+      className="mt-20 mb-16 outline-none"
       tabIndex="0"
       onKeyDown={({ key }) => {
         if (key && ["1", "2", "3", "4", "5", "6", "7", "8"].includes(key))
@@ -218,31 +222,31 @@ export default function Tachkil({ init = "", setValue }) {
       }}
     >
       <div className="relative mx-auto">
-        <div className="  border-[#A58453] py-3 text-center text-2xl bg-white border-2 ">
+        <div className="border-[#A58453] rounded-md py-3 text-center text-2xl bg-[#FBFAF8] border-2 ">
           {stringCol}
         </div>
-        <h3 className=" absolute text-xl -top-2 -right-24 pt-6 font-bold">
+        <h3 className="absolute text-xl -top-2 -right-24 pt-6 text-[#A58453]">
           التشكيل
         </h3>
       </div>
       <div className="flex items-center justify-center mx-auto mt-10">
         {createButtons}
         <button
-          className="border-black relative border-2  mx-2 w-[50px] h-[50px]"
+          className="border-[#A58453] rounded-sm relative border-2  mx-2 w-[50px] h-[50px]"
           onClick={() => deleteChar("9")}
         >
-          <BackspaceIcon className=" absolute  top-[1%] w-15 " />
-          <div className="bg-black px-1 absolute text-white -bottom-2 -left-1 text-sm">
+          <BackspaceIcon className="absolute text-[#A58453]  top-[1%] w-15 " />
+          <div className="bg-[#A58453] px-1 absolute text-white -bottom-2 -left-1 text-sm">
             {9}
           </div>
         </button>
         <button
-          className="border-black relative border-2  mx-2 w-[50px] h-[50px]"
+          className="bg-[#A58453] border-[#A58453] rounded-sm text-white text-lg relative border-2 mx-2 w-[50px] h-[50px]"
           onClick={() => {
             setValue(input.value);
           }}
         >
-          OK
+          تم
         </button>
       </div>
     </div>
