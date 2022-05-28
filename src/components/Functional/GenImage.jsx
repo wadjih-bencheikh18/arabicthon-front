@@ -89,7 +89,7 @@ export default function GenImage() {
               
               setLoad(true);
               axios
-                .post("https://c866-105-235-129-52.eu.ngrok.io/caption", {
+                .post("https://f06f-105-235-129-47.eu.ngrok.io/caption", {
                   params: {
                     lines,
                     image: data.image,
@@ -97,13 +97,13 @@ export default function GenImage() {
                 })
                 .then((response) => {
                   let result = response.data;
-                  console.log(result)
+                  console.log(result);
                   setData((data) => ({ ...data, result }));
-              setLoad(false);
+                  setLoad(false);
                 })
                 .catch((error) => {
                   alert(error);
-              setLoad(false);
+                  setLoad(false);
                 });
             }}
           />

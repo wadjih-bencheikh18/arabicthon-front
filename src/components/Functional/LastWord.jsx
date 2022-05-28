@@ -62,7 +62,7 @@ export default function LastWord() {
           onClick={() => {
             setLoad(true);
             axios
-              .post("http://127.0.0.1:5000/lastword", {
+              .post("https://f06f-105-235-129-47.eu.ngrok.io/lastword", {
                 params: {
                   rhyme: data.rhyme,
                   meter: data.meter,

@@ -34,7 +34,7 @@ export default function Subject() {
               setLoad(true);
               axios
                 .post(
-                  "https://c866-105-235-129-52.eu.ngrok.io/poemGeneration",
+                  "https://f06f-105-235-129-47.eu.ngrok.io/poemGeneration",
                   {
                     params: {
                       lines,

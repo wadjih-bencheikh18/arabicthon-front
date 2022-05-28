@@ -8,7 +8,7 @@ export default function BahrDl({ input }) {
   useEffect(() => {
     if (input) {
       axios
-        .post("https://c866-105-235-129-52.eu.ngrok.io/meter", {
+        .post("https://f06f-105-235-129-47.eu.ngrok.io/meter", {
           params: {
             text: postFix(preFix(input)),
           },

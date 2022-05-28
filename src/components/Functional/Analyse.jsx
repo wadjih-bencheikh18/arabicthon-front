@@ -18,7 +18,7 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
   useEffect(() => {
     if (data.tachkil && !activate.includes(0) && activate.length > 0) {
       axios
-        .post("https://c866-105-235-129-52.eu.ngrok.io/ultimateAroud", {
+        .post("https://f06f-105-235-129-47.eu.ngrok.io/ultimateAroud", {
           params: {
             text: postFix(data.tachkil),
           },
@@ -47,7 +47,7 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
           setData((data) => ({ ...data, input }));
           if (input) {
             axios
-              .post("https://c866-105-235-129-52.eu.ngrok.io/tachkil", {
+              .post("https://f06f-105-235-129-47.eu.ngrok.io/tachkil", {
                 params: {
                   text: postFix(preFix(input)),
                 },
@@ -74,7 +74,7 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
           setValue={(tachkilFixed) => {
             setData((data) => ({ ...data, tachkilFixed }));
             axios
-              .post("https://c866-105-235-129-52.eu.ngrok.io/ultimateAroud", {
+              .post("https://f06f-105-235-129-47.eu.ngrok.io/ultimateAroud", {
                 params: {
                   text: postFix(tachkilFixed),
                 },
