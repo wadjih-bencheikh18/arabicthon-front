@@ -9,6 +9,7 @@ import AnalysePoemFull from "./components/Functional/AnalysePoemFull";
 import { ChoiceTa7lil } from "./sections/ChoiceTa7lil";
 import LastWord from "./components/Functional/LastWord";
 import Analyse from "./components/Functional/Analyse";
+import Subject from "./components/Functional/Subject";
 function App() {
   return (
     <Router>
@@ -38,9 +39,10 @@ function App() {
             </div>
           </Route>
           <Route path="/create/ikmalKalima">
-            <div className="h-screen">
-              <LastWord />
-            </div>
+            <LastWord />
+          </Route>
+          <Route path="/create/mawdo3">
+            <Subject />
           </Route>
           <Route path="/test">
             <div className="h-screen">
