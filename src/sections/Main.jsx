@@ -4,7 +4,7 @@ import book from "../pics/book.png";
 export function Main() {
   return (
     <div className="relative h-screen overflow-hidden">
-      <div className="hidden lg:block absolute -bottom-[400px] -right-[500px]">
+      <div className="hidden lg:block absolute -bottom-[350px] -right-[500px]">
         <img src={bg} alt="" className="relative scale-125" />
       </div>
       <div className="relative z-20">
@@ -13,7 +13,7 @@ export function Main() {
             <img
               src={book}
               alt=""
-              className="max-w-[100em] max-mr-[50em] mt-52"
+              className="max-w-[55em] max-mr-[50em] mt-52"
             />
           </div>
           {/* text */}
