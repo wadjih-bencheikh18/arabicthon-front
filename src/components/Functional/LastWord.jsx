@@ -85,26 +85,19 @@ export default function LastWord() {
         >
           <ChevronDoubleLeftIcon className="w-5 h-5" />
         </button>
-        {show ? (
-          <div className="relative">
-            {load && (
-              <img
-                className="absolute z-10 bg-transparent top-30 left-16"
-                alt="load"
-                src={Load}
-              ></img>
-            )}
-            <div className="col-span-4 row-start-4">
-              <OutputResult
-                value={data.result}
-                minWidth={200}
-                maxHeight={1}
-                title="البيت"
-              />
-            </div>
+
+        {show && !load ? (
+          <div className="col-span-4 row-start-4">
+            <OutputResult
+              value={load? "":data.result}
+              minWidth={200}
+              maxHeight={1}
+              title="البيت"
+            />
           </div>
         ) : null}
       </div>
+      {load && <img className="h-32 -mt-24" alt="load" src={Load}></img>}
     </div>
   );
 }
