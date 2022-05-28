@@ -12,6 +12,7 @@ export default function InputResult({
   minHeight = "3",
   maxHeight = "50",
   button = false,
+  setUpdate,
 }) {
   const [input, setInput] = useState(init);
   return (
@@ -28,7 +29,10 @@ export default function InputResult({
         )}
         value={input}
         placeholder={placeholder}
-        onChange={({ target }) => setInput(target.value)}
+        onChange={({ target }) => {
+          setInput(target.value);
+          setUpdate(target.value);
+        }}
         style={{ direction: "rtl" }}
       ></textarea>
       <h3 className="absolute text-xl top-0 -right-28 pt-2 text-[#A58453]">
