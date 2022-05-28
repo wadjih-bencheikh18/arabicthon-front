@@ -11,12 +11,12 @@ import LastWord from "./components/Functional/LastWord";
 import Analyse from "./components/Functional/Analyse";
 import Subject from "./components/Functional/Subject";
 import WaznAndRawi from "./components/Functional/WaznAndRawi";
-import Ba7rDounTachkil from "./components/Functional/Ba7rDounTachkil";
 import AddTachkil from "./components/Functional/AddTachkil";
 import Aroud from "./components/Functional/Aroud";
 import Ta9ti3 from "./components/Functional/Ta9ti3";
 import Ba7r from "./components/Functional/Ba7r";
 import Taf3ilat from "./components/Functional/Taf3ilat";
+import Ba7rDounTachkil from "./components/Functional/Ba7rDounTachkil";
 
 function App() {
   return (
@@ -73,8 +73,7 @@ function App() {
           <Route path="/analyse/ba7rTachkil">
             <Ba7r />
           </Route>
-
-          <Route path="/analyse/bahrsans">
+          <Route path="/analyse/ba7rDounTachkil">
             <Ba7rDounTachkil />
           </Route>
 
