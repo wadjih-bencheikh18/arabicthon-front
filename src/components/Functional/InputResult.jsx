@@ -4,11 +4,11 @@ import { useState } from "react";
 export default function InputResult({
   setValue,
   className,
-  placeHolder = "شعر",
+  placeHolder,
   title = "شعر",
   init = "",
-  minWeight = "40",
-  maxWeight = "100",
+  minWidth = "40",
+  maxWidth = "100",
   minHeight = "3",
   maxHeight = "50",
   button = false,
@@ -17,12 +17,15 @@ export default function InputResult({
   return (
     <div className="flex relative flex-row-reverse items-end mt-5">
       <textarea
-        className={`${className} overflow-hidden resize-none outline-none py-3 px-3 text-center rounded-md`}
+        className={`${className} resize-none outline-none py-3 px-3 text-center rounded-md`}
         cols={Math.min(
-          Math.max(...input.split("\n").map((s) => s.length), minWeight),
-          maxWeight
+          Math.max(...input.split("\n").map((s) => s.length), minWidth),
+          maxWidth
         )}
-        rows={Math.min(Math.max(input.split("\n").length, minHeight), maxHeight)}
+        rows={Math.min(
+          Math.max(input.split("\n").length, minHeight),
+          maxHeight
+        )}
         value={input}
         placeHolder={placeHolder}
         onChange={({ target }) => setInput(target.value)}
