@@ -17,34 +17,32 @@ const awzan = {
   المتدارك: "mutadaarik",
 };
 export default function TableArray({ aroud, harakat, tafil, meter, ratio }) {
-
-
-  const className = "border border-black p-2";
+  const className = "border-2 border-[#A58453] rounded-sm p-2";
   const Aroud = aroud.map((a) => <td className={className}>{a}</td>);
-  const Harakat = harakat.map((a) => <td className={className} >{a}</td>);
+  const Harakat = harakat.map((a) => <td className={className}>{a}</td>);
   const Tafil = tafil.map((a) => <td className={className}>{a}</td>);
   return (
-    <table className="border-collapse mt-5">
+    <table className="mt-5">
       <tr>
-        <th className={className}>aroud</th>
+        <th className={`text-[#A58453] ${className}`}>aroud</th>
         {Aroud}
       </tr>
       <tr>
-        <th className={className}>harakat</th>
+        <th className={`text-[#A58453] ${className}`}>harakat</th>
         {Harakat}
       </tr>
       <tr>
-        <th className={className}>tafil</th>
+        <th className={`text-[#A58453] ${className}`}>tafil</th>
         {Tafil}
       </tr>
       <tr>
-        <th className={className}>meter</th>
+        <th className={`text-[#A58453] ${className}`}>meter</th>
         <td className={className} colSpan={aroud.length}>
           {Object.keys(awzan).find((key) => awzan[key] === meter)}
         </td>
       </tr>
       <tr>
-        <th className={className}>ratio</th>
+        <th className={`text-[#A58453] ${className}`}>ratio</th>
         <td className={className} colSpan={aroud.length}>
           {ratio}
         </td>
