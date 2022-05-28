@@ -15,7 +15,7 @@ export default function Analyse({ activate }) {
   const [data, setData] = useState({});
 
   return (
-    <div className="h-screen bg-[#E4D3C1] pt-16 flex flex-col items-center">
+    <div className="bg-[#E4D3C1] pt-16 flex flex-col items-center">
       <InputResult
         setValue={(input) => {
           if (input) {

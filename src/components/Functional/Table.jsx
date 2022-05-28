@@ -26,7 +26,7 @@ export default function TableArray({ aroud, harakat, tafil, meter, ratio }) {
         {Aroud}
       </tr>
       <tr>
-        <th className={`text-[#A58453] ${className}`}>حركات</th>
+        <th className={`text-[#A58453] ${className}`}>تقطيع</th>
         {Harakat}
       </tr>
       <tr>
