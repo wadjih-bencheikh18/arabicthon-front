@@ -10,6 +10,7 @@ import { ChoiceTa7lil } from "./sections/ChoiceTa7lil";
 import LastWord from "./components/Functional/LastWord";
 import Analyse from "./components/Functional/Analyse";
 import Subject from "./components/Functional/Subject";
+import WaznAndRawi from "./components/Functional/WaznAndRawi";
 function App() {
   return (
     <Router>
@@ -43,6 +44,9 @@ function App() {
           </Route>
           <Route path="/create/mawdo3">
             <Subject />
+          </Route>
+          <Route path="/create/waznRawi">
+            <WaznAndRawi />
           </Route>
           <Route path="/test">
             <div className="h-screen">
