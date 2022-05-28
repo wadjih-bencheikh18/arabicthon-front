@@ -15,7 +15,7 @@ const awzan = {
   المتدارك: "mutadaarik",
 };
 export default function TableArray({ aroud, harakat, tafil, meter, ratio }) {
-  const className = "border-2 border-[#A58453] bg-white p-2";
+  const className = "border-2 border-[#A58453] bg-[#FBFAF8] p-2";
   const Aroud = aroud.map((a) => <td className={className}>{a}</td>);
   const Harakat = harakat.map((a) => <td className={className}>{a}</td>);
   const Tafil = tafil.map((a) => <td className={className}>{a}</td>);
