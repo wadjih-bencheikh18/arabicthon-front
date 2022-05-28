@@ -12,13 +12,27 @@ export default function WaznAndRawi() {
       </div>
       <div className="flex-row-reverse flex justify-center items-center gap-x-72">
         <div className="flex flex-col space-y-8">
-          <InputResult
-            minWidth={50}
-            maxHeight={1}
-            title="البحر"
-            className="overflow-hidden"
-            setUpdate={(meter) => setData((data) => ({ ...data, meter }))}
-          />
+          <div className="flex flex-row-reverse">
+            <div className="text-xl -mr-28 ml-20 pt-2 text-[#A58453]">
+              البحر
+            </div>
+            <select className="rounded-lg text-right bg-[#FBFAF8] w-32 p-4">
+              <option value="tawiil">الطويل</option>
+              <option value="madiid">المديد</option>
+              <option value="basiit">البسيط</option>
+              <option value="wafir">الوافر</option>
+              <option value="kaamil">الكامل</option>
+              <option value="hazj">الهزج</option>
+              <option value="rajz">الرجز</option>
+              <option value="raml">الرمل</option>
+              <option value="sariie">السريع</option>
+              <option value="munsarih">المنسرح</option>
+              <option value="khafiif">الخفيف</option>
+              <option value="mujdath">المجتث</option>
+              <option value="mutaqaarib">المتقارب</option>
+              <option value="mutadaarik">المتدارك</option>
+            </select>
+          </div>
           <InputResult
             minWidth={12}
             maxHeight={1}
