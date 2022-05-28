@@ -14,7 +14,7 @@ const choices = [
 ];
 export default function Analyse({ activate }) {
   const [data, setData] = useState({});
-  const [index,setIndex]=useState(0)
+  const [index, setIndex] = useState(0);
 
   return (
     <div className="h-screen mt-10  flex flex-col items-center">
@@ -23,7 +23,7 @@ export default function Analyse({ activate }) {
           if (input) {
             alert("test");
             axios
-              .post("http://127.0.0.1:5000/tachkil", {
+              .post("https://c866-105-235-129-52.eu.ngrok.io/tachkil", {
                 params: {
                   text: postFix(preFix(input)),
                 },
@@ -44,10 +44,10 @@ export default function Analyse({ activate }) {
         <Tachkil
           init={data.input}
           setValue={(tachkil) => {
-              alert(tachkil);
+            alert(tachkil);
             setData((data) => ({ ...data, tachkil }));
             axios
-              .post("http://127.0.0.1:5000/ultimateAroud", {
+              .post("https://c866-105-235-129-52.eu.ngrok.io/ultimateAroud", {
                 params: {
                   text: postFix(tachkil),
                 },
@@ -73,7 +73,7 @@ export default function Analyse({ activate }) {
         tachkil: كَمْ لَيْلَةٍ عَانَقْتُ فِيهَا غَادَةً
         harakat: ['|O|O||O', '|O|O||O', '|O|O||O']
         ratio: 0.6767676767 */}
-      {data.result && data.result.map(r=><TableArray {...r} />)}
+      {data.result && data.result.map((r) => <TableArray {...r} />)}
     </div>
   );
 }
