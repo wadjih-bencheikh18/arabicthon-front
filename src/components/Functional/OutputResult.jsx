@@ -19,7 +19,7 @@ export default function OutputResult({
       >
         {value}
       </textarea>
-      <h3 className="absolute text-xl -right-20 pt-2 text-[#A58453]">
+      <h3 className="absolute text-xl -right-28 pt-2 text-[#A58453]">
         {title}
       </h3>
     </div>

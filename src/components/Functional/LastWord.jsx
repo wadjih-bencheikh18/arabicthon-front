@@ -3,12 +3,23 @@ import InputResult from "./InputResult";
 
 export default function LastWord() {
   return (
-    <div className="w-screen pt-28">
-      <div className="text-right mb-8 mr-64 text-3xl text-[#A58453]">
+    <div className="h-screen flex flex-col justify-center pb-16">
+      <div className="text-right mb-14 mr-64 text-3xl text-[#A58453]">
         إكمال آخر كلمة بيت بناء على وزن و حرف الروي
       </div>
-      <div className="grid w-screen grid-cols-2 grid-rows-1 items-center mx-auto">
-        <InputResult cols={12} rows={1} init="5" button />
+      <div className="mx-96 grid grid-cols-4 grid-rows-4 gap-y-3">
+        <div className="col-span-4">
+          <InputResult cols={100} rows={1} title="البيت" />
+        </div>
+        <div className="justify-self-start">
+          <InputResult cols={20} rows={1} title="حرف الروي" />
+        </div>
+        <div className="col-span-2 col-start-3">
+          <InputResult cols={50} rows={1} title="الوزن" />
+        </div>
+        <div className="col-span-4 row-start-4">
+          <OutputResult cols={100} rows={1} title="البيت" />
+        </div>
       </div>
     </div>
   );

@@ -45,7 +45,7 @@ export default function GenImage() {
                       src={image}
                     />
                   ) : (
-                    <div className="p-10 h-64 w-72 text-[#A58453] rounded-3xl bg-[#FBFAF8] flex flex-col justify-center">
+                    <div className="p-10 h-64 w-72 text-[#A58453] font-light rounded-3xl border-2 border-[#A58453] flex flex-col justify-center">
                       {!isDragActive && (
                         <p>
                           Drag and drop the files here <br />
@@ -55,7 +55,7 @@ export default function GenImage() {
                     </div>
                   )}
                   {isDragActive && (
-                    <div className="absolute top-0 bottom-0 left-0 right-0 p-10 text-white rounded-3xl bg-[rgba(165,132,83,0.5)] flex flex-col justify-center">
+                    <div className="absolute top-0 bottom-0 left-0 right-0 p-10 text-white rounded-3xl font-light bg-[rgba(165,132,83,0.5)] flex flex-col justify-center">
                       <CloudUploadIcon className="w-20 m-auto" />
                       <p>Drop the files here</p>
                     </div>
