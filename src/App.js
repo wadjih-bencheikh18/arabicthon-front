@@ -17,6 +17,7 @@ import Ta9ti3 from "./components/Functional/Ta9ti3";
 import Ba7r from "./components/Functional/Ba7r";
 import Taf3ilat from "./components/Functional/Taf3ilat";
 import Ba7rDounTachkil from "./components/Functional/Ba7rDounTachkil";
+import { Contact } from "./sections/Contact";
 
 function App() {
   return (
@@ -77,6 +78,9 @@ function App() {
             <Ba7rDounTachkil />
           </Route>
 
+          <Route path="/contact">
+            <Contact />
+          </Route>
           <Route path="/test">
             <Analyse />
           </Route>
