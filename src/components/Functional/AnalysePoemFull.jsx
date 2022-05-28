@@ -1,8 +1,5 @@
 import { useState } from "react";
 import Analyse from "./Analyse";
-import InputResult from "./InputResult";
-import OutputResult from "./OutputResult";
-import Tachkil from "./Tachkil";
 const choices = [
   "تشكيل",
   "الكتابة العروضية",
