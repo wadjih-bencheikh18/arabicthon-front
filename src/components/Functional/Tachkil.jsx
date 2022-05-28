@@ -218,10 +218,10 @@ export default function Tachkil({ init = "", setValue }) {
       }}
     >
       <div className="relative mx-auto">
-        <div className="  border-red-600 text-center text-2xl bg-white border-2 ">
+        <div className="  border-[#A58453] py-3 text-center text-2xl bg-white border-2 ">
           {stringCol}
         </div>
-        <h3 className=" absolute text-xl -top-2 -right-24 pt-2 font-bold">
+        <h3 className=" absolute text-xl -top-2 -right-24 pt-6 font-bold">
           التشكيل
         </h3>
       </div>
