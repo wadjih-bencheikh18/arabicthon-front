@@ -5,6 +5,11 @@ export function ChoiceTa7lil() {
   const [index, setIndex] = useState(undefined);
   const functionalities = [
     {
+      short: "حسب الطلب",
+      long: "التعرف على خصائص الشعر حسب الطلب",
+      link: "/analyseFull",
+    },
+    {
       short: "البحر دون تشكيل",
       long: "التعرف على بحر شعر دون تشكيل",
       link: "/analyse/ba7rDounTachkil",

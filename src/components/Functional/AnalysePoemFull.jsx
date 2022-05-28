@@ -4,12 +4,12 @@ import InputResult from "./InputResult";
 import OutputResult from "./OutputResult";
 import Tachkil from "./Tachkil";
 const choices = [
-  "tachkil",
-  "kitaba 3arodiya",
-  "ta9ti3",
-  "taf3ilat",
-  "bahr",
-  "bahrDL",
+  "تشكيل",
+  "الكتابة العروضية",
+  "التقطيع",
+  "التفعيلات",
+  "البحر بالتشكيل",
+  "البحر دون تشكيل",
 ];
 export default function AnalysePoemFull() {
   const [activate, setActivate] = useState([0]);
