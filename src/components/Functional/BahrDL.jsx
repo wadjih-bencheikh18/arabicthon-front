@@ -20,7 +20,6 @@ export default function BahrDl({ input }) {
           result = Object.keys(result).map(function (key) {
             return result[key];
           });
-          console.log(result[0][0]);
           setResult(result);
         })
         .catch((error) => {

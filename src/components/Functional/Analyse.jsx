@@ -43,11 +43,11 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
     activate.includes(3);
   return (
     <div className="bg-[#E4D3C1] pt-16 flex flex-col w-[100%] items-center min-h-screen">
-      <div className=" grid grid-cols-2 grid-rows-1 w-full ">
-        <div className="col-start-2 row-start-1 flex flex-col mr-10 gap-5 items-center ">
+      <div className=" grid  w-full ">
+        <div className="col-start-2 row-start-1 flex flex-col mr-4 gap-5 items-end ">
           <InputResult
             className="text-center"
-            maxWidth={47}
+            maxWidth={65}
             setValue={(input) => {
               const inputClean = preFix(
                 input.split(/[_]+|[-]+|[,]+|[*]+|[;]+|[.]+|\t+/).join("*")
@@ -106,11 +106,12 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
       </div>
 
       {data.result && swiper && (
-        <div className="relative w-[500px]">
+        <div className="relative w-[800px]">
           <Swiper
             pagination={{
               type: "fraction",
             }}
+            loop
             navigation={true}
             modules={[Pagination, Navigation]}
             className="mySwiper"
