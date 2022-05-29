@@ -171,7 +171,7 @@ export default function Tachkil({ init = "", setValue }) {
   const createButtons = cLetters.map((letter, i) => (
     <button
       key={i}
-      className="border-[#A58453] rounded-sm relative border-2 mx-2 w-[50px] h-[50px] text-[30px]"
+      className="border-[#A58453] rounded-sm relative border-2 mx-2 w-[50px] h-[50px] flex flex-row-reverse text-[30px]"
       onClick={() => updateValue(letter)}
     >
       <div>{letter}</div>
@@ -240,7 +240,14 @@ export default function Tachkil({ init = "", setValue }) {
         تحذير: عدم تصحيح التشكيل قد يأثر على دقّة النتيجة
       </div>
       <div className="flex items-center justify-center mx-auto mt-10">
-        {createButtons}
+        <button
+          className="bg-[#A58453] border-[#A58453] rounded-sm text-white text-lg relative border-2 mx-2 w-[50px] h-[50px]"
+          onClick={() => {
+            setValue(input.value);
+          }}
+        >
+          تم
+        </button>
         <button
           className="border-[#A58453] rounded-sm relative border-2  mx-2 w-[50px] h-[50px]"
           onClick={() => deleteChar("9")}
@@ -250,14 +257,7 @@ export default function Tachkil({ init = "", setValue }) {
             {9}
           </div>
         </button>
-        <button
-          className="bg-[#A58453] border-[#A58453] rounded-sm text-white text-lg relative border-2 mx-2 w-[50px] h-[50px]"
-          onClick={() => {
-            setValue(input.value);
-          }}
-        >
-          تم
-        </button>
+        {createButtons}
       </div>
     </div>
   );
