@@ -5,7 +5,6 @@ import axios from "axios";
 import Load from "../../pics/load.svg";
 import BackURL from "./Backend";
 export default function Rawi() {
-
   const [data, setData] = useState({
     meter: "الكامل",
     sujet: "",
@@ -27,7 +26,7 @@ export default function Rawi() {
           />
           <InputResult
             maxWidth={12}
-            minHeight={1}
+            maxHeight={1}
             init="5"
             button
             title="عدد الأبيات"
