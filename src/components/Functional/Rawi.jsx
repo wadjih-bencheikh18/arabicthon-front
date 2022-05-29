@@ -15,7 +15,7 @@ export default function Rawi() {
       <div className="text-right mb-0 mr-64 text-3xl pb-6 text-[#A58453]">
         تأليف الشعر بناء على حرف الروي
       </div>
-      <div className="flex-row-reverse flex justify-center items-center gap-x-72">
+      <div className="flex-row-reverse flex justify-start mr-44 items-center gap-x-72">
         <div className="flex flex-col space-y-8">
           <InputResult
             minWidth={12}
