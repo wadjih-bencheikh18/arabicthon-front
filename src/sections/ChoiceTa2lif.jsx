@@ -5,9 +5,9 @@ export function ChoiceTa2lif() {
   const [index, setIndex] = useState(undefined);
   const functionalities = [
     {
-      short: "بحر و حرف الروي",
-      long: "تأليف الشعر بناء على بحر و حرف الروي",
-      link: "/ba7rRawi",
+      short: "حرف الروي",
+      long: "تأليف الشعر بناء على حرف الروي",
+      link: "/rawi",
     },
     {
       short: "موضوع",

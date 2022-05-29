@@ -4,8 +4,8 @@ import { useState } from "react";
 import axios from "axios";
 import Load from "../../pics/load.svg";
 import BackURL from "./Backend";
-export default function WaznAndRawi() {
-  const [data, setData] = useState({ meter:"الطويل",sujet:"" });
+export default function Rawi() {
+  const [data, setData] = useState({ meter: "الطويل", sujet: "" });
   const [load, setLoad] = useState(false);
   return (
     <div className="h-screen flex flex-col justify-center">
@@ -19,7 +19,9 @@ export default function WaznAndRawi() {
               البحر
             </div>
             <select
-              onChange={({target})=>{setData((data) => ({ ...data, meter:target.value }))  }}
+              onChange={({ target }) => {
+                setData((data) => ({ ...data, meter: target.value }));
+              }}
               className="rounded-lg text-right bg-[#FBFAF8] w-32 p-4"
             >
               <option value="الطويل">الطويل</option>
@@ -58,17 +60,14 @@ export default function WaznAndRawi() {
             setValue={(lines) => {
               setLoad(true);
               axios
-                .post(
-                  BackURL+"/poemGeneration",
-                  {
-                    params: {
-                      lines,
-                      rhyme: data.rhyme,
-                      meter: data.meter,
-                      sujet: data.sujet,
-                    },
-                  }
-                )
+                .post(BackURL + "/poemGeneration", {
+                  params: {
+                    lines,
+                    rhyme: data.rhyme,
+                    meter: data.meter,
+                    sujet: data.sujet,
+                  },
+                })
                 .then((response) => {
                   let result = response.data;
                   setData((data) => ({ ...data, result }));

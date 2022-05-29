@@ -10,6 +10,7 @@ export default function Ta7lilDropDown() {
     { name: "التقطيع", link: "/ta9ti3" },
     { name: "التفعيلات", link: "/taf3ilat" },
     { name: "البحر بالتشكيل", link: "/ba7rTachkil" },
+    { name: "حسب الطلب", link: "/analyseFull" },
   ];
 
   const Ta7lilLinks = sections.map((section, key) => (
@@ -34,7 +35,7 @@ export default function Ta7lilDropDown() {
       {/* Ta2lif links */}
       <nav
         className={`flex flex-col transition-all duration-1000 ease-in-out overflow-hidden items-end bg-[#FBFAF8] px-5 ${
-          open ? "h-44 transform py-4" : "h-0"
+          open ? "h-48 transform py-4" : "h-0"
         }`}
       >
         {Ta7lilLinks}
