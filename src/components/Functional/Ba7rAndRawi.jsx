@@ -3,41 +3,21 @@ import InputResult from "./InputResult";
 import { useState } from "react";
 import axios from "axios";
 import Load from "../../pics/load.svg";
-import BackURL from "./Backend";
+import BackURL,{awzan} from "./Backend";
 export default function WaznAndRawi() {
-  const [data, setData] = useState({ meter:"الطويل",sujet:"" });
+
+  const [data, setData] = useState({
+    meter: "الكامل",
+    sujet: "",
+  });
   const [load, setLoad] = useState(false);
   return (
     <div className="h-screen flex flex-col justify-center">
       <div className="text-right mb-0 mr-64 text-3xl pb-6 text-[#A58453]">
-        تأليف الشعر بناء على بحر و حرف الروي
+        تأليف الشعر بناء على حرف الروي
       </div>
       <div className="flex-row-reverse flex justify-center items-center gap-x-72">
         <div className="flex flex-col space-y-8">
-          <div className="flex flex-row-reverse">
-            <div className="text-xl -mr-28 ml-20 pt-2 text-[#A58453]">
-              البحر
-            </div>
-            <select
-              onChange={({target})=>{setData((data) => ({ ...data, meter:target.value }))  }}
-              className="rounded-lg text-right bg-[#FBFAF8] w-32 p-4"
-            >
-              <option value="الطويل">الطويل</option>
-              <option value="المديد">المديد</option>
-              <option value="البسيط">البسيط</option>
-              <option value="الوافر">الوافر</option>
-              <option value="الكامل">الكامل</option>
-              <option value="الهزج">الهزج</option>
-              <option value="الرجز">الرجز</option>
-              <option value="الرمل">الرمل</option>
-              <option value="السريع">السريع</option>
-              <option value="المنسرح">المنسرح</option>
-              <option value="الخفيف">الخفيف</option>
-              <option value="المجتث">المجتث</option>
-              <option value="المتقارب">المتقارب</option>
-              <option value="المتدارك">المتدارك</option>
-            </select>
-          </div>
           <InputResult
             minWidth={12}
             maxHeight={1}

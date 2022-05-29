@@ -3,9 +3,12 @@ import InputResult from "./InputResult";
 import { useState } from "react";
 import axios from "axios";
 import Load from "../../pics/load.svg";
-import BackURL from "./Backend";
+import BackURL, { awzan } from "./Backend";
 export default function Subject() {
-  const [data, setData] = useState({ meter: "الكامل", rhyme: "ر" });
+  const [data, setData] = useState({
+    meter: "الكامل",
+    rhyme: "ر",
+  });
   const [load, setLoad] = useState(false);
   return (
     <div className="h-screen flex flex-col justify-center">

@@ -5,7 +5,7 @@ import { ChevronDoubleLeftIcon } from "@heroicons/react/solid";
 import axios from "axios";
 import Load from "../../pics/load.svg";
 import  { postFix, preFix } from "./Tachkil";
-import BackURL from "./Backend";
+import BackURL, { awzan } from "./Backend";
 export default function LastWord() {
   const [show, setShow] = useState(false);
   const [load, setLoad] = useState(false);
