@@ -14,7 +14,11 @@ export default function GenImage() {
   const onDrop = useCallback((files) => {
     files.forEach((file) => {
       if (file.type.startsWith("image")) {
-        setData((data)=>({...data,image:URL.createObjectURL(file),file}));
+        setData((data) => ({
+          ...data,
+          image: URL.createObjectURL(file),
+          file,
+        }));
       }
     });
   }, []);
@@ -45,7 +49,7 @@ export default function GenImage() {
           />
         </div>
         <div className="col-start-2 flex flex-col items-center justify-end justify-self-center space-y-10">
-          <div className=" cursor-pointer">
+          <div className="cursor-pointer">
             <section className="container">
               <div {...getRootProps()}>
                 <input {...getInputProps()} />
@@ -94,7 +98,7 @@ export default function GenImage() {
                   params: {
                     lines,
                     image: data.image,
-                    file:data.file
+                    file: data.file,
                   },
                 })
                 .then((response) => {

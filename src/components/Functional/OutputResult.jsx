@@ -11,7 +11,7 @@ export default function OutputResult({
     <div className="flex items- justify-center mt-5 gap-3">
       <textarea
         style={{ direction: "rtl" }}
-        className={`${className} text-gray-600 resize-none text-center bg-[#FBFAF8] min-w-20  rounded-md p-3`}
+        className={`${className} text-gray-600 text-xl resize-none text-center bg-[#FBFAF8] min-w-20  rounded-md p-3`}
         cols={Math.min(
           Math.max(...value.split("\n").map((s) => s.length), minWidth),
           maxWidth
@@ -23,7 +23,7 @@ export default function OutputResult({
         disabled
         value={value}
       ></textarea>
-      <h3 className=" text-xl  pt-2 text-[#A58453]">
+      <h3 className="text-2xl pt-2 text-[#A58453]">
         {title}
       </h3>
     </div>

@@ -34,7 +34,7 @@ export default function Ta7lilDropDown() {
       </div>
       {/* Ta2lif links */}
       <nav
-        className={`flex flex-col transition-all duration-1000 ease-in-out overflow-hidden items-end bg-[#FBFAF8] px-5 ${
+        className={`font-normal flex flex-col transition-all duration-1000 ease-in-out overflow-hidden items-end bg-[#FBFAF8] px-5 ${
           open ? "h-48 transform py-4" : "h-0"
         }`}
       >
