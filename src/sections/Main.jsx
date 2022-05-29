@@ -17,14 +17,14 @@ export function Main() {
             />
           </div>
           {/* text */}
-          <div className="text-right mr-52 mb-32">
-            <div className="text-3xl mb-10 text-[#A58453]">الشاعر الآلي</div>
-            <div className="">
+          <div className="text-right mr-52 mb-20">
+            <div className="text-[46px] mb-10 text-[#A58453]">الشاعر الآلي</div>
+            <div className="text-xl">
               الشاعر الآلي موقع الكتروني لتأليف و تحليل القصائد آليا باستعمال
               الذكاء الاصطناعي بناء على مختلف خصائصه
             </div>
             <a href="/create-analyse">
-              <button className="btn rounded-md mt-16 py-3 px-6 text-white text-lg bg-[#A58453]">
+              <button className="btn rounded-md mt-16 py-3 px-6 text-white text-xl bg-[#A58453]">
                 تجريب
               </button>
             </a>
