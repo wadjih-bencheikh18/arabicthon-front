@@ -6,12 +6,12 @@ export default function OutputResult({
   minHeight = "3",
   maxHeight = "50",
   title = "الشعر",
-}) {
+}) {  
   return (
-    <div className="flex relative items-start mt-5 gap-3">
+    <div className="flex items- justify-center mt-5 gap-3">
       <textarea
         style={{ direction: "rtl" }}
-        className={`${className} text-gray-600 resize-none bg-[#FBFAF8] text-right rounded-md p-3`}
+        className={`${className} text-gray-600 resize-none text-center bg-[#FBFAF8] min-w-20  rounded-md p-3`}
         cols={Math.min(
           Math.max(...value.split("\n").map((s) => s.length), minWidth),
           maxWidth
@@ -23,7 +23,7 @@ export default function OutputResult({
         disabled
         value={value}
       ></textarea>
-      <h3 className="absolute text-xl -right-28 pt-2 text-[#A58453]">
+      <h3 className=" text-xl  pt-2 text-[#A58453]">
         {title}
       </h3>
     </div>

@@ -20,28 +20,28 @@ export default function InputResult({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
   return (
-    <div className="flex relative flex-row-reverse items-end mt-5">
-      <textarea
-        className={`resize-none outline-none text-right py-3 px-3 rounded-md ${className}`}
-        cols={Math.min(
-          Math.max(...input.split("\n").map((s) => s.length), minWidth),
-          maxWidth
-        )}
-        rows={Math.min(
-          Math.max(input.split("\n").length, minHeight),
-          maxHeight
-        )}
-        value={input}
-        placeholder={placeholder}
-        onChange={({ target }) => {
-          setInput(target.value);
-          setUpdate && setUpdate(target.value);
-        }}
-        style={{ direction: "rtl" }}
-      ></textarea>
-      <h3 className="absolute text-xl top-0 -right-28 pt-2 text-[#A58453]">
-        {title}
-      </h3>
+    <div className="flex justify-center flex-row-reverse items-end mt-5">
+      <div className="flex justify-center gap-4">
+        <textarea
+          className={`resize-none outline-none text-right py-3 px-3 rounded-md ${className}`}
+          cols={Math.min(
+            Math.max(...input.split("\n").map((s) => s.length), minWidth),
+            maxWidth
+          )}
+          rows={Math.min(
+            Math.max(input.split("\n").length, minHeight),
+            maxHeight
+          )}
+          value={input}
+          placeholder={placeholder}
+          onChange={({ target }) => {
+            setInput(target.value);
+            setUpdate && setUpdate(target.value);
+          }}
+          style={{ direction: "rtl" }}
+        ></textarea>
+        <h3 className=" text-xl pt-2 text-[#A58453]">{title}</h3>
+      </div>
       {button && (
         <button
           onClick={() => {
