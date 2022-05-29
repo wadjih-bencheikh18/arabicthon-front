@@ -23,9 +23,7 @@ export default function OutputResult({
         disabled
         value={value}
       ></textarea>
-      <h3 className="text-2xl pt-2 text-[#A58453]">
-        {title}
-      </h3>
+      <h3 className="text-2xl pt-2 text-[#A58453]">{title}</h3>
     </div>
   );
 }
