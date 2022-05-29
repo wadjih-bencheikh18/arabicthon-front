@@ -16,8 +16,8 @@ export default function BahrDl({ input }) {
         })
         .then((response) => {
           let result = response.data;
-
-          result = Object.keys(result).map(function (key) {
+          console.log(result)
+          result = Object.keys(result).map((key)=> {
             return result[key];
           });
           setResult(result);
