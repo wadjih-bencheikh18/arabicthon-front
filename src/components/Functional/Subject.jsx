@@ -1,4 +1,4 @@
-import OutputResult from "./OutputResult";
+import Chiir from "./Chiir";
 import InputResult from "./InputResult";
 import { useState } from "react";
 import axios from "axios";
@@ -7,7 +7,6 @@ import BackURL from "./Backend";
 export default function Subject() {
   const [data, setData] = useState({
     meter: "الكامل",
-    rhyme: "ر",
   });
   const [load, setLoad] = useState(false);
   return (
@@ -23,6 +22,13 @@ export default function Subject() {
             title="الموضوع"
             className="overflow-hidden"
             setUpdate={(sujet) => setData((data) => ({ ...data, sujet }))}
+          />
+          <InputResult
+            minWidth={12}
+            maxHeight={1}
+            title="حرف الروي"
+            className="overflow-hidden"
+            setUpdate={(rhyme) => setData((data) => ({ ...data, rhyme }))}
           />
           <InputResult
             maxWidth={12}
@@ -57,22 +63,9 @@ export default function Subject() {
             }}
           />
         </div>
-        <div className="relative">
-          {load && (
-            <img
-              className="absolute z-10 bg-transparent top-30 left-16"
-              alt="load"
-              src={Load}
-            ></img>
-          )}
-
-          <OutputResult
-            minHeight={15}
-            maxWidth={75}
-            className="text-right"
-            title="الشعر"
-            value={load ? "" : data.result}
-          />
+        <div className="flex justify-center">
+          {load && <img className="" alt="load" src={Load}></img>}
+          {!load && <Chiir result={data.result ? data.result : ""} />}
         </div>
       </div>
     </div>

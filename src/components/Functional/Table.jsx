@@ -28,33 +28,34 @@ export default function TableArray({
   const Tafil = tafil.map((a) => <td className={className}>{a}</td>);
   return (
     <table className="mt-6" style={{ direction: "rtl" }}>
-      {activate.includes(1) && (
-        <tr>
-          <th className={`text-[#A58453] ${className}`}>عروض</th>
-          {Aroud}
-        </tr>
-      )}
-      {activate.includes(2) && (
-        <tr>
-          <th className={`text-[#A58453] ${className}`}>تقطيع</th>
-          {Harakat}
-        </tr>
-      )}
-      {activate.includes(3) && (
-        <tr>
-          <th className={`text-[#A58453] ${className}`}>تفعيل</th>
-          {Tafil}
-        </tr>
-      )}
-      {activate.includes(4) && (
-        <tr>
-          <th className={`text-[#A58453] ${className}`}>بحر</th>
-          <td className={className} colSpan={aroud.length}>
-            {Object.keys(awzan).find((key) => awzan[key] === meter)}
-          </td>
-        </tr>
-      )}
-      {/* {activate.includes(4) && (
+      <tbody>
+        {activate.includes(1) && (
+          <tr>
+            <th className={`text-[#A58453] ${className}`}>عروض</th>
+            {Aroud}
+          </tr>
+        )}
+        {activate.includes(2) && (
+          <tr>
+            <th className={`text-[#A58453] ${className}`}>تقطيع</th>
+            {Harakat}
+          </tr>
+        )}
+        {activate.includes(3) && (
+          <tr>
+            <th className={`text-[#A58453] ${className}`}>تفعيل</th>
+            {Tafil}
+          </tr>
+        )}
+        {activate.includes(4) && (
+          <tr>
+            <th className={`text-[#A58453] ${className}`}>بحر</th>
+            <td className={className} colSpan={aroud.length}>
+              {Object.keys(awzan).find((key) => awzan[key] === meter)}
+            </td>
+          </tr>
+        )}
+        {/* {activate.includes(4) && (
         <tr>
           <th className={`text-[#A58453] ${className}`}>دقّة</th>
           <td className={className} colSpan={aroud.length}>
@@ -62,6 +63,7 @@ export default function TableArray({
           </td>
         </tr>
       )} */}
+      </tbody>
     </table>
   );
 }

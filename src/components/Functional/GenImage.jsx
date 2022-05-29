@@ -1,8 +1,7 @@
 import { CloudUploadIcon } from "@heroicons/react/outline";
-
+import Chiir from "./Chiir";
 import Load from "../../pics/load.svg";
 import { useState, useCallback } from "react";
-import OutputResult from "./OutputResult";
 import { useDropzone } from "react-dropzone";
 import InputResult from "./InputResult";
 import axios from "axios";
@@ -32,21 +31,9 @@ export default function GenImage() {
         تأليف الشعر بناء على صورة
       </div>
       <div className="grid w-screen grid-cols-2 grid-rows-1 items-center mx-auto">
-        <div className="col-start-1 relative justify-self-center ml-44">
-          {load && (
-            <img
-              className="absolute z-10 bg-transparent top-30 left-16"
-              alt="load"
-              src={Load}
-            ></img>
-          )}
-          <OutputResult
-            value={data.result}
-            minHeight={15}
-            maxWidth={75}
-            className="text-right"
-            title="الشعر"
-          />
+        <div className="col-start-1 flex justify-center w-[700px]">
+          {load && <img className="" alt="load" src={Load}></img>}
+          {!load && <Chiir result={data.result ? data.result : ""} />}
         </div>
         <div className="col-start-2 flex flex-col items-center justify-end justify-self-center space-y-10">
           <div className="cursor-pointer">

@@ -1,9 +1,9 @@
-import OutputResult from "./OutputResult";
 import InputResult from "./InputResult";
 import { useState } from "react";
 import axios from "axios";
 import Load from "../../pics/load.svg";
 import BackURL from "./Backend";
+import Chiir from "./Chiir";
 export default function Rawi() {
   const [data, setData] = useState({
     meter: "الكامل",
@@ -11,7 +11,7 @@ export default function Rawi() {
   });
   const [load, setLoad] = useState(false);
   return (
-    <div className="h-screen flex flex-col justify-center">
+    <div className="h-screen flex flex-col justify-center transform transition-all duration-1000 ease-in-out">
       <div className="text-right mb-0 mr-64 text-3xl pb-6 text-[#A58453]">
         تأليف الشعر بناء على حرف الروي
       </div>
@@ -57,21 +57,9 @@ export default function Rawi() {
             }}
           />
         </div>
-        <div className="relative">
-          {load && (
-            <img
-              className="absolute z-10 bg-transparent top-30 left-16"
-              alt="load"
-              src={Load}
-            ></img>
-          )}
-          <OutputResult
-            minHeight={15}
-            maxWidth={75}
-            className="text-right"
-            title="الشعر"
-            value={load ? "" : data.result}
-          />
+        <div className="flex justify-center">
+          {load && <img className="" alt="load" src={Load}></img>}
+          {!load && <Chiir result={data.result ? data.result : ""} />}
         </div>
       </div>
     </div>
