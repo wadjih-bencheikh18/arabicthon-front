@@ -54,8 +54,8 @@ export function ChoiceTa2lif() {
               key={key}
               className="bg-[#FBFAF8] rounded-[40px] w-60 h-56 flex flex-col justify-center items-end mr-6 mb-6 cursor-pointer"
             >
-              <div className="mr-8 mt-10">{functionality.short}</div>
-              <div className="bg-[#A58453] mt-2 w-40 h-2 rounded-l-lg"></div>
+              <div className="mr-8 mt-10 text-lg">{functionality.short}</div>
+              <div className="bg-[#A58453] mt-2 w-44 h-2 rounded-l-lg"></div>
             </div>
           ))}
         </div>

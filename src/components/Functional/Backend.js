@@ -1,4 +1,4 @@
-const BackURL = "http://localhost:5000/";
+const BackURL = "https://5ba8-105-235-129-212.eu.ngrok.io/";
 const awzan = [
   "الطويل",
   "المديد",
@@ -15,5 +15,5 @@ const awzan = [
   "المتقارب",
   "المتدارك",
 ];
-export {awzan}
-export default BackURL
+export { awzan };
+export default BackURL;

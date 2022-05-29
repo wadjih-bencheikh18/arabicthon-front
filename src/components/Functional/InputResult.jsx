@@ -15,14 +15,14 @@ export default function InputResult({
   setUpdate,
 }) {
   const [input, setInput] = useState(init);
-  useEffect(()=>{
+  useEffect(() => {
     setUpdate && setUpdate(init);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div className="flex relative flex-row-reverse items-end mt-5">
       <textarea
-        className={`resize-none outline-none text-right py-3 px-3 rounded-md ${className}`}
+        className={`resize-none outline-none text-right text-xl py-3 px-3 rounded-md ${className}`}
         cols={Math.min(
           Math.max(...input.split("\n").map((s) => s.length), minWidth),
           maxWidth
@@ -39,7 +39,7 @@ export default function InputResult({
         }}
         style={{ direction: "rtl" }}
       ></textarea>
-      <h3 className="absolute text-xl top-0 -right-28 pt-2 text-[#A58453]">
+      <h3 className="absolute text-2xl top-0 -right-28 pt-2 text-[#A58453]">
         {title}
       </h3>
       {button && (
