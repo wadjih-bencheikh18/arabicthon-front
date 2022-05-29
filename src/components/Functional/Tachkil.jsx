@@ -241,7 +241,7 @@ export default function Tachkil({ init = "", setValue }) {
       </div>
       <div className="flex items-center justify-end mx-auto mt-10">
         <button
-          className="bg-[#A58453] border-[#A58453] rounded-sm text-white text-lg relative border-2 mx-2 w-[50px] h-[50px]"
+          className="bg-[#A58453] border-[#A58453] rounded-sm text-white text-lg relative border-2 mx-2 w-[50px] h-[50px] hover:animate-ping-once"
           onClick={() => {
             setValue(input.value);
           }}
