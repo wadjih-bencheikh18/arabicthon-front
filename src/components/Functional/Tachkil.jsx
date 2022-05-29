@@ -230,7 +230,7 @@ export default function Tachkil({ init = "", setValue }) {
       <div className="flex justify-end mx-auto">
         <div
           style={{ direction: "rtl" }}
-          className="border-[#A58453] p-3 rounded-md text-center text-2xl bg-[#FBFAF8] border-2 "
+          className="border-[#A58453] p-3 w-[22.5em] rounded-md text-center text-2xl bg-[#FBFAF8] border-2 "
         >
           {stringCol}
         </div>
