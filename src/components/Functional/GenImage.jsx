@@ -68,9 +68,9 @@ export default function GenImage() {
                     </div>
                   )}
                   {isDragActive && (
-                    <div className="absolute top-0 bottom-0 left-0 right-0 p-10 text-white rounded-3xl font-light bg-[rgba(165,132,83,0.5)] flex flex-col justify-center">
+                    <div className="absolute top-0 bottom-0 left-0 right-0 p-10 text-white font-light text-xl text-center rounded-3xl bg-[rgba(165,132,83,0.5)] flex flex-col justify-center">
                       <CloudUploadIcon className="w-20 m-auto" />
-                      <p>Drop the files here</p>
+                      <p>اسحب الملف هنا</p>
                     </div>
                   )}
                 </div>
