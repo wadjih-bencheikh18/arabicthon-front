@@ -15,7 +15,9 @@
     "react-router-dom": "^5.3.3",
     "react-scripts": "^5.0.1",
     "swiper": "^8.1.6",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "glob-parent": ">=5.1.2",
+    "nth-check": ">=2.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
