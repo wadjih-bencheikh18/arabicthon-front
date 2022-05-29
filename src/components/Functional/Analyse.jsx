@@ -12,13 +12,14 @@ import BahrDl from "./BahrDL";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import BackURL from "./Backend";
 
 export default function Analyse({ activate = [1, 2, 3, 4] }) {
   const [data, setData] = useState({});
   useEffect(() => {
     if (data.tachkil && !activate.includes(0) && activate.length > 0) {
       axios
-        .post("https://b0fb-105-235-128-92.eu.ngrok.io/ultimateAroud", {
+        .post(BackURL + "/ultimateAroud", {
           params: {
             text: postFix(data.tachkil),
           },
@@ -48,7 +49,7 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
           setData((data) => ({ ...data, input }));
           if (input) {
             axios
-              .post("https://b0fb-105-235-128-92.eu.ngrok.io/tachkil", {
+              .post(BackURL+"/tachkil", {
                 params: {
                   text: postFix(preFix(input)),
                 },
@@ -75,7 +76,7 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
           setValue={(tachkilFixed) => {
             setData((data) => ({ ...data, tachkilFixed }));
             axios
-              .post("https://b0fb-105-235-128-92.eu.ngrok.io/ultimateAroud", {
+              .post(BackURL+"/ultimateAroud", {
                 params: {
                   text: postFix(tachkilFixed),
                 },

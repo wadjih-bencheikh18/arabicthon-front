@@ -3,6 +3,7 @@ import InputResult from "./InputResult";
 import { useState } from "react";
 import axios from "axios";
 import Load from "../../pics/load.svg";
+import BackURL from "./Backend";
 export default function Subject() {
   const [data, setData] = useState({ meter: "الكامل", rhyme: "ر" });
   const [load, setLoad] = useState(false);
@@ -33,8 +34,7 @@ export default function Subject() {
             setValue={(lines) => {
               setLoad(true);
               axios
-                .post(
-                  "https://b0fb-105-235-128-92.eu.ngrok.io/poemGeneration",
+                .post(BackURL+"/poemGeneration",
                   {
                     params: {
                       lines,
