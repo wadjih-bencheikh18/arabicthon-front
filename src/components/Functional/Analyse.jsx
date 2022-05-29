@@ -42,7 +42,7 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
     activate.includes(4) ||
     activate.includes(3);
   return (
-    <div className="bg-[#E4D3C1] pt-16 flex flex-col w-[100%] items-center">
+    <div className="bg-[#E4D3C1] pt-16 flex flex-col w-[100%] items-center min-h-screen">
       <div className=" grid grid-cols-2 grid-rows-1 w-full ">
         <div className="col-start-2 row-start-1 flex flex-col mr-10 gap-5 items-center ">
           <InputResult
@@ -74,7 +74,7 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
           />
           {data.input && activate.includes(5) && <BahrDl input={data.input} />}
         </div>
-        <div className="col-start-1  row-start-1 ml-5">
+        <div className="col-start-1 row-start-1 ml-5">
           {!swiper && activate.includes(0) && data.tachkil && (
             <OutputResult maxWidth={60} value={data.tachkil} title="التشكيل" />
           )}
@@ -116,7 +116,7 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
             className="mySwiper"
           >
             {data.result.map((r) => (
-              <SwiperSlide className="flex justify-center mb-10 text-black">
+              <SwiperSlide className="flex justify-center mb-10">
                 <TableArray {...r} activate={activate} />
               </SwiperSlide>
             ))}
