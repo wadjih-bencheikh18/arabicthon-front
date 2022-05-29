@@ -168,18 +168,20 @@ export default function Tachkil({ init = "", setValue }) {
     }
     return str;
   }, [getLetterPos, input.start, input.value, setStart]);
-  const createButtons = cLetters.map((letter, i) => (
-    <button
-      key={i}
-      className="border-[#A58453] rounded-sm relative border-2 mx-2 w-[50px] h-[50px] flex flex-row-reverse text-[30px]"
-      onClick={() => updateValue(letter)}
-    >
-      <div>{letter}</div>
-      <div className="bg-[#A58453] rounded-sm px-1 absolute text-white -bottom-2 -left-1 text-sm">
-        {i + 1}
-      </div>
-    </button>
-  ));
+  const createButtons = cLetters
+    .map((letter, i) => (
+      <button
+        key={i}
+        className="border-[#A58453] rounded-sm relative border-2 mx-2 w-[50px] h-[50px] text-[30px]"
+        onClick={() => updateValue(letter)}
+      >
+        <div>{letter}</div>
+        <div className="bg-[#A58453] rounded-sm px-1 absolute text-white -bottom-2 -right-2  text-sm">
+          {i + 1}
+        </div>
+      </button>
+    ))
+    .reverse();
   function getDirection(key) {
     //change char that you want to chekel with keyboard
     if (key === "ArrowRight") {
@@ -252,8 +254,8 @@ export default function Tachkil({ init = "", setValue }) {
           className="border-[#A58453] rounded-sm relative border-2  mx-2 w-[50px] h-[50px]"
           onClick={() => deleteChar("9")}
         >
-          <BackspaceIcon className="absolute text-[#A58453]  top-[1%] w-15 " />
-          <div className="bg-[#A58453] px-1 absolute text-white -bottom-2 -left-1 text-sm">
+          <BackspaceIcon className="absolute rotate-180 text-[#A58453]  top-[1%] w-15 " />
+          <div className="bg-[#A58453] px-1 absolute text-white -bottom-2 -right-2 text-sm">
             {9}
           </div>
         </button>
