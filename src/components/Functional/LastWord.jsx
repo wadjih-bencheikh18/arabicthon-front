@@ -22,26 +22,26 @@ export default function LastWord() {
             maxHeight={1}
             title="البيت"
             setUpdate={(sujet) =>
-              setData((data) => ({ ...data, sujet: postFix(preFix(sujet)) }))
+              setData((data) => ({ ...data, sujet: postFix(preFix(sujet.split(/[_]+|[-]+|[,]+|[*]+|[;]+|[.]+|\t+/).join("*"))) }))
             }
           />
         </div>
-        <div className="justify-self-start">
+        <div className=" col-span-2 -ml-10  justify-self-start ">
           <InputResult
-            minWidth={20}
+            minWidth={10}
             maxHeight={1}
             title="حرف الروي"
             className="overflow-hidden"
             setUpdate={(rhyme) => setData((data) => ({ ...data, rhyme }))}
           />
         </div>
-        <div className="col-span-2 col-start-3 flex flex-row-reverse justify-self-end">
+        <div className="col-span-2 col-start-3 flex flex-row-reverse justify-self-end mt-5">
           <div className="text-xl -mr-28 ml-20 pt-2 text-[#A58453]">البحر</div>
           <select
             onChange={({ target }) => {
               setData((data) => ({ ...data, meter: target.value }));
             }}
-            className="rounded-lg text-right bg-[#FBFAF8] w-80 p-4"
+            className="rounded-lg h-14 text-right bg-[#FBFAF8] w-80 p-4"
           >
             <option value="tawiil">الطويل</option>
             <option value="madiid">المديد</option>
@@ -63,7 +63,7 @@ export default function LastWord() {
           onClick={() => {
             setLoad(true);
             axios
-              .post(BackURL+"/lastword", {
+              .post(BackURL + "/lastword", {
                 params: {
                   rhyme: data.rhyme,
                   meter: data.meter,
@@ -82,7 +82,7 @@ export default function LastWord() {
                 alert(error);
               });
           }}
-          className="btn flex rounded-md items-center justify-center w-12 h-6 text-white text-lg bg-[#A58453] -mb-3 -mr-9"
+          className="btn flex rounded-md items-center justify-center w-12 h-6 text-white text-lg bg-[#A58453] -mt-7 -ml-14"
         >
           <ChevronDoubleLeftIcon className="w-5 h-5" />
         </button>

@@ -40,7 +40,7 @@ export default function InputResult({
           }}
           style={{ direction: "rtl" }}
         ></textarea>
-        <h3 className=" text-2xl pt-2 text-[#A58453]">{title}</h3>
+        <h3 className="text-2xl pt-2 text-[#A58453]">{title}</h3>
       </div>
       {button && (
         <button
