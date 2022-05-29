@@ -24,7 +24,7 @@ export function Main() {
               الذكاء الاصطناعي بناء على مختلف خصائصه
             </div>
             <a href="/create-analyse">
-              <button className="btn rounded-md mt-16 py-3 px-6 text-white text-xl bg-[#A58453]">
+              <button className="btn rounded-md mt-16 py-3 px-6 text-white text-xl bg-[#A58453] hover:animate-ping-once">
                 تجريب
               </button>
             </a>

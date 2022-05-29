@@ -18,7 +18,7 @@ export default function AnalysePoemFull() {
             className={`rounded-lg px-3  cursor-pointer py-1 ${
               activate.includes(i)
                 ? "bg-[rgba(165,132,83,1)] "
-                : "bg-[rgba(165,132,83,0.3)] hover:bg-[rgba(165,132,83,0.6)]"
+                : "bg-[rgba(165,132,83,0.3)] hover:bg-[rgba(165,132,83,0.6)] hover:animate-ping-once-fast"
             }`}
             key={i}
             onClick={() => {
