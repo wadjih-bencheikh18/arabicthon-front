@@ -7,7 +7,7 @@ export function ChoiceTa2lif() {
     {
       short: "حرف الروي",
       long: "تأليف الشعر بناء على حرف الروي",
-      link: "/ba7rRawi",
+      link: "/rawi",
     },
     {
       short: "موضوع",

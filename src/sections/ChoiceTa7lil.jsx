@@ -5,11 +5,6 @@ export function ChoiceTa7lil() {
   const [index, setIndex] = useState(undefined);
   const functionalities = [
     {
-      short: "حسب الطلب",
-      long: "التعرف على خصائص الشعر حسب الطلب",
-      link: "/analyseFull",
-    },
-    {
       short: "البحر دون تشكيل",
       long: "التعرف على بحر شعر دون تشكيل",
       link: "/ba7rDounTachkil",
@@ -39,6 +34,11 @@ export function ChoiceTa7lil() {
       short: "البحر بالتشكيل",
       long: "التعرف على بحر شعر بتشكيل",
       link: "/ba7rTachkil",
+    },
+    {
+      short: "حسب الطلب",
+      long: "التعرف على خصائص الشعر حسب الطلب",
+      link: "/analyseFull",
     },
   ];
   return (

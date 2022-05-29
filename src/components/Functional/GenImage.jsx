@@ -8,8 +8,8 @@ import InputResult from "./InputResult";
 import axios from "axios";
 import BackURL from "./Backend";
 export default function GenImage() {
-  const [data, setData] = useState({undefined});
-  
+  const [data, setData] = useState({ undefined });
+
   const [load, setLoad] = useState(false);
   const onDrop = useCallback((files) => {
     files.forEach((file) => {
@@ -57,19 +57,20 @@ export default function GenImage() {
                       src={data.image}
                     />
                   ) : (
-                    <div className="p-10 h-64 w-72 text-[#A58453] font-light text-center rounded-3xl border-2 border-[#A58453] flex flex-col justify-center">
+                    <div className="p-10 h-64 w-72 text-[#A58453] font-light text-xl text-center rounded-3xl border-2 border-[#A58453] flex flex-col justify-center">
                       {!isDragActive && (
                         <p>
-                          Drag and drop the files here <br />
-                          or click to select a file
+                          اختر ملف
+                          <br />
+                          أو اسحبه هنا
                         </p>
                       )}
                     </div>
                   )}
                   {isDragActive && (
-                    <div className="absolute top-0 bottom-0 left-0 right-0 p-10 text-white rounded-3xl font-light bg-[rgba(165,132,83,0.5)] flex flex-col justify-center">
+                    <div className="absolute top-0 bottom-0 left-0 right-0 p-10 text-white font-light text-xl text-center rounded-3xl bg-[rgba(165,132,83,0.5)] flex flex-col justify-center">
                       <CloudUploadIcon className="w-20 m-auto" />
-                      <p>Drop the files here</p>
+                      <p>اسحب الملف هنا</p>
                     </div>
                   )}
                 </div>
@@ -87,10 +88,9 @@ export default function GenImage() {
               setData((data) => ({ ...data, lines: Number(lines) }))
             }
             setValue={(lines) => {
-              
               setLoad(true);
               axios
-                .post(BackURL+"/caption", {
+                .post(BackURL + "/caption", {
                   params: {
                     lines,
                     image: data.image,

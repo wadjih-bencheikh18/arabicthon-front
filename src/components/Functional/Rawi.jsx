@@ -3,8 +3,8 @@ import InputResult from "./InputResult";
 import { useState } from "react";
 import axios from "axios";
 import Load from "../../pics/load.svg";
-import BackURL,{awzan} from "./Backend";
-export default function WaznAndRawi() {
+import BackURL from "./Backend";
+export default function Rawi() {
 
   const [data, setData] = useState({
     meter: "الكامل",
@@ -38,17 +38,14 @@ export default function WaznAndRawi() {
             setValue={(lines) => {
               setLoad(true);
               axios
-                .post(
-                  BackURL+"/poemGeneration",
-                  {
-                    params: {
-                      lines,
-                      rhyme: data.rhyme,
-                      meter: data.meter,
-                      sujet: data.sujet,
-                    },
-                  }
-                )
+                .post(BackURL + "/poemGeneration", {
+                  params: {
+                    lines,
+                    rhyme: data.rhyme,
+                    meter: data.meter,
+                    sujet: data.sujet,
+                  },
+                })
                 .then((response) => {
                   let result = response.data;
                   setData((data) => ({ ...data, result }));
