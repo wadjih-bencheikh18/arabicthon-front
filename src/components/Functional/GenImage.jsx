@@ -31,9 +31,9 @@ export default function GenImage() {
         تأليف الشعر بناء على صورة
       </div>
       <div className="grid w-screen grid-cols-2 grid-rows-1 items-center mx-auto">
-        <div className="col-start-1 flex justify-center w-[700px]">
+        <div className="col-start-1 -mr-10 flex justify-self-center justify-center w-[700px]">
           {load && <img className="" alt="load" src={Load}></img>}
-          {!load && <Chiir result={data.result ? data.result : ""} />}
+          {!load && data.result && <Chiir result={data.result ? data.result : ""} />}
         </div>
         <div className="col-start-2 flex flex-col items-center justify-end justify-self-center space-y-10">
           <div className="cursor-pointer">

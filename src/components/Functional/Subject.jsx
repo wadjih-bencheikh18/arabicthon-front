@@ -14,7 +14,7 @@ export default function Subject() {
       <div className="text-right mb-0 mr-64 text-3xl pb-6 text-[#A58453]">
         تأليف الشعر بناء على موضوع
       </div>
-      <div className="flex-row-reverse flex justify-start mr-44 items-center gap-x-72">
+      <div className="flex-row-reverse flex justify-start mr-44 items-center gap-32">
         <div className="flex flex-col items-end space-y-10">
           <InputResult
             minWidth={30}
@@ -63,9 +63,11 @@ export default function Subject() {
             }}
           />
         </div>
-        <div className="flex w-[700px]  justify-center">
+        <div className="flex w-[700px] justify-center">
           {load && <img className="" alt="load" src={Load}></img>}
-          {!load && <Chiir result={data.result ? data.result : ""} />}
+          {!load && data.result && (
+            <Chiir result={data.result ? data.result : ""} />
+          )}
         </div>
       </div>
     </div>
