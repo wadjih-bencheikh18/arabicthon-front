@@ -6,6 +6,7 @@ import OutputResult from "./OutputResult";
 import { useDropzone } from "react-dropzone";
 import InputResult from "./InputResult";
 import axios from "axios";
+import BackURL from "./Backend";
 export default function GenImage() {
   const [data, setData] = useState({undefined});
   
@@ -89,7 +90,7 @@ export default function GenImage() {
               
               setLoad(true);
               axios
-                .post("https://b0fb-105-235-128-92.eu.ngrok.io/caption", {
+                .post(BackURL+"/caption", {
                   params: {
                     lines,
                     image: data.image,

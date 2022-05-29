@@ -2,13 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { postFix, preFix } from "./Tachkil";
 import OutputResult from "./OutputResult";
+import BackURL from "./Backend";
 
 export default function BahrDl({ input }) {
   const [result, setResult] = useState(undefined);
   useEffect(() => {
     if (input) {
       axios
-        .post("https://b0fb-105-235-128-92.eu.ngrok.io/meter", {
+        .post(BackURL + "/meter", {
           params: {
             text: postFix(preFix(input)),
           },

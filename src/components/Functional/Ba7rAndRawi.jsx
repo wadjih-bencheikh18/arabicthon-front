@@ -3,6 +3,7 @@ import InputResult from "./InputResult";
 import { useState } from "react";
 import axios from "axios";
 import Load from "../../pics/load.svg";
+import BackURL from "./Backend";
 export default function WaznAndRawi() {
   const [data, setData] = useState({ meter:"الطويل",sujet:"" });
   const [load, setLoad] = useState(false);
@@ -58,7 +59,7 @@ export default function WaznAndRawi() {
               setLoad(true);
               axios
                 .post(
-                  "https://b0fb-105-235-128-92.eu.ngrok.io/poemGeneration",
+                  BackURL+"/poemGeneration",
                   {
                     params: {
                       lines,

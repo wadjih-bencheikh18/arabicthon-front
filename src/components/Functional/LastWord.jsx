@@ -5,6 +5,7 @@ import { ChevronDoubleLeftIcon } from "@heroicons/react/solid";
 import axios from "axios";
 import Load from "../../pics/load.svg";
 import  { postFix, preFix } from "./Tachkil";
+import BackURL from "./Backend";
 export default function LastWord() {
   const [show, setShow] = useState(false);
   const [load, setLoad] = useState(false);
@@ -62,7 +63,7 @@ export default function LastWord() {
           onClick={() => {
             setLoad(true);
             axios
-              .post("https://b0fb-105-235-128-92.eu.ngrok.io/lastword", {
+              .post(BackURL+"/lastword", {
                 params: {
                   rhyme: data.rhyme,
                   meter: data.meter,
@@ -89,7 +90,7 @@ export default function LastWord() {
         {show && !load ? (
           <div className="col-span-4 row-start-4">
             <OutputResult
-              value={load? "":data.result}
+              value={data.result}
               minWidth={200}
               maxHeight={1}
               title="البيت"
