@@ -26,7 +26,7 @@ export default function Subject() {
           />
           <InputResult
             maxWidth={12}
-            minHeight={1}
+            maxHeight={1}
             init="5"
             button
             title="عدد الأبيات"
@@ -37,16 +37,14 @@ export default function Subject() {
             setValue={(lines) => {
               setLoad(true);
               axios
-                .post(BackURL+"/poemGeneration",
-                  {
-                    params: {
-                      lines,
-                      rhyme: data.rhyme,
-                      meter: data.meter,
-                      sujet: data.sujet,
-                    },
-                  }
-                )
+                .post(BackURL + "/poemGeneration", {
+                  params: {
+                    lines,
+                    rhyme: data.rhyme,
+                    meter: data.meter,
+                    sujet: data.sujet,
+                  },
+                })
                 .then((response) => {
                   let result = response.data;
                   setData((data) => ({ ...data, result }));

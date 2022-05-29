@@ -83,7 +83,7 @@ export default function GenImage() {
           </div>
           <InputResult
             maxWidth={12}
-            minHeight={1}
+            maxHeight={1}
             init="5"
             button
             title="عدد الأبيات"
