@@ -223,7 +223,7 @@ export default function Tachkil({ init = "", setValue }) {
         deleteChar(key);
       }}
     >
-      <div className="mb-1">
+      <div className="mb-1 mr-32 ml-20">
         كيفية التشكيل : اضغط على حرف أو استعمل أسهم لوحة المفاتيح لاختيار الحرف
         الذي تريد تغيير تشكيله
       </div>
@@ -234,9 +234,11 @@ export default function Tachkil({ init = "", setValue }) {
         >
           {stringCol}
         </div>
-        <h3 className="ml-16 mt-4  text-xl text-[#A58453]">التشكيل</h3>
+        <h3 className="ml-16 mt-4 text-xl text-[#A58453] text-center">
+          التشكيل
+        </h3>
       </div>
-      <div className="text-red-700">
+      <div className="text-red-700 mr-32">
         تحذير: عدم تصحيح التشكيل قد يأثر على دقّة النتيجة
       </div>
       <div className="flex items-center justify-end mx-auto mt-10">
