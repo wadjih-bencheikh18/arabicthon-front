@@ -49,7 +49,9 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
             className="text-center"
             maxWidth={47}
             setValue={(input) => {
-              const inputClean = preFix(input.split("_").join("*"));
+              const inputClean = preFix(
+                input.split(/[_]+|[-]+|[,]+|[*]+|[;]+|[.]+|\t+/).join("*")
+              );
               if (inputClean) {
                 setData((data) => ({ ...data, input: inputClean }));
                 axios
@@ -72,9 +74,9 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
           />
           {data.input && activate.includes(5) && <BahrDl input={data.input} />}
         </div>
-        <div className="col-start-1  row-start-1">
+        <div className="col-start-1  row-start-1 ml-5">
           {!swiper && activate.includes(0) && data.tachkil && (
-            <OutputResult value={data.tachkil} title="التشكيل" />
+            <OutputResult maxWidth={60} value={data.tachkil} title="التشكيل" />
           )}
           {data.tachkil && activate.includes(0) && activate.length !== 1 && (
             <Tachkil
