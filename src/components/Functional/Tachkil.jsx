@@ -214,7 +214,7 @@ export default function Tachkil({ init = "", setValue }) {
   }
   return (
     <div
-      className="outline-none mt-2 mb-16"
+      className="outline-none mt-2 mb-16 mr-10"
       tabIndex="0"
       onKeyDown={({ key }) => {
         if (key && ["1", "2", "3", "4", "5", "6", "7", "8"].includes(key))
@@ -223,14 +223,14 @@ export default function Tachkil({ init = "", setValue }) {
         deleteChar(key);
       }}
     >
-      <div className="mb-1 mr-32 ml-20">
+      <div className="mb-1 mr-20 ml-20">
         كيفية التشكيل : اضغط على حرف أو استعمل أسهم لوحة المفاتيح لاختيار الحرف
         الذي تريد تغيير تشكيله
       </div>
       <div className="flex justify-end mx-auto">
         <div
           style={{ direction: "rtl" }}
-          className="border-[#A58453] p-3 w-[22.5em] rounded-md text-center text-2xl bg-[#FBFAF8] border-2 "
+          className="border-[#A58453] p-3 w-[28em] rounded-md text-center text-2xl bg-[#FBFAF8] border-2 "
         >
           {stringCol}
         </div>
@@ -238,7 +238,7 @@ export default function Tachkil({ init = "", setValue }) {
           التشكيل
         </h3>
       </div>
-      <div className="text-red-700 mr-32">
+      <div className="text-red-700 mr-20">
         تحذير: عدم تصحيح التشكيل قد يأثر على دقّة النتيجة
       </div>
       <div className="flex items-center justify-end mx-auto mt-10">
