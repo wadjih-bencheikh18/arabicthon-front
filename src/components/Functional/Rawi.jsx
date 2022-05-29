@@ -57,10 +57,13 @@ export default function Rawi() {
             }}
           />
         </div>
-        <div className="flex w-[700px] justify-center">
+        <div className="flex w-[700px] justify-center mr-24">
           {load && <img className="" alt="load" src={Load}></img>}
           {!load && data.result && (
-            <Chiir result={data.result.split("*").join("")} />
+            <div className="flex flex-row-reverse">
+              <div className="text-2xl text-[#A58453] ml-5">الشعر</div>
+              <Chiir result={data.result.split("*").join("")} />
+            </div>
           )}
         </div>
       </div>

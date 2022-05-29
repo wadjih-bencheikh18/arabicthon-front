@@ -34,7 +34,10 @@ export default function GenImage() {
         <div className="col-start-1 -mr-10 flex justify-self-center justify-center w-[700px]">
           {load && <img className="" alt="load" src={Load}></img>}
           {!load && data.result && (
-            <Chiir result={data.result.split("*").join("")} />
+            <div className="flex flex-row-reverse">
+              <div className="text-2xl text-[#A58453] ml-5">الشعر</div>
+              <Chiir result={data.result.split("*").join("")} />
+            </div>
           )}
         </div>
         <div className="col-start-2 flex flex-col items-center justify-end justify-self-center space-y-10">
