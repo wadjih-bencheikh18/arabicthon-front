@@ -21,7 +21,7 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
       axios
         .post(BackURL + "/ultimateAroud", {
           params: {
-            text: postFix(data.tachkil),
+            text: postFix(data.tachkil.split("*").join(" ")),
           },
         })
         .then((response) => {
@@ -57,7 +57,7 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
                 axios
                   .post(BackURL + "/tachkil", {
                     params: {
-                      text: postFix(preFix(inputClean)),
+                      text: postFix(inputClean),
                     },
                   })
                   .then((response) => {

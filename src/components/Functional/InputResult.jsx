@@ -29,7 +29,7 @@ export default function InputResult({
             maxWidth
           )}
           rows={Math.min(
-            Math.max(input.split("\n").length + 1, minHeight),
+            Math.max(input.split("\n").length, minHeight),
             maxHeight
           )}
           value={input}
