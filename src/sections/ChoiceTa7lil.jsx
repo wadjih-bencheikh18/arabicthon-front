@@ -55,7 +55,7 @@ export function ChoiceTa7lil() {
               {functionalities[index].long}
             </div>
             <a href={functionalities[index].link} className="self-start mt-16">
-              <button className="btn flex rounded-md py-2 px-3 text-white text-lg bg-[#A58453]">
+              <button className="btn flex rounded-md py-2 px-3 text-white text-lg bg-[#A58453] hover:animate-ping-once">
                 <ChevronDoubleLeftIcon className="w-5" />
               </button>
             </a>
@@ -68,7 +68,7 @@ export function ChoiceTa7lil() {
             <div
               onClick={() => setIndex(key)}
               key={key}
-              className="bg-[#FBFAF8] rounded-[40px] w-60 h-56 flex flex-col justify-center items-end mr-6 mb-6 cursor-pointer"
+              className="hover:animate-ping-once-fast bg-[#FBFAF8] rounded-[40px] w-60 h-56 flex flex-col justify-center items-end mr-6 mb-6 cursor-pointer"
             >
               <div className="mr-8 mt-10 text-lg">{functionality.short}</div>
               <div className="bg-[#A58453] mt-2 w-44 h-2 rounded-l-lg"></div>
