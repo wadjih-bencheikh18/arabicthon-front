@@ -63,7 +63,7 @@ export default function Subject() {
             }}
           />
         </div>
-        <div className="flex w-[700px]  justify-center">
+        <div className="flex w-[700px] justify-center">
           {load && <img className="" alt="load" src={Load}></img>}
           {!load && <Chiir result={data.result ? data.result : ""} />}
         </div>
