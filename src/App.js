@@ -45,36 +45,36 @@ function App() {
           </Route>
 
           {/* ta2lif */}
-          <Route path="/create/soura">
+          <Route path="/soura">
             <AnalysePoem />
           </Route>
-          <Route path="/create/ikmalKalima">
+          <Route path="/ikmalKalima">
             <LastWord />
           </Route>
-          <Route path="/create/mawdo3">
+          <Route path="/mawdo3">
             <Subject />
           </Route>
-          <Route path="/create/ba7rRawi">
+          <Route path="/ba7rRawi">
             <Ba7rAndRawi />
           </Route>
 
           {/* ta7lil */}
-          <Route path="/analyse/tachkil">
+          <Route path="/tachkil">
             <AddTachkil />
           </Route>
-          <Route path="/analyse/kitaba3arodya">
+          <Route path="/kitaba3arodya">
             <Aroud />
           </Route>
-          <Route path="/analyse/ta9ti3">
+          <Route path="/ta9ti3">
             <Ta9ti3 />
           </Route>
-          <Route path="/analyse/taf3ilat">
+          <Route path="/taf3ilat">
             <Taf3ilat />
           </Route>
-          <Route path="/analyse/ba7rTachkil">
+          <Route path="/ba7rTachkil">
             <Ba7r />
           </Route>
-          <Route path="/analyse/ba7rDounTachkil">
+          <Route path="/ba7rDounTachkil">
             <Ba7rDounTachkil />
           </Route>
 

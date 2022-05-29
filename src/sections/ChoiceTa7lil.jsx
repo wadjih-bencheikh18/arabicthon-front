@@ -12,33 +12,33 @@ export function ChoiceTa7lil() {
     {
       short: "البحر دون تشكيل",
       long: "التعرف على بحر شعر دون تشكيل",
-      link: "/analyse/ba7rDounTachkil",
+      link: "/ba7rDounTachkil",
     },
     {
       short: "التشكيل",
       long: "تشكيل الشعر",
-      link: "/analyse/tachkil",
+      link: "/tachkil",
     },
     {
       short: "الكتابة العروضية",
       long: "الكتابة العروضية للشعر",
-      link: "/analyse/kitaba3arodya",
+      link: "/kitaba3arodya",
     },
     {
       short: "التقطيع",
       long: "تقطيع الشعر",
-      link: "/analyse/ta9ti3",
+      link: "/ta9ti3",
     },
 
     {
       short: "التفعيلات",
       long: "التعرف على تفعيلات شعر",
-      link: "/analyse/taf3ilat",
+      link: "/taf3ilat",
     },
     {
       short: "البحر بالتشكيل",
       long: "التعرف على بحر شعر بتشكيل",
-      link: "/analyse/ba7rTachkil",
+      link: "/ba7rTachkil",
     },
   ];
   return (

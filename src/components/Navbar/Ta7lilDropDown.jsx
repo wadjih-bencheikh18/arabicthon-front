@@ -4,12 +4,12 @@ import { useState } from "react";
 export default function Ta7lilDropDown() {
   const [open, setOpen] = useState(false);
   const sections = [
-    { name: "البحر دون تشكيل", link: "/analyse/ba7rDounTachkil" },
-    { name: "التشكيل", link: "/analyse/tachkil" },
-    { name: "الكتابة العروضية", link: "/analyse/kitaba3arodya" },
-    { name: "التقطيع", link: "/analyse/ta9ti3" },
-    { name: "التفعيلات", link: "/analyse/taf3ilat" },
-    { name: "البحر بالتشكيل", link: "/analyse/ba7rTachkil" },
+    { name: "البحر دون تشكيل", link: "/ba7rDounTachkil" },
+    { name: "التشكيل", link: "/tachkil" },
+    { name: "الكتابة العروضية", link: "/kitaba3arodya" },
+    { name: "التقطيع", link: "/ta9ti3" },
+    { name: "التفعيلات", link: "/taf3ilat" },
+    { name: "البحر بالتشكيل", link: "/ba7rTachkil" },
   ];
 
   const Ta7lilLinks = sections.map((section, key) => (

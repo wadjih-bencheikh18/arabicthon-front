@@ -7,22 +7,22 @@ export function ChoiceTa2lif() {
     {
       short: "بحر و حرف الروي",
       long: "تأليف الشعر بناء على بحر و حرف الروي",
-      link: "/create/ba7rRawi",
+      link: "/ba7rRawi",
     },
     {
       short: "موضوع",
       long: "تأليف الشعر بناء على موضوع",
-      link: "/create/mawdo3",
+      link: "/mawdo3",
     },
     {
       short: "صورة",
       long: "تأليف الشعر بناء على صورة",
-      link: "/create/soura",
+      link: "/soura",
     },
     {
       short: "إكمال كلمة",
       long: "إكمال آخر كلمة بيت بناء على بحر و حرف الروي",
-      link: "/create/ikmalKalima",
+      link: "/ikmalKalima",
     },
   ];
   return (

@@ -17,6 +17,7 @@ export default function InputResult({
   const [input, setInput] = useState(init);
   useEffect(()=>{
     setUpdate && setUpdate(init);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
   return (
     <div className="flex relative flex-row-reverse items-end mt-5">
