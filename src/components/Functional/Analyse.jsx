@@ -43,6 +43,7 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
   return (
     <div className="bg-[#E4D3C1] pt-16 flex flex-col items-center">
       <InputResult
+        className="text-center"
         setValue={(input) => {
           setData((data) => ({ ...data, input }));
           if (input) {
