@@ -234,7 +234,7 @@ export default function Tachkil({ init = "", setValue }) {
         >
           {stringCol}
         </div>
-        <h3 className="ml-16 mt-4 text-xl text-[#A58453] text-center">
+        <h3 className="ml-5 mt-4 text-xl text-[#A58453] text-center">
           التشكيل
         </h3>
       </div>

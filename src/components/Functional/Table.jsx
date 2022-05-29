@@ -22,41 +22,43 @@ export default function TableArray({
   ratio,
   activate,
 }) {
-  const className = "border-2 border-[#A58453] bg-[#FBFAF8] p-2";
+  const className = "border-2 border-[#A58453] bg-[#FBFAF8] p-2 px-4";
   const Aroud = aroud.map((a) => <td className={className}>{a}</td>);
   const Harakat = harakat.map((a) => <td className={className}>{a}</td>);
   const Tafil = tafil.map((a) => <td className={className}>{a}</td>);
   return (
-    <table className="mt-6 text-xl" style={{ direction: "rtl" }}>
-    
+    <table
+      className="mt-6 text-xl"
+      style={{ direction: "rtl" }}
+    >
       <tbody>
-      {activate.includes(1) && (
-        <tr>
-          <th className={`text-[#A58453] ${className}`}>عروض</th>
-          {Aroud}
-        </tr>
-      )}
-      {activate.includes(2) && (
-        <tr>
-          <th className={`text-[#A58453] ${className}`}>تقطيع</th>
-          {Harakat}
-        </tr>
-      )}
-      {activate.includes(3) && (
-        <tr>
-          <th className={`text-[#A58453] ${className}`}>تفعيل</th>
-          {Tafil}
-        </tr>
-      )}
-      {activate.includes(4) && (
-        <tr>
-          <th className={`text-[#A58453] ${className}`}>بحر</th>
-          <td className={className} colSpan={aroud.length}>
-            {Object.keys(awzan).find((key) => awzan[key] === meter)}
-          </td>
-        </tr>
-      )}
-      {/* {activate.includes(4) && (
+        {activate.includes(1) && (
+          <tr>
+            <th className={`text-[#A58453] ${className}`}>عروض</th>
+            {Aroud}
+          </tr>
+        )}
+        {activate.includes(2) && (
+          <tr>
+            <th className={`text-[#A58453] ${className}`}>تقطيع</th>
+            {Harakat}
+          </tr>
+        )}
+        {activate.includes(3) && (
+          <tr>
+            <th className={`text-[#A58453] ${className}`}>تفعيل</th>
+            {Tafil}
+          </tr>
+        )}
+        {activate.includes(4) && (
+          <tr>
+            <th className={`text-[#A58453] ${className}`}>بحر</th>
+            <td className={className} colSpan={aroud.length}>
+              {Object.keys(awzan).find((key) => awzan[key] === meter)}
+            </td>
+          </tr>
+        )}
+        {/* {activate.includes(4) && (
         <tr>
           <th className={`text-[#A58453] ${className}`}>دقّة</th>
           <td className={className} colSpan={aroud.length}>
