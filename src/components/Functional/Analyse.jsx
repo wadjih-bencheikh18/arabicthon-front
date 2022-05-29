@@ -42,58 +42,67 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
     activate.includes(4) ||
     activate.includes(3);
   return (
-    <div className="bg-[#E4D3C1] pt-16 flex flex-col items-center">
-      <InputResult
-        className="text-center"
-        setValue={(input) => {
-          setData((data) => ({ ...data, input }));
-          if (input) {
-            axios
-              .post(BackURL+"/tachkil", {
-                params: {
-                  text: postFix(preFix(input)),
-                },
-              })
-              .then((response) => {
-                const tachkil = response.data.trim();
-                setData((data) => ({ ...data, tachkil }));
-              })
-              .catch((error) => {
-                alert(error);
-              });
-          }
-        }}
-        title="الشعر"
-        button
-      />
-      {!swiper && activate.includes(0) && data.tachkil && (
-        <OutputResult value={data.tachkil} title="التشكيل" />
-      )}
-      {data.input && activate.includes(5) && <BahrDl input={data.input} />}
-      {data.tachkil && activate.includes(0) && activate.length !== 1 && (
-        <Tachkil
-          init={data.tachkil}
-          setValue={(tachkilFixed) => {
-            setData((data) => ({ ...data, tachkilFixed }));
-            axios
-              .post(BackURL+"/ultimateAroud", {
-                params: {
-                  text: postFix(tachkilFixed),
-                },
-              })
-              .then((response) => {
-                let result = response.data;
-                result = Object.keys(result).map((key) => {
-                  return result[key];
-                });
-                setData((data) => ({ ...data, result }));
-              })
-              .catch((error) => {
-                alert(error);
-              });
-          }}
-        />
-      )}
+    <div className="bg-[#E4D3C1] pt-16 flex flex-col w-[100%] items-center">
+      <div className=" grid grid-cols-2 grid-rows-1 w-full ">
+        <div className="col-start-2 row-start-1 flex flex-col mr-10 gap-5 items-center ">
+          <InputResult
+            className="text-center"
+            maxWidth={47}
+            setValue={(input) => {
+              const inputClean = preFix(input.split("_").join("*"));
+              if (inputClean) {
+                setData((data) => ({ ...data, input: inputClean }));
+                axios
+                  .post(BackURL + "/tachkil", {
+                    params: {
+                      text: postFix(preFix(inputClean)),
+                    },
+                  })
+                  .then((response) => {
+                    const tachkil = response.data.trim();
+                    setData((data) => ({ ...data, tachkil }));
+                  })
+                  .catch((error) => {
+                    alert(error);
+                  });
+              }
+            }}
+            title="الشعر"
+            button
+          />
+          {data.input && activate.includes(5) && <BahrDl input={data.input} />}
+        </div>
+        <div className="col-start-1  row-start-1">
+          {!swiper && activate.includes(0) && data.tachkil && (
+            <OutputResult value={data.tachkil} title="التشكيل" />
+          )}
+          {data.tachkil && activate.includes(0) && activate.length !== 1 && (
+            <Tachkil
+              init={data.tachkil}
+              setValue={(tachkilFixed) => {
+                setData((data) => ({ ...data, tachkilFixed }));
+                axios
+                  .post(BackURL + "/ultimateAroud", {
+                    params: {
+                      text: postFix(tachkilFixed),
+                    },
+                  })
+                  .then((response) => {
+                    let result = response.data;
+                    result = Object.keys(result).map((key) => {
+                      return result[key];
+                    });
+                    setData((data) => ({ ...data, result }));
+                  })
+                  .catch((error) => {
+                    alert(error);
+                  });
+              }}
+            />
+          )}
+        </div>
+      </div>
+
       {data.result && swiper && (
         <div className="relative w-[500px]">
           <Swiper

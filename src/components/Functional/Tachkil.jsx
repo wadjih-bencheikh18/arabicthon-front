@@ -214,7 +214,7 @@ export default function Tachkil({ init = "", setValue }) {
   }
   return (
     <div
-      className="outline-none mt-20 mb-16"
+      className="outline-none mt-2 mb-16"
       tabIndex="0"
       onKeyDown={({ key }) => {
         if (key && ["1", "2", "3", "4", "5", "6", "7", "8"].includes(key))
@@ -227,21 +227,19 @@ export default function Tachkil({ init = "", setValue }) {
         كيفية التشكيل : اضغط على حرف أو استعمل أسهم لوحة المفاتيح لاختيار الحرف
         الذي تريد تغيير تشكيله
       </div>
-      <div className="relative mx-auto">
+      <div className="flex justify-end mx-auto">
         <div
           style={{ direction: "rtl" }}
-          className="  border-[#A58453] py-3 rounded-md text-center text-2xl bg-[#FBFAF8] border-2 "
+          className="border-[#A58453] p-3 rounded-md text-center text-2xl bg-[#FBFAF8] border-2 "
         >
           {stringCol}
         </div>
-        <h3 className="absolute text-xl -top-2 -right-24 pt-6 text-[#A58453]">
-          التشكيل
-        </h3>
+        <h3 className="ml-16 mt-4  text-xl text-[#A58453]">التشكيل</h3>
       </div>
       <div className="text-red-700">
         تحذير: عدم تصحيح التشكيل قد يأثر على دقّة النتيجة
       </div>
-      <div className="flex items-center justify-center mx-auto mt-10">
+      <div className="flex items-center justify-end mx-auto mt-10">
         <button
           className="bg-[#A58453] border-[#A58453] rounded-sm text-white text-lg relative border-2 mx-2 w-[50px] h-[50px]"
           onClick={() => {
