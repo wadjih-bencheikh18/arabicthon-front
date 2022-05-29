@@ -44,7 +44,7 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
   return (
     <div className="bg-[#E4D3C1] pt-16 flex flex-col w-[100%] items-center min-h-screen">
       <div className=" grid  w-full ">
-        <div className="col-start-2 row-start-1 flex flex-col mr-4 gap-5 items-end ">
+        <div className="col-start-2 row-start-1 flex flex-col mr-4 gap-5 items-center">
           <InputResult
             className="text-center"
             maxWidth={65}

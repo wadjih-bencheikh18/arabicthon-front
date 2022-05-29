@@ -57,7 +57,7 @@ export default function Rawi() {
             }}
           />
         </div>
-        <div className="flex justify-center">
+        <div className="flex w-[700px] justify-center">
           {load && <img className="" alt="load" src={Load}></img>}
           {!load && <Chiir result={data.result ? data.result : ""} />}
         </div>
