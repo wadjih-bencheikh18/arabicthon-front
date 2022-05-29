@@ -27,7 +27,7 @@ export default function TableArray({
   const Harakat = harakat.map((a) => <td className={className}>{a}</td>);
   const Tafil = tafil.map((a) => <td className={className}>{a}</td>);
   return (
-    <table className="mt-6" style={{ direction: "rtl" }}>
+    <table className="mt-6 text-xl" style={{ direction: "rtl" }}>
       {activate.includes(1) && (
         <tr>
           <th className={`text-[#A58453] ${className}`}>عروض</th>
