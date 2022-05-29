@@ -66,7 +66,7 @@ export default function Subject() {
         <div className="flex w-[700px] justify-center">
           {load && <img className="" alt="load" src={Load}></img>}
           {!load && data.result && (
-            <Chiir result={data.result ? data.result : ""} />
+            <Chiir result={data.result.split("*").join("")} />
           )}
         </div>
       </div>
