@@ -44,7 +44,7 @@ export default function GenImage() {
           />
         </div>
         <div className="col-start-2 flex flex-col items-center justify-end justify-self-center space-y-10">
-          <div className="">
+          <div className=" cursor-pointer">
             <section className="container">
               <div {...getRootProps()}>
                 <input {...getInputProps()} />
@@ -56,7 +56,7 @@ export default function GenImage() {
                       src={data.image}
                     />
                   ) : (
-                    <div className="p-10 h-64 w-72 text-[#A58453] font-light rounded-3xl border-2 border-[#A58453] flex flex-col justify-center">
+                    <div className="p-10 h-64 w-72 text-[#A58453] font-light text-center rounded-3xl border-2 border-[#A58453] flex flex-col justify-center">
                       {!isDragActive && (
                         <p>
                           Drag and drop the files here <br />
@@ -89,7 +89,7 @@ export default function GenImage() {
               
               setLoad(true);
               axios
-                .post("https://f06f-105-235-129-47.eu.ngrok.io/caption", {
+                .post("https://b0fb-105-235-128-92.eu.ngrok.io/caption", {
                   params: {
                     lines,
                     image: data.image,

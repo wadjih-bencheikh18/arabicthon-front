@@ -58,7 +58,7 @@ export default function WaznAndRawi() {
               setLoad(true);
               axios
                 .post(
-                  "https://f06f-105-235-129-47.eu.ngrok.io/poemGeneration",
+                  "https://b0fb-105-235-128-92.eu.ngrok.io/poemGeneration",
                   {
                     params: {
                       lines,

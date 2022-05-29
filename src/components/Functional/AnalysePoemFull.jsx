@@ -15,10 +15,10 @@ export default function AnalysePoemFull() {
       <div className="flex gap-5">
         {choices.map((c, i) => (
           <div
-            className={`rounded-lg px-3 hover:bg-[rgba(165,132,83,0.6)] cursor-pointer py-1 ${
+            className={`rounded-lg px-3  cursor-pointer py-1 ${
               activate.includes(i)
-                ? "bg-[rgba(165,132,83,1)]"
-                : "bg-[rgba(165,132,83,0.3)] "
+                ? "bg-[rgba(165,132,83,1)] "
+                : "bg-[rgba(165,132,83,0.3)] hover:bg-[rgba(165,132,83,0.6)]"
             }`}
             key={i}
             onClick={() => {

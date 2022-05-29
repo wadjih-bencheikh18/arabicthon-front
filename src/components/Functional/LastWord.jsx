@@ -62,7 +62,7 @@ export default function LastWord() {
           onClick={() => {
             setLoad(true);
             axios
-              .post("https://f06f-105-235-129-47.eu.ngrok.io/lastword", {
+              .post("https://b0fb-105-235-128-92.eu.ngrok.io/lastword", {
                 params: {
                   rhyme: data.rhyme,
                   meter: data.meter,
