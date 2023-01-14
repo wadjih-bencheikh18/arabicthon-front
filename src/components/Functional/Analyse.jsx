@@ -47,13 +47,15 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
         <div className="col-start-2 row-start-1 flex flex-col mr-4 gap-5 items-center">
           <InputResult
             className="text-center"
-            maxWidth={65}
+            maxWidth={55}
             setValue={(input) => {
               const inputClean = preFix(
-                input.split(/[_]+|[-]+|[,]+|[*]+|[;]+|[.]+|\t+/).join("*")
+                input
+                  .split(/[_]+|[-]+|[,]+|[*]+|[;]+|[.]+|[|]+|[/]+|[\\]+|\t+/)
+                  .join("*")
               );
               if (inputClean) {
-                setData((data) => ({ ...data, input: inputClean }));
+                setData({ input: inputClean });
                 axios
                   .post(BackURL + "/tachkil", {
                     params: {
@@ -90,6 +92,7 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
                     },
                   })
                   .then((response) => {
+                    
                     let result = response.data;
                     result = Object.keys(result).map((key) => {
                       return result[key];
@@ -106,12 +109,11 @@ export default function Analyse({ activate = [1, 2, 3, 4] }) {
       </div>
 
       {data.result && swiper && (
-        <div className="relative w-[800px]">
+        <div style={{direction:"rtl"}} className="relative w-[800px]">
           <Swiper
             pagination={{
               type: "fraction",
             }}
-            loop
             navigation={true}
             modules={[Pagination, Navigation]}
             className="mySwiper"

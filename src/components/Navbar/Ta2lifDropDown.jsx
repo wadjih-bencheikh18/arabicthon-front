@@ -7,7 +7,7 @@ export default function Ta2lifDropDown() {
     { name: "حرف الروي", link: "/rawi" },
     { name: "موضوع", link: "/mawdo3" },
     { name: "صورة", link: "/soura" },
-    { name: "إكمال كلمة", link: "/ikmalKalima" },
+    { name: "إكمال البيت", link: "/ikmalKalima" },
   ];
 
   const Ta2lifLinks = sections.map((section, key) => (

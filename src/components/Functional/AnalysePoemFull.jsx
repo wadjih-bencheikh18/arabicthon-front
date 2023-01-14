@@ -5,8 +5,7 @@ const choices = [
   "الكتابة العروضية",
   "التقطيع",
   "التفعيلات",
-  "البحر بالتشكيل",
-  "البحر دون تشكيل",
+  "البحر",
 ];
 export default function AnalysePoemFull() {
   const [activate, setActivate] = useState([0]);

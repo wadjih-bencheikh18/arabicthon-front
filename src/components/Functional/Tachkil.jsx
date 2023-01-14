@@ -19,10 +19,14 @@ function setCharAt(str, index, chr) {
 export function preFix(init) {
   init = init
     .trim()
+    .split(/[ـ]+/)
+    .join("")
     .split(/ +/)
     .join(" ")
     .split(/\n | \n/)
-    .join("\n");
+    .join("\n")
+    .split(/[*] | [*]/)
+    .join("*");
   for (let i = 0; i < init.length - 1; i++) {
     if (letters.includes(init[i]) && init[i + 1] === chada) {
       init = setCharAt(init, i + 1, init[i]);
@@ -241,7 +245,7 @@ export default function Tachkil({ init = "", setValue }) {
       <div className="text-red-700 mr-20">
         تحذير: عدم تصحيح التشكيل قد يأثر على دقّة النتيجة
       </div>
-      <div className="flex items-center justify-end mx-auto mt-10">
+      <div className="flex items-center justify-center mx-auto mt-10">
         <button
           className="bg-[#A58453] border-[#A58453] rounded-sm text-white text-lg relative border-2 mx-2 w-[50px] h-[50px] hover:animate-ping-once"
           onClick={() => {

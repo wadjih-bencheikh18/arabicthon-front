@@ -4,7 +4,7 @@ import book from "../pics/book.png";
 export function Main() {
   return (
     <div className="relative h-screen overflow-hidden">
-      <div className="hidden lg:block absolute -bottom-[350px] -right-[500px]">
+      <div className="hidden lg:block absolute -bottom-[350px] -right-[450px]">
         <img src={bg} alt="" className="relative scale-125" />
       </div>
       <div className="relative z-20">

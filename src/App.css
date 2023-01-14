@@ -18,4 +18,6 @@
   border-radius: 60px;
 }
 
-.swiper-button-next { color: red; }
+.swiper {
+  --swiper-theme-color: #a58453;
+}

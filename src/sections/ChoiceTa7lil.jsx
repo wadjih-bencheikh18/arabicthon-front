@@ -47,7 +47,7 @@ export function ChoiceTa7lil() {
       <div className="flex justify-end items-center">
         {/* description */}
         {index !== undefined && (
-          <div className="w-96 text-right flex flex-col items-end bg-[rgb(165,132,83,0.2)] p-8 rounded-2xl">
+          <div className="2xl:w-96 text-right flex flex-col items-end bg-[rgb(165,132,83,0.2)] p-8 rounded-2xl">
             <div className="text-3xl text-[#A58453] mb-10 pr-8">
               {functionalities[index].short}
             </div>
@@ -63,7 +63,7 @@ export function ChoiceTa7lil() {
         )}
 
         {/* cards container */}
-        <div className="flex flex-wrap flex-row-reverse h-[31.5rem] w-[54rem] mx-20 overflow-y-scroll items-center px-5 pt-4">
+        <div className="flex flex-wrap flex-row-reverse h-[31.5rem] 2xl:w-[54rem]  w-[50rem]  2xl:mx-20 overflow-y-scroll items-center px-5 pt-4">
           {functionalities.map((functionality, key) => (
             <div
               onClick={() => setIndex(key)}

@@ -11,8 +11,8 @@ export default function Rawi() {
   });
   const [load, setLoad] = useState(false);
   return (
-    <div className="h-screen flex flex-col justify-center transform transition-all duration-1000 ease-in-out">
-      <div className="text-right mb-0 mr-64 text-3xl pb-6 text-[#A58453]">
+    <div className="h-screen flex flex-col justify-start transform transition-all duration-1000 ease-in-out">
+      <div className="text-right mt-36 mb-16  mr-64 text-3xl pb-6 text-[#A58453]">
         تأليف الشعر بناء على حرف الروي
       </div>
       <div className="flex-row-reverse flex justify-start mr-44 items-center gap-32">
@@ -25,6 +25,7 @@ export default function Rawi() {
             setUpdate={(rhyme) => setData((data) => ({ ...data, rhyme }))}
           />
           <InputResult
+            right={false}
             maxWidth={12}
             maxHeight={1}
             init="5"
@@ -57,12 +58,15 @@ export default function Rawi() {
             }}
           />
         </div>
-        <div className="flex w-[700px] justify-center mr-24">
+        <div className="flex w-[700px] min-h-[300px] justify-center mr-32">
           {load && <img className="" alt="load" src={Load}></img>}
-          {!load && data.result && (
-            <div className="flex flex-row-reverse">
+
+          {!load && (
+            <div className="flex flex-row-reverse ">
               <div className="text-2xl text-[#A58453] ml-5">الشعر</div>
-              <Chiir result={data.result.split("*").join("")} />
+              <Chiir
+                result={data.result ? data.result.split("*").join("") : ""}
+              />
             </div>
           )}
         </div>

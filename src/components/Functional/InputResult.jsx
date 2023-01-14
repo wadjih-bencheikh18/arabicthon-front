@@ -13,6 +13,7 @@ export default function InputResult({
   maxHeight = "50",
   button = false,
   setUpdate,
+  right = true,
 }) {
   const [input, setInput] = useState(init);
   useEffect(() => {
@@ -38,7 +39,7 @@ export default function InputResult({
             setInput(target.value);
             setUpdate && setUpdate(target.value);
           }}
-          style={{ direction: "rtl" }}
+          style={{ direction: right ? "rtl" : "ltr" }}
         ></textarea>
         <h3 className="text-2xl pt-2 text-[#A58453]">{title}</h3>
       </div>

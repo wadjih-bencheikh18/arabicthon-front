@@ -22,15 +22,16 @@ export default function TableArray({
   ratio,
   activate,
 }) {
-  const className = "border-2 border-[#A58453] bg-[#FBFAF8] p-2 px-4";
+  
+  
+  const className = "border-2 border-[#A58453] bg-[#FBFAF8] p-2 px-5";
   const Aroud = aroud.map((a) => <td className={className}>{a}</td>);
-  const Harakat = harakat.map((a) => <td className={className}>{a}</td>);
+  const Harakat = harakat.map((a) => (
+    <td className={className}>{a.split("O").join("0")}</td>
+  ));
   const Tafil = tafil.map((a) => <td className={className}>{a}</td>);
   return (
-    <table
-      className="mt-6 text-xl"
-      style={{ direction: "rtl" }}
-    >
+    <table className="mt-6 text-xl" style={{ direction: "rtl" }}>
       <tbody>
         {activate.includes(1) && (
           <tr>

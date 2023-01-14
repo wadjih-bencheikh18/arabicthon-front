@@ -6,17 +6,25 @@ import { useDropzone } from "react-dropzone";
 import InputResult from "./InputResult";
 import axios from "axios";
 import BackURL from "./Backend";
+function blobToBase64(blob) {
+  return new Promise((resolve, _) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result);
+    reader.readAsDataURL(blob);
+  });
+}
 export default function GenImage() {
-  const [data, setData] = useState({ undefined });
+  const [data, setData] = useState({ rhyme:"ر" });
 
   const [load, setLoad] = useState(false);
   const onDrop = useCallback((files) => {
-    files.forEach((file) => {
+    files.forEach(async (file) => {
       if (file.type.startsWith("image")) {
+        let reader = await blobToBase64(file);
         setData((data) => ({
           ...data,
           image: URL.createObjectURL(file),
-          file,
+          file: reader,
         }));
       }
     });
@@ -31,12 +39,14 @@ export default function GenImage() {
         تأليف الشعر بناء على صورة
       </div>
       <div className="grid w-screen grid-cols-2 grid-rows-1 items-center mx-auto">
-        <div className="col-start-1 -mr-10 flex justify-self-center justify-center w-[700px]">
+        <div className="col-start-1 min-h-[300px] ml-36 flex justify-self-center justify-center w-[700px]">
           {load && <img className="" alt="load" src={Load}></img>}
-          {!load && data.result && (
+          {!load && (
             <div className="flex flex-row-reverse">
               <div className="text-2xl text-[#A58453] ml-5">الشعر</div>
-              <Chiir result={data.result.split("*").join("")} />
+              <Chiir
+                result={data.result ? data.result.split("*").join("") : ""}
+              />
             </div>
           )}
         </div>
@@ -74,6 +84,14 @@ export default function GenImage() {
             </section>
           </div>
           <InputResult
+            minWidth={12}
+            maxHeight={1}
+            title="حرف الروي"
+            className="overflow-hidden"
+            setUpdate={(rhyme) => setData((data) => ({ ...data, rhyme }))}
+          />
+          <InputResult
+            right={false}
             maxWidth={12}
             maxHeight={1}
             init="5"
@@ -81,21 +99,20 @@ export default function GenImage() {
             title="عدد الأبيات"
             className="overflow-hidden"
             setUpdate={(lines) =>
-              setData((data) => ({ ...data, lines: Number(lines) }))
+              setData((data) => ({ ...data, lines: Number(lines) + 1 }))
             }
             setValue={(lines) => {
               setLoad(true);
               axios
                 .post(BackURL + "/caption", {
                   params: {
-                    lines,
-                    image: data.image,
+                    lines: Number(lines) + 1,
                     file: data.file,
+                    rhyme: data.rhyme,
                   },
                 })
                 .then((response) => {
-                  let result = response.data;
-                  console.log(result);
+                  const result = response.data.split("\n").slice(1).join("\n");
                   setData((data) => ({ ...data, result }));
                   setLoad(false);
                 })

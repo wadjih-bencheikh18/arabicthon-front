@@ -15,7 +15,7 @@ export default function Chiir({ result }) {
 
   return (
     <div className="py-4 bg-[#FBFAF8] rounded-md border-2 border-[#A58453]">
-      <table className="w-[700px] text-xl text-center min-w-20">
+      <table className="w-[700px] min-h-[300px]  text-xl text-center min-w-20">
         <tbody>
           {sdr.map((sdr, i) => (
             <tr key={i}>
