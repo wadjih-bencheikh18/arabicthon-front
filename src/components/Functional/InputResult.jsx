@@ -48,7 +48,7 @@ export default function InputResult({
           onClick={() => {
             setValue(input);
           }}
-          className="btn flex rounded-md items-center justify-center w-12 h-6 text-white text-lg bg-[#A58453] -mb-3 -mr-9 hover:animate-ping-once"
+          className="btn z-50 flex rounded-md items-center justify-center w-12 h-6 text-white text-lg bg-[#A58453] -mb-3 -mr-9 hover:animate-ping-once"
         >
           <ChevronDoubleLeftIcon className="w-5 h-5" />
         </button>
