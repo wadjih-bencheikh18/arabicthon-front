@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+This repository contains the training script of our solution for winning 2nd place in the Arabicthon2022 in KSA.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What is Arabicthon:
 
-## Available Scripts
+[Arabicthon](https://arabicthon.ksaa.gov.sa/) is a deep learning competition organized by [**The King Salman Global Academy for the Arabic Language**](https://ksaa.gov.sa/en/homepage/). It came with 3 tracks:
 
-In the project directory, you can run:
+- The Arabic poetry challenge.
+- The lexicon Challenge.
+- The Arabic language games for kids.
 
-### `npm start`
+## Our solution:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+We choose to work on the Arabic poetry challenge. We build a web app that contains multiple tools that treat the Arabic poetry, such as:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Poem generation based on the rhyme and prosody.
+- Poem generation based on a picture.
+- Verse completion given a rhyme.
+- Meter classification without diacritics.
+- Arabic poetry automatic diacritics.
+- Aroud generation without the need of diacritics.
+- And many other variants of these tools ...
 
-### `npm test`
+This project has won us the 2nd place in the Arabicthon2022.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Front:
 
-### `npm run build`
+React app that contains the frontend of the project. you can find it in here: [arabicthon_frontend](https://github.com/wadjih-bencheikh18/arabicthon-front)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Backend:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Flask app that contains the backend of the project. you can find it in here: [arabicthon_backend](https://github.com/wadjih-bencheikh18/arabicthon-backend)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Training:
 
-### `npm run eject`
+### Poem generation:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The poem generated has been trained by finetuning [Aragpt2-medium](https://huggingface.co/aubmindlab/aragpt2-medium) on a dataset of ~1M Arabic poem verse. You can find the training file in here: [poem_generation_notebook.ipynb](https://github.com/TheSun00000/arabicthon_training/blob/main/training_final/poem_generation_notebook.ipynb "poem_generation_notebook.ipynb")
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Meter classification:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This classifier is based on 3 layers of Bi-directional LSTMs, trained on the same dataset in order to classify poem verses to 10 meters. You can find the training file in here: [meter-classification-lstm.ipynb](https://github.com/TheSun00000/arabicthon_training/blob/main/training_final/meter-classification-lstm.ipynb "meter-classification-lstm.ipynb")
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Aroud generation:
 
-## Learn More
+This is a seq2seq LSTM based model that takes a verse without diacritics, and outputs it's Aroud form. You can find the training file in here: [aroud-lstm.ipynb](<[https://github.com/TheSun00000/arabicthon_training/blob/main/training_final/aroud-lstm(1).ipynb](https://github.com/TheSun00000/arabicthon_training/blob/main/training_final/aroud-lstm(1).ipynb)> "aroud-lstm(1).ipynb")
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Image captioning:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This model is used in order to generate Arabic poetry based on an input image.
+This model takes an image as input an output its captioning in English. You can find the training file in here:[image-captioning-with-attention.ipynb](https://github.com/TheSun00000/arabicthon_training/blob/main/training_final/image-captioning-with-attention.ipynb "image-captioning-with-attention.ipynb").
 
-### Code Splitting
+The caption is then translated into the Arabic language and then it gets fed to the GPT based generator as a first verse. The generator will then make sure to generate verses that are constrained by the rhyme and meter conditions while saving as much context as possible from the image caption.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Arabic automatic diacritization:
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This model is a seq2seq LSTM based model, that takes a verse as input, and predicts the most suitable diacritics. You can find the training file in here: [tachkil_notebook.ipynb](https://github.com/TheSun00000/arabicthon_training/blob/main/training_final/tachkil_notebook.ipynb "tachkil_notebook.ipynb").
